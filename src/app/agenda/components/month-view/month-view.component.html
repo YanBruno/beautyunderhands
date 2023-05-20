@@ -1,0 +1,25 @@
+<div class="month">
+    <button>
+        <span (click)="prevMonth()" class="button material-symbols-outlined">chevron_left</span>
+    </button>
+
+    <p>{{date | date:'MMMM'}} - {{date | date: 'Y'}}</p>
+
+    <button>
+        <span (click)="nextMonth()" class="button material-symbols-outlined">chevron_right</span>
+    </button>
+</div>
+
+<ul class="weekdays">
+    <li>Seg</li>
+    <li>Ter</li>
+    <li>Qua</li>
+    <li>Qui</li>
+    <li>Sex</li>
+    <li>Sab</li>
+    <li>Dom</li>
+</ul>
+
+<ul class="days">
+    <li *ngFor="let day of days" [ngClass]="{'active': day.isToday}">{{day.day}}</li>
+</ul>

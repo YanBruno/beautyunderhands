@@ -1,7 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainFrameComponent } from './core/pages/frames/main-frame/main-frame.component';
+import { NotfoundPageComponent } from './core/pages/notfound-page/notfound-page.component';
+import { LoginPageComponent } from './core/pages/login-page/login-page.component';
+import { OnlyNavbarFrameComponent } from './core/pages/frames/only-navbar-frame/only-navbar-frame.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { pathMatch: 'full', path: '', redirectTo: '/login' }
+  , {
+    path: 'login'
+    , component: LoginPageComponent
+  }
+  , {
+    path: 'clientes'
+    , component: MainFrameComponent
+    , loadChildren: () => import('./cliente/cliente.module').then(m => m.ClienteModule)
+  }, {
+    path: 'agenda'
+    , component: MainFrameComponent
+    , loadChildren: () => import('./agenda/agenda.module').then(m => m.AgendaModule)
+  }
+  , {
+    path: 'conta'
+    , component: OnlyNavbarFrameComponent
+    , loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  }
+  , {
+    path: '**', component: NotfoundPageComponent
+  }
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

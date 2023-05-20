@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
+
+:root {
+    --color-1: #d4a373;
+    --color-2: #faedcd;
+    --color-3: #fefae0;
+
+    --color-4: #e9edc9;
+    --color-5: #ccd5ae;
+
+    --color-white: white;
+    --color-black: black;
+
+    --navbar-height: 5rem;
+
+    --sidebar-min-width: 3rem;
+    --sidebar-max-width: 15rem;
+
+    --box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+
+/* Reset CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-black)
+}
+
+body {
+    background-color: var(--color-white);
+    height: 100vh;
+    width: 100vw;
+
+    color: var(--color-black);
+}
+
+/* padroes */
+.default-position {
+    position: absolute;
+    top: var(--navbar-height);
+    left: var(--sidebar-min-width);
+
+    height: calc(100% - var(--navbar-height));
+    width: calc(100% - var(--sidebar-min-width));
+
+    z-index: 0;
+}

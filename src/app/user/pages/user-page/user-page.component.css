@@ -1,0 +1,9 @@
+.user-page-container {
+    position: absolute;
+    top: var(--navbar-height);
+
+    height: calc(100% - var(--navbar-height));
+    width: 100%;
+
+    padding: 1rem 2rem;
+}
