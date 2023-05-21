@@ -1,3 +1,8 @@
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr)
+}
+
 /* Month header */
 .month {
     padding: 1rem 5rem;
@@ -14,41 +19,25 @@
     cursor: pointer;
 }
 
-/* Weekdays (Mon-Sun) */
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color: #ddd;
-}
 
-.weekdays li {
-    display: inline-block;
-    width: 13.6%;
-    color: #666;
+/* calendar */
+.calendar-container {
     text-align: center;
+    height: 100%;
+    background-color: aliceblue;
 }
 
-/* Days (1-31) */
-.days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-    height: 20rem;
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 }
 
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 13.6%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 12px;
-    color: #777;
+.number-days span:first-child {
+    grid-column: 2;
 }
 
-/* Highlight the "current" day */
 .active {
-    padding: 5px;
+    /* padding: 5px; */
     background: #1abc9c;
     color: white !important
 }
