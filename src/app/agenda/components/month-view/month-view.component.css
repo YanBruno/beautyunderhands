@@ -1,13 +1,8 @@
-.month-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr)
-}
-
 /* Month header */
 .month {
     padding: 1rem 5rem;
     width: 100%;
-    background: var(--color-2);
+    /* background: var(--color-2); */
 
     display: flex;
     align-items: center;
@@ -19,21 +14,58 @@
     cursor: pointer;
 }
 
-
 /* calendar */
 .calendar-container {
     text-align: center;
     height: 100%;
-    background-color: aliceblue;
+}
+
+.week-days {
+    /* margin-bottom: 2rem; */
 }
 
 .month-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 75%;
 }
 
-.number-days span:first-child {
+.number-days .day-container {
+    cursor: pointer;
+}
+
+.number-days .day-container:hover {
+    box-shadow: var(--box-shadow);
+    background: var(--color-2);
+    color: var(--color-black);
+}
+
+.week-day-1 .day-container:first-child {
+    grid-column: 1;
+}
+
+.week-day-2 .day-container:first-child {
     grid-column: 2;
+}
+
+.week-day-3 .day-container:first-child {
+    grid-column: 3;
+}
+
+.week-day-4 .day-container:first-child {
+    grid-column: 4;
+}
+
+.week-day-5 .day-container:first-child {
+    grid-column: 5;
+}
+
+.week-day-6 .day-container:first-child {
+    grid-column: 6;
+}
+
+.week-day-7 .day-container:first-child {
+    grid-column: 7;
 }
 
 .active {
