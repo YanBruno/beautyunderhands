@@ -10,11 +10,11 @@ export class MonthViewComponent {
 
   date: Date = new Date();
   days: CalendarDay[] = [];
+  firstWeekDay = 0;
 
   constructor() {
     this.setTotalDays();
   }
-
 
   nextMonth() {
     this.date = new Date(
@@ -24,7 +24,6 @@ export class MonthViewComponent {
     )
 
     this.setTotalDays();
-    this.printDate();
   }
 
   prevMonth() {
@@ -35,12 +34,13 @@ export class MonthViewComponent {
     )
 
     this.setTotalDays();
-    this.printDate();
   }
 
   setTotalDays() {
     this.days = [];
     const maxDay = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
+    this.firstWeekDay = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
+
     const date = new Date();
 
     for (let index = 1; index <= maxDay; index++) {
@@ -51,8 +51,6 @@ export class MonthViewComponent {
         , year: this.date.getFullYear()
         , isToday: false
       } as CalendarDay
-
-      const momentDate = new Date(day.year, day.month, day.day);
 
       day.isToday =
         day.day === date.getDate()

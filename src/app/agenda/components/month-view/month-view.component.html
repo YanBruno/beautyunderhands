@@ -10,16 +10,21 @@
     </button>
 </div>
 
-<ul class="weekdays">
-    <li>Seg</li>
-    <li>Ter</li>
-    <li>Qua</li>
-    <li>Qui</li>
-    <li>Sex</li>
-    <li>Sab</li>
-    <li>Dom</li>
-</ul>
+<div class="calendar-container">
+    <div class="week-days month-grid">
+        <span>Segunda</span>
+        <span>Terça</span>
+        <span>Quarta</span>
+        <span>Quinta</span>
+        <span>Sexta</span>
+        <span>Sabado</span>
+        <span>Domingo</span>
+    </div>
 
-<ul class="days">
-    <li *ngFor="let day of days" [ngClass]="{'active': day.isToday}">{{day.day}}</li>
-</ul>
+    <div class="number-days month-grid week-day-{{firstWeekDay}}">
+        <div class="day-container" *ngFor="let day of days;" [ngClass]="{'active': day.isToday}">
+            <p>{{day.day}}</p>
+
+        </div>
+    </div>
+</div>

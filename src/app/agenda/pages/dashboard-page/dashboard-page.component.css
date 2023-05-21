@@ -1,5 +1,5 @@
 .agenda-container {
-    padding: 5rem 0;
+    padding: 1rem 0;
 }
 
 .agenda-card {
@@ -8,17 +8,17 @@
     margin: 0 auto;
     width: 90%;
 
+    height: 100%;
+
     /* background: var(--color-6); */
 }
 
 .agenda-header {
     display: flex;
     justify-content: space-around;
-
-
 }
 
 .agenda-content {
     border-top: solid 1px var(--color-black);
-    height: 30rem;
+    /* height: 100%; */
 }
