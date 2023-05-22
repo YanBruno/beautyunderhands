@@ -47,17 +47,6 @@
 
 }
 
-.menu-item-field:hover {
-    color: var(--color-white);
-
-    transition: color .2s ease;
-}
-
-.menu-item-field :hover {
-    color: var(--color-white);
-
-    transition: color .2s ease;
-}
 
 /* hover */
 .sidebar-container:hover {
@@ -69,4 +58,13 @@
     display: block;
 
     transition: display .4s ease;
+}
+
+.menu-item-field:hover {
+    color: var(--color-white);
+    transition: color .2s ease;
+}
+
+.active {
+    color: var(--color-white);
 }

@@ -4,14 +4,14 @@
     </a>
     <div class="side right-side">
 
-        <a [routerLink]="['/conta']" class="nav-icon-field">
-            <span class="icon material-symbols-outlined">account_circle</span>
-            <p class="icon-text">Conta</p>
+        <a *ngFor="let item of items" [routerLink]="[item.route]" class="nav-icon-field">
+            <span class="icon material-symbols-outlined">{{item.materialIcon}}</span>
+            <p class="icon-text">{{item.text}}</p>
         </a>
 
-        <a [routerLink]="['/login']" class="nav-icon-field">
+        <!-- <a [routerLink]="['/login']" class="nav-icon-field">
             <span class="icon material-symbols-outlined">logout</span>
             <p class="icon-text">Sair</p>
-        </a>
+        </a> -->
     </div>
 </div>

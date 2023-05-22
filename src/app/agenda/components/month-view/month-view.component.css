@@ -22,7 +22,9 @@
 
 .week-days {
     margin-bottom: 2rem;
+    opacity: 60%;
 }
+
 
 .month-grid {
     display: grid;
@@ -54,8 +56,10 @@
 
 .day-container:hover {
     box-shadow: var(--box-shadow);
-    /* background: var(--color-2); */
+    background: var(--color-3);
     /* color: var(--color-black); */
+
+    transition: all .3s ease;
 }
 
 .today {
