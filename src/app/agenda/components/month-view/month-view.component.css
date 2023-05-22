@@ -17,7 +17,6 @@
 /* calendar */
 .calendar-container {
     text-align: center;
-    /* background-color: #1abc9c; */
 
 }
 
@@ -32,7 +31,6 @@
 
 .number-days {
     grid-auto-rows: 5rem;
-
 }
 
 .day-container {
@@ -47,7 +45,7 @@
 }
 
 .day-title {
-    /* align-self: flex-start; */
+    align-self: flex-start;
 
     font-weight: 300;
     opacity: 50%;
@@ -56,10 +54,25 @@
 
 .day-container:hover {
     box-shadow: var(--box-shadow);
-    background: var(--color-2);
+    /* background: var(--color-2); */
+    /* color: var(--color-black); */
+}
+
+.today {
+    /* padding: 5px; */
+    background: var(--color-success);
+    color: var(--color-white);
+}
+
+.today:hover {
+    /* padding: 5px; */
+    background: var(--color-success);
     color: var(--color-black);
 }
 
+
+
+/* GRID */
 .week-day-1 .day-container:first-child {
     grid-column: 1;
 }
@@ -86,16 +99,4 @@
 
 .week-day-7 .day-container:first-child {
     grid-column: 7;
-}
-
-.today {
-    /* padding: 5px; */
-    background: var(--color-success);
-    color: var(--color-white);
-}
-
-.active:hover {
-    /* padding: 5px; */
-    background: var(--color-success);
-    color: var(--color-black);
 }
