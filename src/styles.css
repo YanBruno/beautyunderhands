@@ -12,6 +12,9 @@
     --color-white: white;
     --color-black: black;
 
+    --color-success: #60d394;
+    --color-danger: #ee6055;
+
     --navbar-height: 5rem;
 
     --sidebar-min-width: 3rem;
