@@ -1,12 +1,12 @@
 <div class="month">
-    <button>
-        <span (click)="prevMonth()" class="button material-symbols-outlined">chevron_left</span>
+    <button class="button" (click)="prevMonth()">
+        <span class="material-symbols-outlined">chevron_left</span>
     </button>
 
     <p>{{date | date:'MMMM'}} - {{date | date: 'Y'}}</p>
 
-    <button>
-        <span (click)="nextMonth()" class="button material-symbols-outlined">chevron_right</span>
+    <button class="button" (click)="nextMonth()">
+        <span class="material-symbols-outlined">chevron_right</span>
     </button>
 </div>
 
@@ -22,7 +22,7 @@
     </div>
 
     <div class="number-days month-grid week-day-{{firstWeekDay}}">
-        <div class="day-container" *ngFor="let day of days;" [ngClass]="{'today': day.isToday}">
+        <div *ngFor="let day of days;" class="day-container" [ngClass]="{'today': day.isToday}">
             <p class="day-title">{{day.day}}</p>
             <p class="day-description">10 atendimentos</p>
         </div>
