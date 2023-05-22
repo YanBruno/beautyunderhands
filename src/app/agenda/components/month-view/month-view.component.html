@@ -22,9 +22,9 @@
     </div>
 
     <div class="number-days month-grid week-day-{{firstWeekDay}}">
-        <div class="day-container" *ngFor="let day of days;" [ngClass]="{'active': day.isToday}">
-            <p>{{day.day}}</p>
-
+        <div class="day-container" *ngFor="let day of days;" [ngClass]="{'today': day.isToday}">
+            <p class="day-title">{{day.day}}</p>
+            <p class="day-description">10 atendimentos</p>
         </div>
     </div>
 </div>

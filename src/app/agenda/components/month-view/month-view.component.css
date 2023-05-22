@@ -17,24 +17,44 @@
 /* calendar */
 .calendar-container {
     text-align: center;
-    height: 100%;
+    /* background-color: #1abc9c; */
+
 }
 
 .week-days {
-    /* margin-bottom: 2rem; */
+    margin-bottom: 2rem;
 }
 
 .month-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-auto-rows: 75%;
 }
 
-.number-days .day-container {
+.number-days {
+    grid-auto-rows: 5rem;
+
+}
+
+.day-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    padding: 0 1rem;
+
     cursor: pointer;
 }
 
-.number-days .day-container:hover {
+.day-title {
+    /* align-self: flex-start; */
+
+    font-weight: 300;
+    opacity: 50%;
+}
+
+
+.day-container:hover {
     box-shadow: var(--box-shadow);
     background: var(--color-2);
     color: var(--color-black);
@@ -68,8 +88,14 @@
     grid-column: 7;
 }
 
-.active {
+.today {
     /* padding: 5px; */
-    background: #1abc9c;
-    color: white !important
+    background: var(--color-success);
+    color: var(--color-white);
+}
+
+.active:hover {
+    /* padding: 5px; */
+    background: var(--color-success);
+    color: var(--color-black);
 }
