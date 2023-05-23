@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CalendarDay } from '../../models/month-day.model';
+import { CalendarDay } from '../../models/calendar-day.model';
+import { AgendaService } from '../../services/agenda.service';
 
 @Component({
   selector: 'app-month-view',
@@ -12,24 +13,21 @@ export class MonthViewComponent {
   days: CalendarDay[] = [];
   firstWeekDay = 0;
 
-  constructor() {
-    this.setTotalDays();
+  constructor(private agendaService: AgendaService) {
+    this.agendaService.selectedDay.subscribe({
+      next: result => { this.date = result; this.setTotalDays(); }
+    });
+
   }
 
-  nextMonth() {
-    this.date = new Date(
-      this.date.getFullYear(),
-      this.date.getMonth() + 1,
-      this.date.getDate()
-    )
-
-    this.setTotalDays();
+  setSelectedDay(day: CalendarDay) {
+    this.agendaService.setSelectedDay(new Date(day.year, day.month, day.day));
   }
 
-  prevMonth() {
+  changeMonth(goTo: number) {
     this.date = new Date(
       this.date.getFullYear(),
-      this.date.getMonth() - 1,
+      this.date.getMonth() + goTo,
       this.date.getDate()
     )
 
@@ -41,7 +39,9 @@ export class MonthViewComponent {
     const maxDay = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
     this.firstWeekDay = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
 
-    const date = new Date();
+    const today = new Date();
+
+    console.log(this.date);
 
     for (let index = 1; index <= maxDay; index++) {
 
@@ -50,12 +50,18 @@ export class MonthViewComponent {
         , month: this.date.getMonth()
         , year: this.date.getFullYear()
         , isToday: false
+        , isSelected: false
       } as CalendarDay
 
       day.isToday =
-        day.day === date.getDate()
-        && day.month === date.getMonth()
-        && day.year === date.getFullYear();
+        day.day === today.getDate()
+        && day.month === today.getMonth()
+        && day.year === today.getFullYear();
+
+      day.isSelected =
+        day.day === this.date.getDate()
+        && day.month === this.date.getMonth()
+        && day.year === this.date.getFullYear();
 
       this.days.push(
         day

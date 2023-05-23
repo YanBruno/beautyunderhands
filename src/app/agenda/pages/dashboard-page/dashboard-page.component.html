@@ -4,14 +4,15 @@
             <button class="button">Novo agendamento</button>
 
             <div class="view-type">
-                <button class="button">Mês</button>
-                <button class="button">Semana</button>
-                <button class="button">Dia</button>
+                <button class="button" (click)="changeActiveView(1)">Mês</button>
+                <button class="button disable">Semana</button>
+                <button class="button" (click)="changeActiveView(3)">Dia</button>
             </div>
         </div>
 
         <div class="agenda-content">
-            <app-month-view />
+            <app-month-view *ngIf="activeView === 1" />
+            <app-day-view *ngIf="activeView === 3" />
         </div>
     </div>
 </div>

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class DashboardPageComponent {
 
+  // 1 = month
+  // 2 = week
+  // 3 = day
+
+  activeView = 1;
+
+  changeActiveView(number: number) {
+    this.activeView = number;
+  }
 }

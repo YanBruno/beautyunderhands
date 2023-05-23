@@ -15,9 +15,15 @@
     display: flex;
     justify-content: space-around;
 
-
-
     flex: 0;
+
+    padding-bottom: 1rem;
+
+}
+
+.view-type {
+    display: flex;
+    gap: 1rem;
 }
 
 .agenda-content {
