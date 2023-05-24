@@ -58,6 +58,8 @@
 .days .day-number {
     align-self: flex-start;
     padding-left: 1rem;
+
+    opacity: 70%;
 }
 
 .days .day-description {
@@ -79,7 +81,6 @@
     transition: background .1s ease;
 }
 
-
 .days li:not(.active):hover::before {
     color: var(--color-white);
     background: var(--color-1);
@@ -87,5 +88,4 @@
 
 .days li:not(.active):hover {
     color: var(--color-white);
-    background: var(--color-1);
 }
