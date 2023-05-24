@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CalendarDay } from '../../models/calendar-day.model';
+import { DateMoment } from '../../models/date-moment.model';
 import { AgendaService } from '../../services/agenda.service';
 
 @Component({
@@ -9,68 +9,67 @@ import { AgendaService } from '../../services/agenda.service';
 })
 export class MonthViewComponent {
 
-  date: Date = new Date();
-  days: CalendarDay[] = [];
-  firstWeekDay = 0;
+  dates: DateMoment[] = [];
+  date = new Date();
 
   constructor(private agendaService: AgendaService) {
-    this.agendaService.selectedDay.subscribe({
-      next: result => { this.date = result; this.setTotalDays(); }
+    this.agendaService.date.subscribe({
+      next: date => {
+        this.date = date;
+        this.loadDates();
+      }
     });
-
   }
 
-  setSelectedDay(day: CalendarDay) {
-    this.agendaService.setSelectedDay(new Date(day.year, day.month, day.day));
-  }
+  loadDates() {
+    this.dates = [];
 
-  changeMonth(goTo: number) {
-    this.date = new Date(
-      this.date.getFullYear(),
-      this.date.getMonth() + goTo,
-      this.date.getDate()
-    )
+    const firstDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
+    const lastDateofMonth = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
+    const lastDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), lastDateofMonth).getDay();
+    const lastDateofLastMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
 
-    this.setTotalDays();
-  }
+    for (let i = firstDayofMonth; i > 0; i--) {
+      this.dates.push({
+        day: lastDateofLastMonth - i + 1
+        , month: this.date.getMonth() - 1
+        , year: this.date.getFullYear()
+        , active: false
+        , today: false
+      } as DateMoment);
+    }
 
-  setTotalDays() {
-    this.days = [];
-    const maxDay = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
-    this.firstWeekDay = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
-
-    const today = new Date();
-
-    console.log(this.date);
-
-    for (let index = 1; index <= maxDay; index++) {
-
-      const day = {
-        day: index
+    for (let i = 1; i <= lastDateofMonth; i++) {
+      this.dates.push({
+        day: i
         , month: this.date.getMonth()
         , year: this.date.getFullYear()
-        , isToday: false
-        , isSelected: false
-      } as CalendarDay
+        , active: true
+        , today: this.isToday(i)
+      } as DateMoment);
+    }
 
-      day.isToday =
-        day.day === today.getDate()
-        && day.month === today.getMonth()
-        && day.year === today.getFullYear();
-
-      day.isSelected =
-        day.day === this.date.getDate()
-        && day.month === this.date.getMonth()
-        && day.year === this.date.getFullYear();
-
-      this.days.push(
-        day
-      )
+    for (let i = lastDayofMonth; i < 6; i++) {
+      this.dates.push({
+        day: i - lastDayofMonth + 1
+        , month: this.date.getMonth() + 1
+        , year: this.date.getFullYear()
+        , active: false
+        , today: false
+      } as DateMoment);
     }
   }
 
-  printDate() {
-    console.log(this.date);
-    console.log(this.days);
+  changeDate(number: number) {
+    const date = this.date;
+    date.setMonth(this.date.getMonth() + number);
+    this.agendaService.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+  }
+
+  isToday(day: number): boolean {
+    const today = new Date();
+    return today.getDate() === day
+      && today.getMonth() === this.date.getMonth()
+      && today.getFullYear() === this.date.getFullYear();
   }
 }
