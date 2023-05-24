@@ -3,11 +3,11 @@ import { DateMoment } from '../../models/date-moment.model';
 import { AgendaService } from '../../services/agenda.service';
 
 @Component({
-  selector: 'app-month-view',
-  templateUrl: './month-view.component.html',
-  styleUrls: ['./month-view.component.css']
+  selector: 'app-calendar',
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.css']
 })
-export class MonthViewComponent {
+export class CalendarComponent {
 
   dates: DateMoment[] = [];
   date = new Date();
@@ -73,4 +73,7 @@ export class MonthViewComponent {
       && today.getFullYear() === this.date.getFullYear();
   }
 
+  setDay(day: DateMoment) {
+    this.agendaService.setDay(new Date(day.year, day.month, day.day));
+  }
 }
