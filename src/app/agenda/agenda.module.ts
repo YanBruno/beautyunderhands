@@ -7,6 +7,7 @@ import { DayViewComponent } from './components/day-view/day-view.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { MonthViewComponent } from './components/month-view/month-view.component';
 import { SharedModule } from '../shared/shared.module';
+import { NovoAgendamentoPageComponent } from './pages/novo-agendamento-page/novo-agendamento-page.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from '../shared/shared.module';
     DashboardPageComponent,
     CalendarComponent,
     DayViewComponent,
-    MonthViewComponent
+    MonthViewComponent,
+    NovoAgendamentoPageComponent
   ],
   imports: [
     CommonModule,
