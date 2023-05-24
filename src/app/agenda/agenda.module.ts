@@ -5,7 +5,8 @@ import { AgendaRoutingModule } from './agenda-routing.module';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { DayViewComponent } from './components/day-view/day-view.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import { MonthViewPageComponent } from './pages/month-view-page/month-view-page.component';
+import { MonthViewComponent } from './components/month-view/month-view.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -13,11 +14,12 @@ import { MonthViewPageComponent } from './pages/month-view-page/month-view-page.
     DashboardPageComponent,
     CalendarComponent,
     DayViewComponent,
-    MonthViewPageComponent
+    MonthViewComponent
   ],
   imports: [
     CommonModule,
-    AgendaRoutingModule
+    AgendaRoutingModule,
+    SharedModule
   ]
 })
 export class AgendaModule { }

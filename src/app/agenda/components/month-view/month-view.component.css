@@ -1,0 +1,25 @@
+.month-view-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    padding: 1rem 0 0 0;
+    height: 100%;
+
+    gap: .5rem;
+}
+
+.details-container {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+
+
+}
+
+.schedules-container {
+    margin-top: 1rem;
+    border-top: solid 1px var(--color-1);
+
+    width: 100%;
+}

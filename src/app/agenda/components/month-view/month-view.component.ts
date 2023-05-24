@@ -3,10 +3,10 @@ import { AgendaService } from '../../services/agenda.service';
 
 @Component({
   selector: 'app-month-view-page',
-  templateUrl: './month-view-page.component.html',
-  styleUrls: ['./month-view-page.component.css']
+  templateUrl: './month-view.component.html',
+  styleUrls: ['./month-view.component.css']
 })
-export class MonthViewPageComponent {
+export class MonthViewComponent {
 
   day = new Date(2022, 5, 10);
   constructor(private agendaService: AgendaService) {
