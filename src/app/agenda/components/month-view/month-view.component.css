@@ -33,14 +33,13 @@
 
 .calendar li {
     width: calc(100% / 7);
-    font-size: 1.25rem;
-
     font-weight: 300;
 }
 
 .calendar .weeks li {
-    font-weight: 500;
     cursor: default;
+    opacity: 60%;
+    font-size: 1.2rem;
 }
 
 .calendar .days li {
@@ -50,6 +49,20 @@
     margin-top: .625rem;
 
     height: 5rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+
+.days .day-number {
+    align-self: flex-start;
+    padding-left: 1rem;
+}
+
+.days .day-description {
+
+    padding-left: 1rem;
 }
 
 .days li::before {

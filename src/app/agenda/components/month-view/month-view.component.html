@@ -22,7 +22,10 @@
         </ul>
 
         <ul class="days">
-            <li *ngFor="let date of dates">{{date.day}}</li>
+            <li *ngFor="let date of dates">
+                <p class="day-number">{{date.day}}</p>
+                <p class="day-description">10 atendimentos</p>
+            </li>
         </ul>
 
     </section>
