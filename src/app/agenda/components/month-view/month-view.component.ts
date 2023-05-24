@@ -12,8 +12,13 @@ export class MonthViewComponent {
   dates: DateMoment[] = [];
   date = new Date();
 
-  constructor() {
-    this.loadDates();
+  constructor(private agendaService: AgendaService) {
+    this.agendaService.date.subscribe({
+      next: date => {
+        this.date = date;
+        this.loadDates();
+      }
+    });
   }
 
   loadDates() {
@@ -29,6 +34,8 @@ export class MonthViewComponent {
         day: lastDateofLastMonth - i + 1
         , month: this.date.getMonth() - 1
         , year: this.date.getFullYear()
+        , active: false
+        , today: false
       } as DateMoment);
     }
 
@@ -37,6 +44,8 @@ export class MonthViewComponent {
         day: i
         , month: this.date.getMonth()
         , year: this.date.getFullYear()
+        , active: true
+        , today: this.isToday(i)
       } as DateMoment);
     }
 
@@ -45,6 +54,8 @@ export class MonthViewComponent {
         day: i - lastDayofMonth + 1
         , month: this.date.getMonth() + 1
         , year: this.date.getFullYear()
+        , active: false
+        , today: false
       } as DateMoment);
     }
   }
@@ -52,8 +63,13 @@ export class MonthViewComponent {
   changeDate(number: number) {
     const date = this.date;
     date.setMonth(this.date.getMonth() + number);
+    this.agendaService.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+  }
 
-    this.date = date;
-    this.loadDates();
+  isToday(day: number): boolean {
+    const today = new Date();
+    return today.getDate() === day
+      && today.getMonth() === this.date.getMonth()
+      && today.getFullYear() === this.date.getFullYear();
   }
 }
