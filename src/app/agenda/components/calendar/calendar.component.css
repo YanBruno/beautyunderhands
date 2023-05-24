@@ -71,6 +71,15 @@
     background: var(--color-2);
 }
 
+.days li.selected::before {
+    background: var(--color-1);
+    color: var(--color-white);
+}
+
+.days li.selected {
+    color: var(--color-white);
+}
+
 .days li:not(.inactive):hover::before {
     background: var(--color-1);
 }

@@ -6,19 +6,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AgendaService {
 
-  private _date = new BehaviorSubject<Date>(new Date());
-  public date = this._date.asObservable().pipe();
-
-  private _day = new BehaviorSubject<Date>(new Date());
-  public day = this._day.asObservable();
+  private _selectedDay = new BehaviorSubject<Date>(new Date());
+  public selectedDay = this._selectedDay.asObservable();
 
   constructor() { }
 
-  setDate(date: Date) {
-    this._date.next(date);
-  }
-
-  setDay(day: Date) {
-    this._day.next(day);
+  selectDay(day: Date) {
+    this._selectedDay.next(day);
   }
 }

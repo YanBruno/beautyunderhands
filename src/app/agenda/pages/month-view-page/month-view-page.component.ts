@@ -11,7 +11,7 @@ export class MonthViewPageComponent {
   day = new Date(2022, 5, 10);
   constructor(private agendaService: AgendaService) {
 
-    this.agendaService.day.subscribe({
+    this.agendaService.selectedDay.subscribe({
       next: day => {
         this.day = day;
       }

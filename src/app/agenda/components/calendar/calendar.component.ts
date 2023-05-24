@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { DateMoment } from '../../models/date-moment.model';
+import { CalendarItem } from '../../models/calendar-item.model';
 import { AgendaService } from '../../services/agenda.service';
+import { CalendarService } from '../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar',
@@ -9,14 +10,22 @@ import { AgendaService } from '../../services/agenda.service';
 })
 export class CalendarComponent {
 
-  dates: DateMoment[] = [];
+  dates: CalendarItem[] = [];
   date = new Date();
+  private selectedDay = this.date;
 
-  constructor(private agendaService: AgendaService) {
-    this.agendaService.date.subscribe({
+  constructor(private service: CalendarService, private agendaService: AgendaService) {
+    this.service.date.subscribe({
       next: date => {
         this.date = date;
         this.loadDates();
+      }
+    });
+
+    this.agendaService.selectedDay.subscribe({
+      next: date => {
+        this.selectedDay = date;
+        this.loadSelectedDay();
       }
     });
   }
@@ -34,9 +43,10 @@ export class CalendarComponent {
         day: lastDateofLastMonth - i + 1
         , month: this.date.getMonth() - 1
         , year: this.date.getFullYear()
-        , incative: true
-        , today: false
-      } as DateMoment);
+        , isIncative: true
+        , isToday: false
+        , isSelected: false
+      } as CalendarItem);
     }
 
     for (let i = 1; i <= lastDateofMonth; i++) {
@@ -44,9 +54,9 @@ export class CalendarComponent {
         day: i
         , month: this.date.getMonth()
         , year: this.date.getFullYear()
-        , incative: false
-        , today: this.isToday(i)
-      } as DateMoment);
+        , isIncative: false
+        , isToday: this.isToday(i)
+      } as CalendarItem);
     }
 
     for (let i = lastDayofMonth; i < 6; i++) {
@@ -54,16 +64,18 @@ export class CalendarComponent {
         day: i - lastDayofMonth + 1
         , month: this.date.getMonth() + 1
         , year: this.date.getFullYear()
-        , incative: true
-        , today: false
-      } as DateMoment);
+        , isIncative: true
+        , isToday: false
+      } as CalendarItem);
     }
+
+    this.loadSelectedDay();
   }
 
   changeDate(number: number) {
     const date = this.date;
     date.setMonth(this.date.getMonth() + number);
-    this.agendaService.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+    this.service.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
   }
 
   isToday(day: number): boolean {
@@ -73,7 +85,20 @@ export class CalendarComponent {
       && today.getFullYear() === this.date.getFullYear();
   }
 
-  setDay(day: DateMoment) {
-    this.agendaService.setDay(new Date(day.year, day.month, day.day));
+  loadSelectedDay() {
+    this.agendaService.selectedDay
+    this.dates.map(
+      day => {
+        if (day.day === this.selectedDay.getDate() && day.month === this.selectedDay.getMonth() && day.year === this.selectedDay.getFullYear()) {
+          day.isSelected = true;
+        } else {
+          day.isSelected = false;
+        }
+      }
+    );
+  }
+
+  setDay(day: CalendarItem) {
+    this.agendaService.selectDay(new Date(day.year, day.month, day.day));
   }
 }

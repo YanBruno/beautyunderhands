@@ -21,7 +21,7 @@
         </ul>
         <ul class="days">
             <li *ngFor="let date of dates" (click)="setDay(date)"
-                [ngClass]="{'today': date.today, 'inactive': date.incative}">
+                [ngClass]="{'today': date.isToday, 'inactive': date.isIncative, 'selected': date.isSelected}">
                 {{date.day}}</li>
         </ul>
     </section>
