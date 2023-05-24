@@ -34,7 +34,7 @@ export class MonthViewComponent {
         day: lastDateofLastMonth - i + 1
         , month: this.date.getMonth() - 1
         , year: this.date.getFullYear()
-        , active: false
+        , incative: true
         , today: false
       } as DateMoment);
     }
@@ -44,7 +44,7 @@ export class MonthViewComponent {
         day: i
         , month: this.date.getMonth()
         , year: this.date.getFullYear()
-        , active: true
+        , incative: false
         , today: this.isToday(i)
       } as DateMoment);
     }
@@ -54,7 +54,7 @@ export class MonthViewComponent {
         day: i - lastDayofMonth + 1
         , month: this.date.getMonth() + 1
         , year: this.date.getFullYear()
-        , active: false
+        , incative: true
         , today: false
       } as DateMoment);
     }
@@ -72,4 +72,5 @@ export class MonthViewComponent {
       && today.getMonth() === this.date.getMonth()
       && today.getFullYear() === this.date.getFullYear();
   }
+
 }
