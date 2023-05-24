@@ -3,5 +3,5 @@ export interface DateMoment {
     month: number;
     year: number;
     today: boolean;
-    active: boolean;
+    incative: boolean;
 }

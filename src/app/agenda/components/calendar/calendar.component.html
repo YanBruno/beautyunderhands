@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="month-wrapper">
     <header>
         <button (click)="changeDate(-1)" class="button">
             <span class="material-symbols-outlined">chevron_left</span>
@@ -12,21 +11,17 @@
 
     <section class="calendar">
         <ul class="weeks">
-            <li>Domingo</li>
-            <li>Segunda</li>
-            <li>Terça</li>
-            <li>Quarta</li>
-            <li>Quinta</li>
-            <li>Sexta</li>
-            <li>Sabado</li>
+            <li>Dom</li>
+            <li>Seg</li>
+            <li>Ter</li>
+            <li>Qua</li>
+            <li>Qui</li>
+            <li>Sex</li>
+            <li>Sab</li>
         </ul>
-
         <ul class="days">
-            <li *ngFor="let date of dates">
-                <p class="day-number">{{date.day}}</p>
-                <p class="day-description">10 atendimentos</p>
-            </li>
+            <li *ngFor="let date of dates" (click)="setDay(date)"
+                [ngClass]="{'today': date.today, 'inactive': date.incative}">
+                {{date.day}}</li>
         </ul>
-
     </section>
-</div>
