@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AgendaService } from '../../services/agenda.service';
 
 @Component({
   selector: 'app-day-view',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class DayViewComponent {
 
+  day = new Date();
+  constructor(private agendaService: AgendaService) {
+    this.agendaService.day.subscribe({
+      next: day => {
+        this.day = day;
+      }
+    });
+  }
 }
