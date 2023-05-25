@@ -1,5 +1,5 @@
 <div class="navbar-container">
-    <a href="/">
+    <a [routerLink]="['/agenda']">
         <img class="nav-logo" s src="assets/logo.png" alt="">
     </a>
     <div class="side right-side">
@@ -9,9 +9,9 @@
             <p class="icon-text">{{item.text}}</p>
         </a>
 
-        <!-- <a [routerLink]="['/login']" class="nav-icon-field">
+        <a (click)="logout()" class="nav-icon-field">
             <span class="icon material-symbols-outlined">logout</span>
             <p class="icon-text">Sair</p>
-        </a> -->
+        </a>
     </div>
 </div>

@@ -1,1 +1,14 @@
-<p>login-page works!</p>
+<div class="form-box">
+    <form [formGroup]="form" class="form">
+        <span class="title">Bem vindo</span>
+
+        <div class="form-container">
+            <input formControlName="email" type="email" class="input" placeholder="Email">
+            <input formControlName="password" type="password" class="input" placeholder="Senha">
+        </div>
+        <button (click)="submit()" [disabled]="form.valid">Entrar</button>
+    </form>
+    <div class="form-section">
+        <p>Não possui conta? <a [routerLink]="['/registrar']">Criar conta</a> </p>
+    </div>
+</div>

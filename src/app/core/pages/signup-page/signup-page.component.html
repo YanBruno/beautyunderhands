@@ -1,0 +1,15 @@
+<div class="form-box">
+    <form [formGroup]="form" class="form">
+        <span class="title">Increva-se</span>
+        <span class="subtitle">Crie uma conta gratis com seu e-mail</span>
+        <div class="form-container">
+            <input formControlName="name" type="text" class="input" placeholder="Nome completo">
+            <input formControlName="email" type="email" class="input" placeholder="Email">
+            <input formControlName="password" type="password" class="input" placeholder="Senha">
+        </div>
+        <button (click)="submit()" [disabled]="form.valid">Criar conta</button>
+    </form>
+    <div class="form-section">
+        <p>Possui conta? <a [routerLink]="['/login']">Entrar</a> </p>
+    </div>
+</div>

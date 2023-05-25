@@ -6,9 +6,9 @@
     width: 10.5rem;
     padding: .620rem 0px .620rem 2.5rem;
     border-radius: 625rem;
-    border: solid 1px #333;
+    border: solid 1px var(--color-1);
     outline: none;
-    opacity: 0.8;
+
 
     transition: all .2s ease-in-out;
 }
@@ -26,7 +26,5 @@
 }
 
 .input:hover {
-    opacity: 1;
     width: 20rem;
-    text-align: center;
 }

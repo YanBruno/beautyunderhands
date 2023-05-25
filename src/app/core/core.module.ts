@@ -10,6 +10,8 @@ import { MainFrameComponent } from './pages/frames/main-frame/main-frame.compone
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame/only-navbar-frame.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,12 +22,14 @@ import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame/only-
     MainFrameComponent,
     NotfoundPageComponent,
     LoginPageComponent,
-    OnlyNavbarFrameComponent
+    OnlyNavbarFrameComponent,
+    SignupPageComponent
   ],
   imports: [
     CommonModule
 
     , RouterModule
+    , ReactiveFormsModule
   ],
   providers: [{
     provide: LOCALE_ID

@@ -34,6 +34,8 @@
     align-items: center;
 
     transition: color .2s ease;
+
+    cursor: pointer;
 }
 
 .nav-icon-field span {

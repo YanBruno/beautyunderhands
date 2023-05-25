@@ -4,12 +4,16 @@ import { MainFrameComponent } from './core/pages/frames/main-frame/main-frame.co
 import { NotfoundPageComponent } from './core/pages/notfound-page/notfound-page.component';
 import { LoginPageComponent } from './core/pages/login-page/login-page.component';
 import { OnlyNavbarFrameComponent } from './core/pages/frames/only-navbar-frame/only-navbar-frame.component';
+import { SignupPageComponent } from './core/pages/signup-page/signup-page.component';
 
 const routes: Routes = [
   { pathMatch: 'full', path: '', redirectTo: '/login' }
   , {
     path: 'login'
     , component: LoginPageComponent
+  }, {
+    path: 'registrar'
+    , component: SignupPageComponent
   }
   , {
     path: 'clientes'
