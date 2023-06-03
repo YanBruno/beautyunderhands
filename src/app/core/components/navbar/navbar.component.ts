@@ -19,4 +19,6 @@ export class NavbarComponent {
   logout() {
     this.router.navigate(['login']);
   }
+
+  showUnits() { }
 }

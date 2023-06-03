@@ -11,7 +11,8 @@ const routes: Routes = [
   , {
     path: 'login'
     , component: LoginPageComponent
-  }, {
+  }
+  , {
     path: 'registrar'
     , component: SignupPageComponent
   }
@@ -19,7 +20,13 @@ const routes: Routes = [
     path: 'clientes'
     , component: MainFrameComponent
     , loadChildren: () => import('./cliente/cliente.module').then(m => m.ClienteModule)
-  }, {
+  }
+  , {
+    path: 'prestadores'
+    , component: MainFrameComponent
+    , loadChildren: () => import('./prestador/prestador.module').then(m => m.PrestadorModule)
+  }
+  , {
     path: 'agenda'
     , component: MainFrameComponent
     , loadChildren: () => import('./agenda/agenda.module').then(m => m.AgendaModule)

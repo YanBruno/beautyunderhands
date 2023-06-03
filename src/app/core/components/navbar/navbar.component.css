@@ -1,3 +1,9 @@
+button {
+    background: none;
+    outline: none;
+    border: none;
+}
+
 .navbar-container {
     background-color: var(--color-1);
 
