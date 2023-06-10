@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NovoAgendamentoPageComponent } from './pages/novo-agendamento-page/novo-agendamento-page.component';
 import { SchedulingItemComponent } from './components/dashboard/scheduling-item/scheduling-item.component';
 import { AgendamentoDetalhePageComponent } from './pages/agendamento-detalhe-page/agendamento-detalhe-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AgendamentoDetalhePageComponent } from './pages/agendamento-detalhe-pag
   imports: [
     CommonModule,
     AgendaRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class AgendaModule { }
