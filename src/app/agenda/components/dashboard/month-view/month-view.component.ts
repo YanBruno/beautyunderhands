@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AgendaService } from '../../services/agenda.service';
-import { Agendamento } from '../../models/agendamento.model';
+import { AgendaService } from '../../../services/agenda.service';
+import { Agendamento } from '../../../models/agendamento.model';
 
 @Component({
   selector: 'app-month-view-page',

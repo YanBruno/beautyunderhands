@@ -1,9 +1,10 @@
 <div class="default-position">
     <div class="agenda-container">
         <div class="agenda-header">
-            <button class="button" [routerLink]="['novo-agendamento']">Novo agendamento</button>
+            <p class="nome-unidade">Unidade 01</p>
 
             <div class="view-type">
+                <button class="button" [routerLink]="['novo-agendamento']">Novo agendamento</button>
                 <button class="button" (click)="changeActiveView(1)">Mês</button>
                 <!-- <button class="button disable">Semana</button> -->
                 <button class="button" (click)="changeActiveView(3)">Dia</button>

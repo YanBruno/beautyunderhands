@@ -16,9 +16,11 @@
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
+    font-weight: 300;
+}
+
+.header span {
+    font-weight: 600;
 }
 
 .schedules-container {

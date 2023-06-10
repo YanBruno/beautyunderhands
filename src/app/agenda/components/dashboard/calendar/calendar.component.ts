@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CalendarItem } from '../../models/calendar-item.model';
-import { AgendaService } from '../../services/agenda.service';
-import { CalendarService } from '../../services/calendar.service';
+import { CalendarItem } from '../../../models/calendar-item.model';
+import { AgendaService } from '../../../services/agenda.service';
+import { CalendarService } from '../../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar',

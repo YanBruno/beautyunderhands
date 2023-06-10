@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AgendaService } from '../../services/agenda.service';
+import { AgendaService } from '../../../services/agenda.service';
 
 @Component({
   selector: 'app-day-view',

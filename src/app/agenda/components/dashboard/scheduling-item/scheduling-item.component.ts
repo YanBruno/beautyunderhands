@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-scheduling-item',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./scheduling-item.component.css']
 })
 export class SchedulingItemComponent {
+
+  @Input() agendamentoId = 0;
 
 }
