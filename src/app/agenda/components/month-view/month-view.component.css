@@ -4,7 +4,7 @@
     justify-content: space-between;
 
     padding: 1rem 0 0 0;
-    height: 100%;
+
 
     gap: .5rem;
 }
@@ -13,14 +13,12 @@
     display: flex;
     flex: 1;
     flex-flow: column;
-
-
 }
 
 .header {
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .schedules-container {
@@ -33,5 +31,7 @@
 
     gap: .8rem;
 
-    /* width: 100%; */
+    max-height: 65vh;
+
+    overflow-y: auto;
 }

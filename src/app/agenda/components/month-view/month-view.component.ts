@@ -8,7 +8,7 @@ import { AgendaService } from '../../services/agenda.service';
 })
 export class MonthViewComponent {
 
-  day = new Date(2022, 5, 10);
+  day = new Date();
   constructor(private agendaService: AgendaService) {
 
     this.agendaService.selectedDay.subscribe({
