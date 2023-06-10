@@ -43,7 +43,7 @@ export class CalendarComponent {
         day: lastDateofLastMonth - i + 1
         , month: this.date.getMonth() - 1
         , year: this.date.getFullYear()
-        , isIncative: true
+        , isInactive: true
         , isToday: false
         , isSelected: false
       } as CalendarItem);
@@ -54,7 +54,7 @@ export class CalendarComponent {
         day: i
         , month: this.date.getMonth()
         , year: this.date.getFullYear()
-        , isIncative: false
+        , isInactive: false
         , isToday: this.isToday(i)
       } as CalendarItem);
     }
@@ -64,7 +64,7 @@ export class CalendarComponent {
         day: i - lastDayofMonth + 1
         , month: this.date.getMonth() + 1
         , year: this.date.getFullYear()
-        , isIncative: true
+        , isInactive: true
         , isToday: false
       } as CalendarItem);
     }

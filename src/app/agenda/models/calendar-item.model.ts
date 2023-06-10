@@ -3,6 +3,6 @@ export interface CalendarItem {
     month: number;
     year: number;
     isToday: boolean;
-    isIncative: boolean;
+    isInactive: boolean;
     isSelected: boolean;
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AgendaService } from '../../services/agenda.service';
+import { Agendamento } from '../../models/agendamento.model';
 
 @Component({
   selector: 'app-month-view-page',
@@ -9,6 +10,9 @@ import { AgendaService } from '../../services/agenda.service';
 export class MonthViewComponent {
 
   day = new Date();
+
+  agendamentos: Agendamento[] = [];
+
   constructor(private agendaService: AgendaService) {
 
     this.agendaService.selectedDay.subscribe({
