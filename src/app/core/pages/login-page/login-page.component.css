@@ -1,6 +1,6 @@
 .form-box {
-    max-width: 300px;
-    background: var(--color-2);
+    max-width: 25rem;
+    background: var(--color-1);
     overflow: hidden;
     border-radius: 16px;
 
@@ -68,7 +68,7 @@
 
 /*Button*/
 .form button {
-    background-color: var(--color-3);
+    background-color: var(--color-2);
 
     border: 0;
     border-radius: 24px;
@@ -80,5 +80,5 @@
 }
 
 .form button:hover {
-    background-color: var(--color-1);
+    background-color: var(--color-3);
 }
