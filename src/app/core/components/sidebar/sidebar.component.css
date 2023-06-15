@@ -72,7 +72,3 @@
     color: var(--color-white);
     transition: color .2s ease;
 }
-
-.link-active {
-    color: var(--color-white);
-}

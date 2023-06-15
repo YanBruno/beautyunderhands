@@ -60,48 +60,14 @@ body {
     z-index: 0;
 }
 
-.button {
-
-    padding: .5rem;
-
-    background: var(--color-1);
-    color: var(--color-white);
-
-    cursor: pointer;
-
-    border: none;
-    border-radius: 5px;
-
-    box-shadow: var(--box-shadow);
-}
-
-.button-small {
-    padding: .5rem;
-
-    background: var(--color-1);
-    color: var(--color-white);
-
-    cursor: pointer;
-
-    border: none;
-    border-radius: 5px;
-
-    box-shadow: var(--box-shadow);
-
-    display: flex;
-    align-items: center;
-}
-
-.button~.disable {
-    color: var(--color-black);
-    background: var(--color-4);
-    cursor: not-allowed;
-}
-
 .danger {
     background: var(--color-danger);
 }
 
 .success {
     background: var(--color-success);
+}
+
+.link-item-active {
+    color: var(--color-white);
 }

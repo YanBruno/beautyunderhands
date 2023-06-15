@@ -1,31 +1,11 @@
 .agenda-container {
-    box-shadow: var(--box-shadow);
-    margin: 0 auto;
     height: 100%;
-
     overflow: hidden;
-
-    display: flex;
-    flex-flow: column nowrap;
-
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
 }
 
 .agenda-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    flex: 0;
-
     padding-bottom: 1rem;
-
-}
-
-.nome-unidade {
-    font-size: 1.2rem;
-    font-weight: 300;
-    text-transform: uppercase;
 }
 
 .view-type {
@@ -36,5 +16,4 @@
 .agenda-content {
     border-top: solid 1px var(--color-1);
     flex: 1;
-
 }
