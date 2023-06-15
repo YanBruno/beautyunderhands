@@ -10,12 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class AgendamentoDetalhePageComponent {
 
   agendamentoId = this.route.snapshot.paramMap.get('id');
-  form = this.fb.group({});
-
 
   constructor(
-    private route: ActivatedRoute,
-    private fb: FormBuilder
+    private route: ActivatedRoute
   ) {
   }
 }

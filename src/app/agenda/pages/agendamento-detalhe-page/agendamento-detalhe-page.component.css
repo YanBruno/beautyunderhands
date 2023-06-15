@@ -5,6 +5,14 @@
 .header {
     border-bottom: solid 1px var(--color-1);
     padding-bottom: .5rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
 }
 
 .align {
@@ -22,7 +30,7 @@
 
 }
 
-.form-container {
+.detail-container {
     display: flex;
     flex-flow: row wrap;
 
@@ -31,7 +39,7 @@
     gap: 1rem;
 }
 
-.form-field {
+.detail-field {
     display: flex;
     flex-flow: column wrap;
 
@@ -43,14 +51,14 @@
     border-bottom: solid 1px var(--color-1);
 }
 
-.form-field label {
+.detail-field label {
     color: var(--color-1);
     font-size: .8rem;
     font-weight: 700;
     line-height: .2rem;
 }
 
-.form-field input {
+.detail-field input {
     background: none;
     border: none;
     outline: none;

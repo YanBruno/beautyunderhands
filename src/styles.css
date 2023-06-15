@@ -93,3 +93,11 @@ body {
     background: var(--color-4);
     cursor: not-allowed;
 }
+
+.danger {
+    background: var(--color-danger);
+}
+
+.success {
+    background: var(--color-success);
+}
