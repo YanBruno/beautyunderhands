@@ -16,7 +16,7 @@ button {
 
     padding: 0 2rem;
 
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
 
     position: fixed;
 
