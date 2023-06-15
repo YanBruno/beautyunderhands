@@ -11,7 +11,7 @@ export class AgendaService {
 
   constructor() { }
 
-  selectDay(day: Date) {
+  setSelectedDay(day: Date) {
     this._selectedDay.next(day);
   }
 }
