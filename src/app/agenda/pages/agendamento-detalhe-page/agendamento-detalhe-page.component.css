@@ -15,4 +15,49 @@
 
 .content {
     padding: 1rem 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+
+
+}
+
+.form-container {
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+.form-field {
+    display: flex;
+    flex-flow: column wrap;
+
+    gap: .5rem;
+    margin: 1rem 0 0 0;
+
+    width: 30rem;
+
+    border-bottom: solid 1px var(--color-1);
+}
+
+.form-field label {
+    color: var(--color-1);
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: .2rem;
+}
+
+.form-field input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--color-black);
+
+
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: .2rem;
 }
