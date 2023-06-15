@@ -8,6 +8,12 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: var(--color-1);
+    font-weight: 400;
 }
 
 .actions {
@@ -15,28 +21,20 @@
     gap: 1rem;
 }
 
-.align {
-    display: flex;
-    align-items: center;
-    width: 5rem;
-}
-
 .content {
-    padding: 1rem 0;
+    padding: 2rem 0;
 
     display: flex;
-    flex-flow: row nowrap;
-
+    flex-flow: column nowrap;
+    align-items: center;
 
 }
 
 .detail-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
 
-    justify-content: center;
-
-    gap: 1rem;
+    gap: 3rem;
 }
 
 .detail-field {
@@ -46,7 +44,7 @@
     gap: .5rem;
     margin: 1rem 0 0 0;
 
-    width: 30rem;
+    width: 35rem;
 
     border-bottom: solid 1px var(--color-1);
 }
@@ -64,8 +62,11 @@
     outline: none;
     color: var(--color-black);
 
+    align-self: flex-end;
 
     font-weight: 300;
     font-size: 1rem;
     letter-spacing: .2rem;
+
+    text-align: end;
 }

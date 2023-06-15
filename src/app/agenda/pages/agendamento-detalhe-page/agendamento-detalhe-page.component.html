@@ -2,10 +2,10 @@
     <div class="agendamento-detalhe-container">
 
         <div class="header">
-            <a class="button-small align" [routerLink]="['/agenda']">
+            <a class="button-small" [routerLink]="['/agenda']">
                 <span class="material-symbols-outlined">chevron_left</span> Voltar
             </a>
-
+            <h1>Detalhes do agendamento</h1>
             <div class="actions">
                 <button class="button danger">Cancelar</button>
                 <button class="button success">Confirmar</button>
@@ -16,15 +16,15 @@
 
             <div class="detail-container">
                 <div class="detail-field">
-                    <label>Nome</label>
+                    <label>Cliente</label>
                     <input type="text" name="nome" id="#nome" value="Maria Olivia" disabled>
                 </div>
                 <div class="detail-field">
-                    <label>horario</label>
+                    <label>horario do atendimento</label>
                     <input type="text" name="nome" id="#nome" value="10:30 - 11:45" disabled>
                 </div>
                 <div class="detail-field">
-                    <label>Profissional</label>
+                    <label>Profissional resposável</label>
                     <input type="text" name="nome" id="#nome" value="Leticia Oliveira" disabled>
                 </div>
                 <div class="detail-field">
@@ -32,9 +32,8 @@
                     <input type="text" name="nome" id="#nome" value="Design com rena" disabled>
                 </div>
                 <div class="detail-field">
-                    <label>Situação</label>
+                    <label>Situação do atendimento</label>
                     <input type="text" name="nome" id="#nome" value="Pendente" disabled>
-
                 </div>
             </div>
         </div>
