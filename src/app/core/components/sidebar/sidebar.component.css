@@ -34,6 +34,8 @@
     padding-top: 3rem;
 
     gap: 1rem;
+
+    visibility: hidden;
 }
 
 .menu-item-field {
@@ -52,20 +54,18 @@
     font-size: 2rem;
 }
 
-.menu-item-field p {
-    display: none;
-}
-
-
 /* active sidebar */
 .sidebar-container.active-sidebar {
     width: var(--sidebar-max-width);
     transition: width .3s ease;
 }
 
+.sidebar-menu-items.active-sidebar {
+    visibility: visible;
+}
+
 .sidebar-menu-items.active-sidebar .menu-item-field p {
-    display: block;
-    transition: display .4s ease;
+    transition: display .5s ease;
 }
 
 .menu-item-field.active-sidebar {
