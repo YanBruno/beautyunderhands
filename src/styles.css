@@ -35,7 +35,8 @@
 
 a {
     text-decoration: none;
-    color: var(--color-black)
+    color: var(--color-black);
+    display: inline-block;
 }
 
 button {
@@ -74,6 +75,8 @@ body {
 
     font-size: 1rem;
     font-weight: 300;
+
+    height: 2.5rem;
 }
 
 .danger {

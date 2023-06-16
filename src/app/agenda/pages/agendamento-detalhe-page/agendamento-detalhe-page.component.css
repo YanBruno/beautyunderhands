@@ -1,38 +1,32 @@
-.agendamento-detalhe-container {
-    padding: 1rem 2rem;
+.container {
+    height: 100%;
+    overflow: hidden;
+    padding: 1rem 1rem;
 }
 
 .header {
-    border-bottom: solid 1px var(--color-1);
-    padding-bottom: .5rem;
-
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 1rem;
 }
 
-.header h1 {
-    color: var(--color-1);
-    font-weight: 400;
-}
-
-.actions {
+.header-actions {
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
 }
 
 .content {
-    padding: 2rem 0;
-
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    border-top: solid 1px var(--color-1);
 
 }
 
 .detail-container {
     display: flex;
     flex-flow: column wrap;
+
+    margin-top: 3rem;
 
     gap: 3rem;
 }
@@ -43,8 +37,6 @@
 
     gap: .5rem;
     margin: 1rem 0 0 0;
-
-    width: 35rem;
 
     border-bottom: solid 1px var(--color-1);
 }
