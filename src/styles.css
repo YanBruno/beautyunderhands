@@ -15,10 +15,10 @@
     --color-success: #60d394;
     --color-danger: #ee6055;
 
-    --navbar-height: 5rem;
+    --navbar-height: 4rem;
 
     --sidebar-min-width: 3rem;
-    --sidebar-max-width: 15rem;
+    --sidebar-max-width: 100%;
 
     --box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
@@ -35,7 +35,15 @@
 
 a {
     text-decoration: none;
-    color: var(--color-black)
+    color: var(--color-black);
+    display: inline-block;
+}
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--color-black);
 }
 
 body {
@@ -60,41 +68,15 @@ body {
 }
 
 .button {
-
-    padding: .5rem;
-
     background: var(--color-1);
     color: var(--color-white);
-
-    cursor: pointer;
-
-    border: none;
-    border-radius: 5px;
-
-    box-shadow: var(--box-shadow);
-}
-
-.button-small {
     padding: .5rem;
-
-    background: var(--color-1);
-    color: var(--color-white);
-
-    cursor: pointer;
-
-    border: none;
     border-radius: 5px;
 
-    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+    font-weight: 300;
 
-    display: flex;
-    align-items: center;
-}
-
-.button~.disable {
-    color: var(--color-black);
-    background: var(--color-4);
-    cursor: not-allowed;
+    height: 2.5rem;
 }
 
 .danger {
@@ -103,4 +85,8 @@ body {
 
 .success {
     background: var(--color-success);
+}
+
+.link-item-active {
+    color: var(--color-white);
 }

@@ -16,7 +16,7 @@ button {
 
     padding: 0 2rem;
 
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
 
     position: fixed;
 
@@ -31,7 +31,7 @@ button {
     display: flex;
     align-items: center;
 
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .nav-icon-field {
@@ -45,16 +45,11 @@ button {
 }
 
 .nav-icon-field span {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .nav-icon-field p {
     font-size: .8rem;
     font-weight: 400;
-    letter-spacing: .2rem;
-}
-
-.nav-icon-field:hover {
-    color: var(--color-white);
-    transition: color .2s ease;
+    letter-spacing: .1rem;
 }

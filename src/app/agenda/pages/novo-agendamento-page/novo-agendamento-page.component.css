@@ -1,21 +1,14 @@
-.novo-agendamento-container {
-    padding: 1rem 2rem;
+.container {
+    height: 100%;
+    overflow: hidden;
+    padding: 1rem 1rem;
 }
 
-
 .header {
-    border-bottom: solid 1px var(--color-1);
-    padding-bottom: .5rem;
-
-    display: flex;
-    justify-content: space-between;
+    padding-bottom: 1rem;
 }
 
 .content {
-    padding: 2rem 0;
-
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-
+    border-top: solid 1px var(--color-1);
+    flex: 1;
 }

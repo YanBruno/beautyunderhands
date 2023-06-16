@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { CalendarItem } from '../../../models/calendar-item.model';
-import { AgendaService } from '../../../services/agenda.service';
-import { CalendarService } from '../../../services/calendar.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CalendarItem } from '../../models/calendar-item.model';
 
 @Component({
   selector: 'app-calendar',
@@ -12,22 +10,14 @@ export class CalendarComponent {
 
   dates: CalendarItem[] = [];
   date = new Date();
-  private selectedDay = this.date;
 
-  constructor(private service: CalendarService, private agendaService: AgendaService) {
-    this.service.date.subscribe({
-      next: date => {
-        this.date = date;
-        this.loadDates();
-      }
-    });
+  @Input() selectedDay = new Date();
+  @Output() calendarDay = new EventEmitter<Date>();
 
-    this.agendaService.selectedDay.subscribe({
-      next: date => {
-        this.selectedDay = date;
-        this.loadSelectedDay();
-      }
-    });
+  constructor() {
+    this.loadDates();
+
+    this.loadSelectedDay();
   }
 
   loadDates() {
@@ -69,13 +59,15 @@ export class CalendarComponent {
       } as CalendarItem);
     }
 
-    this.loadSelectedDay();
+    // this.loadSelectedDay();
   }
 
   changeDate(number: number) {
     const date = this.date;
     date.setMonth(this.date.getMonth() + number);
-    this.service.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
+    this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+
+    this.loadDates();
   }
 
   isToday(day: number): boolean {
@@ -86,7 +78,6 @@ export class CalendarComponent {
   }
 
   loadSelectedDay() {
-    this.agendaService.selectedDay
     this.dates.map(
       day => {
         if (day.day === this.selectedDay.getDate() && day.month === this.selectedDay.getMonth() && day.year === this.selectedDay.getFullYear()) {
@@ -99,6 +90,8 @@ export class CalendarComponent {
   }
 
   setDay(day: CalendarItem) {
-    this.agendaService.selectDay(new Date(day.year, day.month, day.day));
+    this.selectedDay = new Date(day.year, day.month, day.day);
+    this.calendarDay.emit(this.selectedDay);
+    this.loadSelectedDay();
   }
 }

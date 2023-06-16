@@ -1,19 +1,16 @@
 <div class="default-position">
-    <div class="agendamento-detalhe-container">
-
+    <div class="container">
         <div class="header">
-            <a class="button-small" [routerLink]="['/agenda']">
-                <span class="material-symbols-outlined">chevron_left</span> Voltar
+            <a class="button" [routerLink]="['/agenda']">
+                Voltar
             </a>
-            <h1>Detalhes do agendamento</h1>
-            <div class="actions">
+            <div class="header-actions">
                 <button class="button danger">Cancelar</button>
-                <button class="button success">Confirmar</button>
+                <button class="button success">Realizado</button>
             </div>
         </div>
 
         <div class="content">
-
             <div class="detail-container">
                 <div class="detail-field">
                     <label>Cliente</label>

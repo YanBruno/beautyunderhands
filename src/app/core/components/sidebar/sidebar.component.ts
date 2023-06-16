@@ -9,6 +9,7 @@ import { MenuItem } from '../../models/menu-item.model';
 })
 export class SidebarComponent {
 
+  showSideBar = false;
 
   items: MenuItem[] = [
     { materialIcon: 'face', route: '/clientes', text: 'Clientes' } as MenuItem
@@ -18,5 +19,9 @@ export class SidebarComponent {
 
   constructor() {
 
+  }
+
+  changeShow() {
+    this.showSideBar = !this.showSideBar;
   }
 }

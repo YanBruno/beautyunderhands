@@ -21,4 +21,8 @@ export class MonthViewComponent {
       }
     });
   }
+
+  getSelectedDay(calendarDay: Date) {
+    this.agendaService.setSelectedDay(calendarDay);
+  }
 }

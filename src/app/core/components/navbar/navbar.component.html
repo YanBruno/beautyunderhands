@@ -4,19 +4,20 @@
     </a>
     <div class="side right-side">
 
-        <a *ngFor="let item of items" [routerLink]="[item.route]" class="nav-icon-field">
-            <span class="icon material-symbols-outlined">{{item.materialIcon}}</span>
-            <p class="icon-text">{{item.text}}</p>
+        <a *ngFor="let item of items" class="nav-icon-field" routerLinkActive="link-item-active"
+            [routerLink]="[item.route]">
+            <span class="material-symbols-outlined">{{item.materialIcon}}</span>
+            <p class="">{{item.text}}</p>
         </a>
 
         <button (click)="showUnits()" class="nav-icon-field">
-            <span class="icon material-symbols-outlined">business</span>
-            <p class="icon-text">Unidades</p>
+            <span class="material-symbols-outlined">business</span>
+            <p class="">Unidades</p>
         </button>
 
         <a (click)="logout()" class="nav-icon-field">
-            <span class="icon material-symbols-outlined">logout</span>
-            <p class="icon-text">Sair</p>
+            <span class="menu-link material-symbols-outlined">logout</span>
+            <p class="">Sair</p>
         </a>
     </div>
 </div>

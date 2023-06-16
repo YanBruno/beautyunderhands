@@ -1,15 +1,14 @@
 <div class="month-view-container">
-    <div class="details-container">
-        <div class="header">
-            <app-search-bar /> - Agendamentos do dia <span>{{day | date}}</span>
-        </div>
-        <section class="schedules-container">
-            <app-scheduling-item [agendamentoId]="1" />
-            <app-scheduling-item [agendamentoId]="2" />
-            <app-scheduling-item [agendamentoId]="3" />
-            <app-scheduling-item [agendamentoId]="4" />
-            <app-scheduling-item [agendamentoId]="5" />
-        </section>
+    <div class="header">
+        <span>{{ day | date}}</span>
     </div>
-    <app-calendar />
+    <section class="schedules-container">
+        <app-scheduling-item [agendamentoId]="1" />
+        <app-scheduling-item [agendamentoId]="2" />
+        <app-scheduling-item [agendamentoId]="3" />
+        <app-scheduling-item [agendamentoId]="4" />
+        <app-scheduling-item [agendamentoId]="5" />
+    </section>
+    <!-- <app-search-bar /> -->
+    <!-- <app-calendar [selectedDay]="day" (calendarDay)="getSelectedDay($event)" /> -->
 </div>
