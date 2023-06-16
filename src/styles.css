@@ -44,7 +44,7 @@ a {
 body {
     background-color: var(--color-white);
     /* height: 100vh; */
-    height: var(--max-height);
+    min-height: var(--max-height);
     width: 100vw;
 
     color: var(--color-black);
