@@ -1,36 +1,53 @@
 <div class="default-position">
     <div class="container">
         <div class="header">
-            <a class="button" [routerLink]="['/agenda']">
-                Voltar
+            <a [routerLink]="['/agenda']">
+                <button class="button">Voltar</button>
             </a>
-            <div class="header-actions">
-                <button class="button danger">Cancelar</button>
-                <button class="button success">Realizado</button>
-            </div>
+
         </div>
 
         <div class="content">
             <div class="detail-container">
-                <div class="detail-field">
-                    <label>Cliente</label>
-                    <input type="text" name="nome" id="#nome" value="Maria Olivia" disabled>
+
+                <div class="detail-line">
+                    <h2 class="field">Cliente</h2>
+                    <h2 class="value">Maria Alice</h2>
                 </div>
-                <div class="detail-field">
-                    <label>horario do atendimento</label>
-                    <input type="text" name="nome" id="#nome" value="10:30 - 11:45" disabled>
+
+                <div class="detail-line">
+                    <h2 class="field">Horário do atendimento</h2>
+                    <h2 class="value">10:30 - 11:30</h2>
                 </div>
-                <div class="detail-field">
-                    <label>Profissional resposável</label>
-                    <input type="text" name="nome" id="#nome" value="Leticia Oliveira" disabled>
+
+                <div class="detail-line">
+                    <h2 class="field">Profissional responsável</h2>
+                    <h2 class="value">Leticia Oliveira</h2>
                 </div>
-                <div class="detail-field">
-                    <label>Serviço</label>
-                    <input type="text" name="nome" id="#nome" value="Design com rena" disabled>
+
+                <div class="detail-line">
+                    <h2 class="field">Serviço</h2>
+                    <h2 class="value">Design com rena</h2>
                 </div>
-                <div class="detail-field">
-                    <label>Situação do atendimento</label>
-                    <input type="text" name="nome" id="#nome" value="Pendente" disabled>
+                <div class="detail-line">
+                    <h2 class="field">Status do atendimento</h2>
+                    <h2 class="value">Pendente</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Ações</h2>
+                    <div class="action-container">
+                        <button class="button danger">
+                            <span class="material-symbols-outlined">
+                                close
+                            </span>
+                        </button>
+                        <button class="button success">
+                            <span class="material-symbols-outlined">
+                                done
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
