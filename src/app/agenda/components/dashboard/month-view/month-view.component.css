@@ -17,7 +17,7 @@
 
     gap: .8rem;
 
-    max-height: calc(100vh - (var(--navbar-height) + 7rem));
+    max-height: calc(var(--max-height));
 
     overflow-y: auto;
 
