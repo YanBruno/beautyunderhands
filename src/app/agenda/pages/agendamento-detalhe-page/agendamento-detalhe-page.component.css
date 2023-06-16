@@ -15,7 +15,7 @@
 .content {
     border-top: solid 1px var(--color-1);
     overflow-y: auto;
-    height: calc(var(--max-height));
+    height: calc(var(--max-height) - (var(--navbar-height)));
 }
 
 .detail-container {
