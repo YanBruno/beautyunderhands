@@ -1,6 +1,6 @@
 .scheduling-item-container {
     border: 1px solid var(--color-1);
-    padding: 1rem;
+    padding: .5rem 1rem;
 
     box-shadow: var(--box-shadow);
     /* cursor: pointer; */
@@ -8,11 +8,20 @@
 
 }
 
-.scheduling-item-container a {
-    display: block;
+.nome-cliente {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
 
-    height: inherit;
-    width: inherit
+.horario-agendamento {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.scheduling-item-link {
+    color: var(--color-1);
+    text-decoration: underline;
+    font-size: .8rem;
 }
 
 /* .scheduling-item-container:hover {

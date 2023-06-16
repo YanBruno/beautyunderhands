@@ -1,6 +1,7 @@
-<a [routerLink]="['/agenda', agendamentoId]">
-    <div class="scheduling-item-container">
-        <p>Maria Lucia</p>
-        <p>10:00 - 11:30</p>
-    </div>
-</a>
+<div class="scheduling-item-container">
+    <p class="nome-cliente">Maria Lucia</p>
+    <p class="horario-agendamento">10:00 - 11:30</p>
+    <a class="scheduling-item-link" [routerLink]="['/agenda', agendamentoId]">
+        <span>Ver detalhes</span>
+    </a>
+</div>
