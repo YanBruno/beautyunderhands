@@ -12,6 +12,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame/only-navbar-frame.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
     , RouterModule
     , ReactiveFormsModule
+    , HttpClientModule
   ],
   providers: [{
     provide: LOCALE_ID

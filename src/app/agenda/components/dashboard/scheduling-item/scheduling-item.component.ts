@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SchedulingItem } from 'src/app/agenda/models/schedulingItem.model';
 
 @Component({
   selector: 'app-scheduling-item',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SchedulingItemComponent {
 
-  @Input() agendamentoId = 0;
+  @Input() agendamento = {} as SchedulingItem;
 
 }

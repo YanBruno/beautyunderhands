@@ -26,6 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AgendaRoutingModule,
     SharedModule,
     ReactiveFormsModule
-  ]
+  ],
 })
 export class AgendaModule { }
