@@ -1,6 +1,6 @@
 <div class="scheduling-item-container">
     <p class="nome-cliente">{{agendamento.customerName}}</p>
-    <p class="horario-agendamento">{{agendamento.start}} - {{agendamento.end}}</p>
+    <p class="horario-agendamento">{{agendamento.start | date: 'hh:mm' }} - {{agendamento.end | date: 'hh:mm'}}</p>
     <a class="scheduling-item-link" [routerLink]="['/agenda', agendamento.schedulingItemId]">
         <span>Ver detalhes</span>
     </a>

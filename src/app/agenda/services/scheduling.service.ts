@@ -9,14 +9,10 @@ import { environment } from 'src/environments/environment';
 })
 export class SchedulingService {
 
-  private schedulingItems = "/v1/Scheduling/items?day=2023-06-10&unitId=4644D6E1-A352-4003-A1D1-B597B5AE1B65";
-
   constructor(private http: HttpClient) { }
 
   getSchedulingItems(): Observable<SchedulingItem[]> {
 
-    console.log(environment.production);
-    console.log(`${environment.base_url}${this.schedulingItems}`);
-    return this.http.get<SchedulingItem[]>(`${environment.base_url}${this.schedulingItems}`).pipe(first());
+    return this.http.get<SchedulingItem[]>(`${environment.base_url}/api/v1/Scheduling/items?day=2023-06-10&unitId=4644D6E1-A352-4003-A1D1-B597B5AE1B65`).pipe(first());
   }
 }

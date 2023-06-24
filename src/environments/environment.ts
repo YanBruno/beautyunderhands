@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    base_url: 'oi'
+    base_url: 'api'
 };

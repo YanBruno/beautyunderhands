@@ -75,8 +75,7 @@
               "browserTarget": "BeautyHands:build:production"
             },
             "development": {
-              "browserTarget": "BeautyHands:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "browserTarget": "BeautyHands:build:development"
             }
           },
           "defaultConfiguration": "development"

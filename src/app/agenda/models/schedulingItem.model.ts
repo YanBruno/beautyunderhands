@@ -1,6 +1,6 @@
 export interface SchedulingItem {
     customerName: string;
     schedulingItemId: string;
-    start: string;
-    end: string;
+    start: Date;
+    end: Date;
 }

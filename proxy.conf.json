@@ -1,11 +1,8 @@
 {
     "/api": {
-        "target": "https://todoapp-qa.azurewebsites.net/api",
+        "target": "https://localhost:7015",
         "secure": true,
         "changeOrigin": true,
-        "logLevel": "debug",
-        "pathRewrite": {
-            "^/api": ""
-        }
+        "logLevel": "debug"
     }
 }
