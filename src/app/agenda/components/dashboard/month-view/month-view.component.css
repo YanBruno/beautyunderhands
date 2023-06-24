@@ -14,8 +14,9 @@
 
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
 
-    gap: .8rem;
+    gap: .5rem;
 
     max-height: calc(var(--app-height) - (var(--navbar-height) + 8rem));
 
