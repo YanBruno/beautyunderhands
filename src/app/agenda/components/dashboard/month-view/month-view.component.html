@@ -3,7 +3,7 @@
         <span>{{ day | date}}</span>
     </div>
     <section class="schedules-container">
-        <app-scheduling-item [agendamento]="agendamento" *ngFor="let agendamento of agendamentos" />
+        <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />
     </section>
     <!-- <app-search-bar /> -->
     <!-- <app-calendar [selectedDay]="day" (calendarDay)="getSelectedDay($event)" /> -->

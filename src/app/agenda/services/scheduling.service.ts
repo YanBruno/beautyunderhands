@@ -11,9 +11,12 @@ export class SchedulingService {
 
   constructor(private http: HttpClient) { }
 
-  getSchedulingItems(): Observable<SchedulingItem[]> {
+  getSchedulingItems(day: Date, unitId: string): Observable<SchedulingItem[]> {
+    const url = `${environment.base_url}/v1/Scheduling/items?day=${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}&unitId=${unitId}`;
+    return this.http.get<SchedulingItem[]>(url).pipe(first());
+  }
 
-    console.log(environment.base_url);
-    return this.http.get<SchedulingItem[]>(`${environment.base_url}/v1/Scheduling/items?day=2023-06-10&unitId=4644D6E1-A352-4003-A1D1-B597B5AE1B65`).pipe(first());
+  getSchedulingItem(id: string): Observable<SchedulingItem> {
+    return this.http.get<SchedulingItem>(`${environment.base_url}/v1/Scheduling/item?schedulingItemId=${id}`).pipe(first());
   }
 }

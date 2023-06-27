@@ -27,26 +27,26 @@
 
                 <div class="detail-line">
                     <h2 class="field">Cliente</h2>
-                    <h2 class="value">Maria Alice</h2>
+                    <h2 class="value">{{agendamento.customerName}}</h2>
                 </div>
 
                 <div class="detail-line">
                     <h2 class="field">Horário do atendimento</h2>
-                    <h2 class="value">10:30 - 11:30</h2>
+                    <h2 class="value">{{agendamento.start | date: 'HH:mm' }} - {{agendamento.end | date: 'HH:mm'}}</h2>
                 </div>
 
                 <div class="detail-line">
                     <h2 class="field">Profissional responsável</h2>
-                    <h2 class="value">Leticia Oliveira</h2>
+                    <h2 class="value">{{agendamento.providerName}}</h2>
                 </div>
 
                 <div class="detail-line">
                     <h2 class="field">Serviço</h2>
-                    <h2 class="value">Design com rena</h2>
+                    <h2 class="value">{{agendamento.serviceName}}</h2>
                 </div>
                 <div class="detail-line">
                     <h2 class="field">Status do atendimento</h2>
-                    <h2 class="value">Pendente</h2>
+                    <h2 class="value">{{agendamento.status}}</h2>
                 </div>
             </div>
         </div>

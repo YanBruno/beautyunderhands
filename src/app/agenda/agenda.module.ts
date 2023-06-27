@@ -7,7 +7,7 @@ import { DayViewComponent } from './components/dashboard/day-view/day-view.compo
 import { MonthViewComponent } from './components/dashboard/month-view/month-view.component';
 import { SharedModule } from '../shared/shared.module';
 import { NovoAgendamentoPageComponent } from './pages/novo-agendamento-page/novo-agendamento-page.component';
-import { SchedulingItemComponent } from './components/dashboard/scheduling-item/scheduling-item.component';
+import { SchedulingItemCardComponent } from './components/dashboard/scheduling-item-card/scheduling-item-card.component';
 import { AgendamentoDetalhePageComponent } from './pages/agendamento-detalhe-page/agendamento-detalhe-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DayViewComponent,
     MonthViewComponent,
     NovoAgendamentoPageComponent,
-    SchedulingItemComponent,
+    SchedulingItemCardComponent,
     AgendamentoDetalhePageComponent,
   ],
   imports: [

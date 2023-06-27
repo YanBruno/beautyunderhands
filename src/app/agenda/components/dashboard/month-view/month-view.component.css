@@ -14,13 +14,14 @@
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
 
-    gap: .5rem;
+    gap: 1rem;
 
     max-height: calc(var(--app-height) - (var(--navbar-height) + 8rem));
 
     overflow-y: auto;
 
     padding-bottom: 1rem;
+
 }
