@@ -13,6 +13,7 @@ export class SchedulingService {
 
   getSchedulingItems(): Observable<SchedulingItem[]> {
 
-    return this.http.get<SchedulingItem[]>(`${environment.base_url}/api/v1/Scheduling/items?day=2023-06-10&unitId=4644D6E1-A352-4003-A1D1-B597B5AE1B65`).pipe(first());
+    console.log(environment.base_url);
+    return this.http.get<SchedulingItem[]>(`${environment.base_url}/v1/Scheduling/items?day=2023-06-10&unitId=4644D6E1-A352-4003-A1D1-B597B5AE1B65`).pipe(first());
   }
 }

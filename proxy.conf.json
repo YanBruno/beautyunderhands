@@ -1,8 +1,14 @@
 {
-    "/api": {
-        "target": "https://localhost:7015",
-        "secure": true,
+    "/api/": {
+        "target": "https://localhost:7015/api",
+        "secure": false,
+        "logLevel": "debug",
         "changeOrigin": true,
-        "logLevel": "debug"
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "headers": {
+            "origin": "http://localhost"
+        }
     }
 }
