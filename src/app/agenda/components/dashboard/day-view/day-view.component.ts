@@ -10,7 +10,7 @@ export class DayViewComponent {
 
   day = new Date();
   constructor(private agendaService: AgendaService) {
-    this.agendaService.selectedDay.subscribe({
+    this.agendaService.selectedDay$.subscribe({
       next: day => {
         this.day = day;
       }

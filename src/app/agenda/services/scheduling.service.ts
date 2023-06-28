@@ -13,7 +13,6 @@ export class SchedulingService {
 
   getSchedulingItems(day: Date, unitId: string): Observable<SchedulingItem[]> {
     const url = `${environment.base_url}/v1/Scheduling/items?day=${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}&unitId=${unitId}`;
-    console.log(url);
     return this.http.get<SchedulingItem[]>(url).pipe(first());
   }
 

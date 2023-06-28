@@ -10,32 +10,23 @@ import { SchedulingService } from '../../../services/scheduling.service';
 })
 export class MonthViewComponent {
 
-  day = new Date();
   showCalendar = false;
   agendamentos: SchedulingItem[] = [];
 
   constructor(
-    private agendaService: AgendaService
+    public agendaService: AgendaService
     , private schedulingService: SchedulingService
   ) {
 
-    this.agendaService.selectedDay.subscribe({
+    this.agendaService.selectedDay$.subscribe({
       next: day => {
-        this.day = day;
-        this.getSchedulingItems(this.day, 'FE226979-7B70-4D87-9496-E4385704448A');
-      },
-      error: err => {
-        console.log(err);
-      },
+        this.getSchedulingItems(day, 'FE226979-7B70-4D87-9496-E4385704448A');
+      }
     });
   }
 
   onShowCalendar() {
     this.showCalendar = !this.showCalendar;
-  }
-
-  setSelectedDay(calendarDay: Date) {
-    this.agendaService.setSelectedDay(calendarDay);
   }
 
   getSchedulingItems(day: Date, unitId: string) {
@@ -52,5 +43,9 @@ export class MonthViewComponent {
   onSelectedDate(date: Date) {
     this.agendaService.setSelectedDay(date);
     this.showCalendar = false;
+  }
+
+  onChangeDate(number: number): void {
+    this.agendaService.setSelectedDayByNumber(number);
   }
 }

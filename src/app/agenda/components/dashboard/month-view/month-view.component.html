@@ -1,7 +1,14 @@
 <div class="month-view-container">
     <div class="header">
-        <span>{{ day | date}}</span>
-
+        <div class="header-date">
+            <button (click)="onChangeDate(-1)">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <span>{{ this.agendaService.selectedDay$ | async | date}}</span>
+            <button (click)="onChangeDate(1)">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
         <button [ngClass]="{'active': showCalendar}" class="calendar-button" (click)="onShowCalendar()">
             <span class="icon material-symbols-outlined">calendar_month</span>
         </button>
