@@ -13,16 +13,28 @@ export class CalendarComponent {
   date = new Date();
 
   @Input() showCalendar = false;
-  @Input() selectedDay = new Date();
-  @Output() calendarDay = new EventEmitter<Date>();
+  private selectedDay = new Date();
 
   constructor(private service: CalendarService) {
+    this.service.date.subscribe({
+      next: day => {
+        this.date = day;
+      }
+    });
+
+    this.service.selectedDay.subscribe({
+      next: day => {
+        this.selectedDay = day;
+      }
+    });
 
     this.loadDates();
     this.loadSelectedDay();
   }
 
+  //renderiza os mês na tela
   loadDates() {
+    const today = new Date();
     this.dates = [];
 
     const firstDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
@@ -61,13 +73,16 @@ export class CalendarComponent {
       } as CalendarItem);
     }
 
-    // this.loadSelectedDay();
+    this.loadSelectedDay();
   }
 
   changeDate(number: number) {
     const date = this.date;
     date.setMonth(this.date.getMonth() + number);
-    this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+
+    // this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+    this.service.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
 
     this.loadDates();
   }
@@ -92,8 +107,7 @@ export class CalendarComponent {
   }
 
   setDay(day: CalendarItem) {
-    this.selectedDay = new Date(day.year, day.month, day.day);
-    this.calendarDay.emit(this.selectedDay);
+    this.service.setSelectedDay(new Date(day.year, day.month, day.day));
     this.loadSelectedDay();
   }
 }
