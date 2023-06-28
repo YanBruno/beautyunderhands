@@ -11,7 +11,7 @@ import { SchedulingService } from '../../../services/scheduling.service';
 export class MonthViewComponent {
 
   day = new Date();
-  showCalendar = true;
+  showCalendar = false;
   agendamentos: SchedulingItem[] = [];
 
   constructor(
