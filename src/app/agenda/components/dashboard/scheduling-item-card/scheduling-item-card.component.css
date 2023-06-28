@@ -4,7 +4,12 @@
 
     box-shadow: var(--box-shadow);
 
-    width: 15rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: .5rem;
+
+    /* width: calc((100vw - var(--sidebar-min-width)) - 2rem); */
 }
 
 .nome-cliente {
@@ -15,7 +20,7 @@
 .horario-agendamento {
     font-size: .8rem;
     font-weight: 300;
-    line-height: 1.5rem;
+
 }
 
 .scheduling-item-link {
