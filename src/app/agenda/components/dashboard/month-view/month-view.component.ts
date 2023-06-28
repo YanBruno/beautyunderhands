@@ -11,7 +11,7 @@ import { SchedulingService } from '../../../services/scheduling.service';
 export class MonthViewComponent {
 
   day = new Date();
-
+  showCalendar = false;
   agendamentos: SchedulingItem[] = [];
 
   constructor(
@@ -30,6 +30,10 @@ export class MonthViewComponent {
     });
   }
 
+  changeShowCalendar() {
+    this.showCalendar = !this.showCalendar;
+  }
+
   setSelectedDay(calendarDay: Date) {
     this.agendaService.setSelectedDay(calendarDay);
   }
@@ -45,4 +49,6 @@ export class MonthViewComponent {
       }
     });
   }
+
+
 }

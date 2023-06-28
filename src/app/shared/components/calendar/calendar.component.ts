@@ -12,12 +12,11 @@ export class CalendarComponent {
   dates: CalendarItem[] = [];
   date = new Date();
 
+  @Input() showCalendar = false;
   @Input() selectedDay = new Date();
   @Output() calendarDay = new EventEmitter<Date>();
 
   constructor(private service: CalendarService) {
-
-
 
     this.loadDates();
     this.loadSelectedDay();
