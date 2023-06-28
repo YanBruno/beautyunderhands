@@ -1,6 +1,9 @@
 <div class="month-view-container">
     <div class="header">
         <span>{{ day | date}}</span>
+
+        <span class="icon material-symbols-outlined">calendar_month</span>
+
     </div>
     <section class="schedules-container">
         <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />

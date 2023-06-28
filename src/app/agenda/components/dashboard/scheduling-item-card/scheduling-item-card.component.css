@@ -3,20 +3,19 @@
     padding: .5rem 1rem;
 
     box-shadow: var(--box-shadow);
-    /* cursor: pointer; */
-    /* transition: all .2s ease; */
 
-    width: 25rem;
+    width: 15rem;
 }
 
 .nome-cliente {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
 .horario-agendamento {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 300;
+    line-height: 1.5rem;
 }
 
 .scheduling-item-link {
@@ -24,8 +23,3 @@
     text-decoration: underline;
     font-size: .8rem;
 }
-
-/* .scheduling-item-container:hover {
-    color: var(--color-white);
-    background: var(--color-1);
-} */

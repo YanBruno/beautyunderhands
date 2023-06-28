@@ -42,7 +42,6 @@ a {
 
 body {
     background-color: var(--color-white);
-    /* height: 100vh; */
 
     color: var(--color-black);
     overflow: hidden;
@@ -54,7 +53,6 @@ button {
     outline: none;
     color: var(--color-black);
 }
-
 
 
 /* padroes */
@@ -78,7 +76,7 @@ button {
     font-size: 1rem;
     font-weight: 300;
 
-    height: 2.5rem;
+    /* height: 2.5rem; */
 
     box-shadow: var(--box-shadow);
 }
