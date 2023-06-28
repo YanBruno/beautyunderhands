@@ -10,7 +10,7 @@ import { SchedulingService } from '../../../services/scheduling.service';
 })
 export class MonthViewComponent {
 
-  day = new Date(2023, 5, 10);
+  day = new Date();
 
   agendamentos: SchedulingItem[] = [];
 
@@ -21,9 +21,12 @@ export class MonthViewComponent {
 
     this.agendaService.selectedDay.subscribe({
       next: day => {
-        // this.day = day;
-        this.getSchedulingItems(this.day, '4644D6E1-A352-4003-A1D1-B597B5AE1B65');
-      }
+        this.day = day;
+        this.getSchedulingItems(this.day, 'FE226979-7B70-4D87-9496-E4385704448A');
+      },
+      error: err => {
+        console.log(err);
+      },
     });
   }
 
@@ -32,10 +35,14 @@ export class MonthViewComponent {
   }
 
   getSchedulingItems(day: Date, unitId: string) {
-    this.schedulingService.getSchedulingItems(day, unitId).subscribe(
-      schedulings => {
+    this.schedulingService.getSchedulingItems(day, unitId).subscribe({
+      next: schedulings => {
         this.agendamentos = schedulings;
+        console.log(schedulings);
+      },
+      error: err => {
+        console.log(err);
       }
-    );
+    });
   }
 }
