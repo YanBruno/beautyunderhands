@@ -12,7 +12,16 @@ export class MonthViewComponent {
 
   day = new Date();
   showCalendar = false;
-  agendamentos: SchedulingItem[] = [];
+  agendamentos: SchedulingItem[] = [
+    { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+    , { customerName: "yan santos", start: new Date(), end: new Date() } as SchedulingItem
+  ];
 
   constructor(
     private agendaService: AgendaService
@@ -41,14 +50,11 @@ export class MonthViewComponent {
   getSchedulingItems(day: Date, unitId: string) {
     this.schedulingService.getSchedulingItems(day, unitId).subscribe({
       next: schedulings => {
-        this.agendamentos = schedulings;
-        console.log(schedulings);
+        // this.agendamentos = schedulings;
       },
       error: err => {
         console.log(err);
       }
     });
   }
-
-
 }

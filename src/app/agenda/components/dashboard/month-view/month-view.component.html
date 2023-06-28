@@ -5,6 +5,7 @@
         <button [ngClass]="{'active': showCalendar}" class="calendar-button" (click)="changeShowCalendar()">
             <span class="icon material-symbols-outlined">calendar_month</span>
         </button>
+
     </div>
 
     <div class="content">
@@ -13,4 +14,5 @@
             <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />
         </div>
     </div>
+
 </div>
