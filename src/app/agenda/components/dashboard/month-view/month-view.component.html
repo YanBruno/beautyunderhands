@@ -5,11 +5,12 @@
         <button [ngClass]="{'active': showCalendar}" class="calendar-button" (click)="changeShowCalendar()">
             <span class="icon material-symbols-outlined">calendar_month</span>
         </button>
-
     </div>
-    <section class="schedules-container">
-        <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />
-    </section>
-    <!-- <app-search-bar /> -->
-    <app-calendar [showCalendar]="showCalendar" />
+
+    <div class="content">
+        <app-calendar [showCalendar]="showCalendar" />
+        <div class="schedules-container">
+            <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />
+        </div>
+    </div>
 </div>
