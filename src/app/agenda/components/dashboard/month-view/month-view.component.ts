@@ -30,7 +30,7 @@ export class MonthViewComponent {
     });
   }
 
-  changeShowCalendar() {
+  onShowCalendar() {
     this.showCalendar = !this.showCalendar;
   }
 
@@ -47,5 +47,11 @@ export class MonthViewComponent {
         console.log(err);
       }
     });
+  }
+
+  onSelectedDate(date: Date) {
+
+    this.agendaService.setSelectedDay(date);
+    this.showCalendar = false;
   }
 }

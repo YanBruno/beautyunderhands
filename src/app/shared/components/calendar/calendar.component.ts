@@ -9,10 +9,12 @@ import { CalendarService } from '../../services/calendar.service';
 })
 export class CalendarComponent {
 
+  @Output()
+  selectedDate = new EventEmitter<Date>();
+
   dates: CalendarItem[] = [];
   date = new Date();
 
-  @Input() showCalendar = false;
   private selectedDay = new Date();
 
   constructor(private service: CalendarService) {
@@ -107,7 +109,9 @@ export class CalendarComponent {
   }
 
   setDay(day: CalendarItem) {
-    this.service.setSelectedDay(new Date(day.year, day.month, day.day));
+    const date = new Date(day.year, day.month, day.day);
+    this.service.setSelectedDay(date);
     this.loadSelectedDay();
+    this.selectedDate.emit(date);
   }
 }

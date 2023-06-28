@@ -1,30 +1,28 @@
-<ng-container *ngIf="showCalendar">
-    <div class="month-wrapper">
-        <header>
-            <button (click)="changeDate(-1)" class="button-small">
-                <span class="material-symbols-outlined">chevron_left</span>
-            </button>
-            <p class="current-date">{{date | date: "MMMM"}} - {{date | date: "YYY"}}</p>
-            <button (click)="changeDate(1)" class="button-small">
-                <span class="material-symbols-outlined">chevron_right</span>
-            </button>
-        </header>
+<div class="month-wrapper">
+    <header>
+        <button (click)="changeDate(-1)" class="button-small">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <p class="current-date">{{date | date: "MMMM"}} - {{date | date: "YYY"}}</p>
+        <button (click)="changeDate(1)" class="button-small">
+            <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+    </header>
 
-        <section class="calendar">
-            <ul class="weeks">
-                <li>Dom</li>
-                <li>Seg</li>
-                <li>Ter</li>
-                <li>Qua</li>
-                <li>Qui</li>
-                <li>Sex</li>
-                <li>Sab</li>
-            </ul>
-            <ul class="days">
-                <li *ngFor="let date of dates" (click)="setDay(date)"
-                    [ngClass]="{'today': date.isToday, 'inactive': date.isInactive, 'selected': date.isSelected}">
-                    {{date.day}}</li>
-            </ul>
-        </section>
-    </div>
-</ng-container>
+    <section class="calendar">
+        <ul class="weeks">
+            <li>Dom</li>
+            <li>Seg</li>
+            <li>Ter</li>
+            <li>Qua</li>
+            <li>Qui</li>
+            <li>Sex</li>
+            <li>Sab</li>
+        </ul>
+        <ul class="days">
+            <li *ngFor="let date of dates" (click)="setDay(date)"
+                [ngClass]="{'today': date.isToday, 'inactive': date.isInactive, 'selected': date.isSelected}">
+                {{date.day}}</li>
+        </ul>
+    </section>
+</div>

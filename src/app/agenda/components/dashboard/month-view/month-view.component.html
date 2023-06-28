@@ -2,14 +2,14 @@
     <div class="header">
         <span>{{ day | date}}</span>
 
-        <button [ngClass]="{'active': showCalendar}" class="calendar-button" (click)="changeShowCalendar()">
+        <button [ngClass]="{'active': showCalendar}" class="calendar-button" (click)="onShowCalendar()">
             <span class="icon material-symbols-outlined">calendar_month</span>
         </button>
 
     </div>
 
     <div class="content">
-        <app-calendar [showCalendar]="showCalendar" />
+        <app-calendar *ngIf="showCalendar" (selectedDate)="onSelectedDate($event)" />
         <div class="schedules-container">
             <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />
         </div>
