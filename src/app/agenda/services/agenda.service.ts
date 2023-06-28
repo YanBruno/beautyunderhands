@@ -14,10 +14,4 @@ export class AgendaService {
   setSelectedDay(day: Date) {
     this.selectedDaySubject.next(day);
   }
-
-  setSelectedDayByNumber(number: number) {
-    const d = this.selectedDaySubject.getValue();
-    d.setDate(d.getDate() + number);
-    this.selectedDaySubject.next(d);
-  }
 }

@@ -12,6 +12,7 @@ export class MonthViewComponent {
 
   showCalendar = false;
   agendamentos: SchedulingItem[] = [];
+  private day = new Date();
 
   constructor(
     public agendaService: AgendaService
@@ -20,6 +21,7 @@ export class MonthViewComponent {
 
     this.agendaService.selectedDay$.subscribe({
       next: day => {
+        this.day = day;
         this.getSchedulingItems(day, 'FE226979-7B70-4D87-9496-E4385704448A');
       }
     });
@@ -46,6 +48,8 @@ export class MonthViewComponent {
   }
 
   onChangeDate(number: number): void {
-    this.agendaService.setSelectedDayByNumber(number);
+    const d = this.day;
+    d.setDate(d.getDate() + number);
+    this.agendaService.setSelectedDay(new Date(d.getFullYear(), d.getMonth(), d.getDate()));
   }
 }
