@@ -50,7 +50,6 @@ export class MonthViewComponent {
   }
 
   onSelectedDate(date: Date) {
-
     this.agendaService.setSelectedDay(date);
     this.showCalendar = false;
   }
