@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main-frame',
-  templateUrl: './main-frame.component.html',
-  styleUrls: ['./main-frame.component.css']
+  template: '<app-navbar /><app-sidebar /><router-outlet/>'
 })
 export class MainFrameComponent {
 

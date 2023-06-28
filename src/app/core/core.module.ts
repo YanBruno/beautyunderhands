@@ -6,10 +6,10 @@ registerLocaleData(ptBr)
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MainFrameComponent } from './pages/frames/main-frame/main-frame.component';
+import { MainFrameComponent } from './pages/frames/main-frame.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame/only-navbar-frame.component';
+import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
