@@ -2,8 +2,18 @@
     box-shadow: var(--box-shadow);
     overflow-y: auto;
     padding: 1rem 0;
-    width: 30rem;
+    width: 100%;
     height: 25rem;
+
+
+    position: absolute;
+
+
+    top: 25%;
+    left: 0;
+
+    background: var(--color-2);
+
 }
 
 .month-wrapper header {

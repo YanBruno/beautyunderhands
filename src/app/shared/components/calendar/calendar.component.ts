@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CalendarItem } from '../../models/calendar-item.model';
+import { CalendarService } from '../../services/calendar.service';
 
 @Component({
   selector: 'app-calendar',
@@ -14,9 +15,11 @@ export class CalendarComponent {
   @Input() selectedDay = new Date();
   @Output() calendarDay = new EventEmitter<Date>();
 
-  constructor() {
-    this.loadDates();
+  constructor(private service: CalendarService) {
 
+
+
+    this.loadDates();
     this.loadSelectedDay();
   }
 
