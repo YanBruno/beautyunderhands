@@ -22,15 +22,11 @@ export class MessageService {
       notifications: []
     } as Message;
 
-    if (result.data.length) {
-      console.log("len true");
+    if (result.data.length)
       message.notifications = result.data
-    }
 
-    if (!result.data.length) {
-      console.log("len false");
+    if (!result.data.length)
       message.notifications.push(result.data as MessageNotification);
-    }
 
     this.messages.push(message);
   }

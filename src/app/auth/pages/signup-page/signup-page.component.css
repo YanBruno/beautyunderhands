@@ -41,6 +41,11 @@
     border: var(--border);
 }
 
+.form-line {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
 .input {
     background: none;
     border: 0;

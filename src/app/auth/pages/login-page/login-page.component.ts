@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Credentials } from '../../models/credentials.model';
+import { LoginCredentials } from '../../models/login-credentials.model';
 
 @Component({
   selector: 'app-login-page',
@@ -25,7 +25,7 @@ export class LoginPageComponent {
   }
 
   submit() {
-    const credentials = this.form.value as Credentials
+    const credentials = this.form.value as LoginCredentials
 
     this.service.signIn(credentials).subscribe({
       next: result => {

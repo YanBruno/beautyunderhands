@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { SignupCredentials } from '../../models/signup-credentials.model';
 
 @Component({
   selector: 'app-signup-page',
@@ -9,12 +11,22 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class SignupPageComponent {
 
   form = this.fb.group({
-    name: ['', Validators.compose([
+    firstName: ['', Validators.compose([
       Validators.minLength(3)
-      , Validators.maxLength(50)
+      , Validators.maxLength(15)
       , Validators.required
     ])]
-    , email: ['', Validators.compose([
+    , lastName: ['', Validators.compose([
+      Validators.minLength(3)
+      , Validators.maxLength(15)
+      , Validators.required
+    ])]
+    , phoneNumber: ['', Validators.compose([
+      Validators.maxLength(11)
+      , Validators.minLength(11)
+      , Validators.required
+    ])]
+    , emailAddress: ['', Validators.compose([
       Validators.email
       , Validators.required
     ])]
@@ -25,10 +37,19 @@ export class SignupPageComponent {
     ])]
   });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
 
   }
 
+  submit() {
+    if (this.form.valid)
+      this.authService.signUp(this.form.value as SignupCredentials).subscribe({
+        next: result => {
+          this.authService.handlerLogin(result);
+        }
+        , error: err => {
 
-  submit() { }
+        }
+      })
+  }
 }
