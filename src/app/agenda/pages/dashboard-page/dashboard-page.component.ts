@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Security } from 'src/app/core/utils/security.util';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -7,13 +8,13 @@ import { Component } from '@angular/core';
 })
 export class DashboardPageComponent {
 
-  // 1 = month
-  // 2 = week
-  // 3 = day
-
-  activeView = 1;
+  activeView = this.isAdmin() ? 1 : 3;
 
   changeActiveView(number: number) {
     this.activeView = number;
+  }
+
+  isAdmin(): boolean {
+    return Security.getRole() === "1" ? true : false;
   }
 }

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { MessageService } from 'src/app/core/services/message.service';
 import { Security } from 'src/app/core/utils/security.util';
 import { SignupCredentials } from '../models/signup-credentials.model';
+import { Role } from 'src/app/core/models/role.model';
+import { Unit } from 'src/app/core/models/unit.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router, private messageService: MessageService) { }
 
   signIn(credentials: LoginCredentials): Observable<GenericResponseResult> {
-    return this.http.post<GenericResponseResult>(`${environment.base_url}/v1/account/login/email`, credentials).pipe(first());
+    return this.http.post<GenericResponseResult>(`${environment.base_url}/v1/provider/login`, credentials).pipe(first());
   }
 
   signUp(credentials: SignupCredentials): Observable<GenericResponseResult> {
@@ -35,9 +37,13 @@ export class AuthService {
 
   handlerLogin(result: GenericResponseResult) {
     if (result.success) {
-      Security.setToken(result.data.token);
-      this.updateLoggedIn();
 
+      const token = result.data.token;
+      const role = result.data.provider.contracts[0].roleType as Role
+      const unit = result.data.provider.contracts[0].unit as Unit
+
+      Security.setDefaultData(token, role, unit);
+      this.updateLoggedIn();
       this.router.navigate(['/agenda']);
     }
 
@@ -47,8 +53,6 @@ export class AuthService {
   }
 
   updateLoggedIn() {
-    const token = Security.getToken();
-    if (token) this.loggedIn.next(true);
-    if (!token) this.loggedIn.next(false);
+    this.loggedIn.next(Security.hasData());
   }
 }

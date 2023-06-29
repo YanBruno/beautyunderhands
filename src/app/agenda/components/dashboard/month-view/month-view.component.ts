@@ -22,7 +22,7 @@ export class MonthViewComponent {
     this.agendaService.selectedDay$.subscribe({
       next: day => {
         this.day = day;
-        this.getSchedulingItems(day, 'FE226979-7B70-4D87-9496-E4385704448A');
+        this.getSchedulingItems(day);
       }
     });
   }
@@ -31,8 +31,8 @@ export class MonthViewComponent {
     this.showCalendar = !this.showCalendar;
   }
 
-  getSchedulingItems(day: Date, unitId: string) {
-    this.schedulingService.getSchedulingItems(day, unitId).subscribe({
+  getSchedulingItems(day: Date) {
+    this.schedulingService.getSchedulingItems(day).subscribe({
       next: schedulings => {
         this.agendamentos = schedulings;
       },
