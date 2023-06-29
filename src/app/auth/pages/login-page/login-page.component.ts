@@ -25,7 +25,6 @@ export class LoginPageComponent {
   }
 
   submit() {
-
     const credentials = this.form.value as Credentials
 
     this.service.signIn(credentials).subscribe({

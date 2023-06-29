@@ -10,8 +10,9 @@ import { MainFrameComponent } from './pages/frames/main-frame.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderComponent } from './pages/loader/loader.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { MessagePageComponent } from './pages/message-page/message-page.component';
 
 const COMPONENTS = [
   NavbarComponent,
@@ -19,16 +20,18 @@ const COMPONENTS = [
   MainFrameComponent,
   NotfoundPageComponent,
   OnlyNavbarFrameComponent,
-  LoaderComponent]
+  LoaderComponent,
+  MessagePageComponent
+]
 const MODULES = [
   CommonModule
   , RouterModule
-
   , HttpClientModule]
 
 @NgModule({
   declarations: [
-    COMPONENTS
+    COMPONENTS,
+
   ],
   imports: [
     CommonModule,

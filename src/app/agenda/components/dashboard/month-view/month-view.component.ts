@@ -37,7 +37,7 @@ export class MonthViewComponent {
         this.agendamentos = schedulings;
       },
       error: err => {
-        console.log(err);
+
       }
     });
   }

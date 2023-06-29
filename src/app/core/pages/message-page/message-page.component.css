@@ -1,0 +1,54 @@
+.message-container {
+    background: rgba(255, 255, 255, 0.933);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 12;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.message-card {
+    border-radius: 5px;
+
+    min-height: 5rem;
+    min-width: 15rem;
+
+    max-height: 15rem;
+    max-width: 25rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    background: rgb(253, 243, 242);
+
+    color: var(--color-danger);
+
+    padding: 2rem;
+    margin-bottom: 1rem;
+
+    box-shadow: var(--box-shadow);
+
+
+}
+
+.message-card h2 {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.message-card h3 {
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
