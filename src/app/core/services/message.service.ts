@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GenericResponseResult } from '../models/genereic-response-result.model';
 import { Message } from '../models/message.model';
+import { MessageNotification } from '../models/message-notification.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,22 @@ export class MessageService {
   }
 
   addFromResult(result: GenericResponseResult): void {
+
     const message = {
       title: result.message,
       success: result.success,
-      notifications: result.data
+      notifications: []
     } as Message;
+
+    if (result.data.length) {
+      console.log("len true");
+      message.notifications = result.data
+    }
+
+    if (!result.data.length) {
+      console.log("len false");
+      message.notifications.push(result.data as MessageNotification);
+    }
 
     this.messages.push(message);
   }
