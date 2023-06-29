@@ -5,13 +5,14 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const routes: Routes = [
   {
-    path: 'login'
+    path: 'entrar'
     , component: LoginPageComponent
   }
   , {
     path: 'registrar'
     , component: SignupPageComponent
   }
+
 ];
 
 @NgModule({

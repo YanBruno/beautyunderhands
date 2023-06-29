@@ -14,7 +14,7 @@ export const AuthGuard = () => {
         .pipe(
             tap(value => {
                 if (!value)
-                    router.navigate(['/login']);
+                    router.navigate(['/entrar']);
             }),
             first()
         );

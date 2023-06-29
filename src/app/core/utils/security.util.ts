@@ -24,9 +24,14 @@ export class Security {
         return this.getStorageValue('beautyr');
     }
 
-    public static setProviderData(role: Role, unit: Unit) {
-        localStorage.setItem('beautyr', role.id);
-        localStorage.setItem('beautyu', unit.id);
+    private static setRole(role: Role): void {
+        if (role)
+            localStorage.setItem('beautyr', role.id)
+    }
+
+    private static setUnit(unit: Unit): void {
+        if (unit)
+            localStorage.setItem('beautyu', unit.id);
     }
 
     public static setToken(token: string): void {
@@ -35,7 +40,8 @@ export class Security {
 
     public static setDefaultData(token: string, role: Role, unit: Unit) {
         this.setToken(token);
-        this.setProviderData(role, unit)
+        this.setRole(role)
+        this.setUnit(unit)
     }
 
     public static clear(): void {

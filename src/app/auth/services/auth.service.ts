@@ -10,6 +10,8 @@ import { Security } from 'src/app/core/utils/security.util';
 import { SignupCredentials } from '../models/signup-credentials.model';
 import { Role } from 'src/app/core/models/role.model';
 import { Unit } from 'src/app/core/models/unit.model';
+import { Message } from 'src/app/core/models/message.model';
+import { MessageNotification } from 'src/app/core/models/message-notification.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,19 +34,31 @@ export class AuthService {
   logout(): void {
     Security.clear();
     this.updateLoggedIn();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/entrar']);
   }
 
-  handlerLogin(result: GenericResponseResult) {
+  handlerLogin(result: GenericResponseResult): void {
     if (result.success) {
 
-      const token = result.data.token;
-      const role = result.data.provider.contracts[0].roleType as Role
-      const unit = result.data.provider.contracts[0].unit as Unit
+      if (result.data.provider.contracts.length === 0) {
+        this.messageService.add({
+          title: `Olá ${result.data.provider.name.firstName}`
+          , notifications: [{
+            key: 'handlerLogin'
+            , message: 'Sua conta foi criada com sucesso, em breve você terá acesso ao sistema'
+          } as MessageNotification] as MessageNotification[]
+        } as Message
+        );
+        // this.router.navigate(['/entrar']);
+      } else {
+        const token = result.data.token;
+        const role = result.data.provider.contracts[0]?.roleType as Role
+        const unit = result.data.provider.contracts[0]?.unit as Unit
 
-      Security.setDefaultData(token, role, unit);
-      this.updateLoggedIn();
-      this.router.navigate(['/agenda']);
+        Security.setDefaultData(token, role, unit);
+        this.updateLoggedIn();
+        this.router.navigate(['/agenda']);
+      }
     }
 
     if (!result.success) {
