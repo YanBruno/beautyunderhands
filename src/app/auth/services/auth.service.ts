@@ -47,9 +47,10 @@ export class AuthService {
             key: 'handlerLogin'
             , message: 'Sua conta foi criada com sucesso, em breve você terá acesso ao sistema'
           } as MessageNotification] as MessageNotification[]
+          , success: true
         } as Message
         );
-        // this.router.navigate(['/entrar']);
+        this.router.navigate(['/entrar']);
       } else {
         const token = result.data.token;
         const role = result.data.provider.contracts[0]?.roleType as Role

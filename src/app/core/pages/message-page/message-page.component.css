@@ -28,9 +28,7 @@
     align-items: center;
     justify-content: center;
 
-    background: rgb(253, 243, 242);
 
-    color: var(--color-danger);
 
     padding: 2rem;
     margin-bottom: 1rem;
@@ -51,4 +49,14 @@
     font-weight: 300;
     font-size: 0.875rem;
     line-height: 1.25rem;
+}
+
+.danger {
+    background: rgb(253, 243, 242);
+    color: var(--color-danger);
+}
+
+.success {
+    background: rgb(242, 253, 242);
+    color: var(--color-success);
 }

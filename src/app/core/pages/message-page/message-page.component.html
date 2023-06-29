@@ -1,6 +1,7 @@
 <div *ngIf="this.service.getMessages().length" class="message-container">
 
-    <div *ngFor="let message of this.service.getMessages()" class="message-card">
+    <div *ngFor="let message of this.service.getMessages()"
+        [ngClass]="{'danger': !message.success, 'success': message.success}" class="message-card">
         <h2>{{message.title}}</h2>
 
         <div *ngFor="let notification of message.notifications" class="message-items">
@@ -8,5 +9,5 @@
         </div>
     </div>
 
-    <button class="button danger" (click)="onClose()">Fechar</button>
+    <button class="button" (click)="onClose()">Fechar</button>
 </div>
