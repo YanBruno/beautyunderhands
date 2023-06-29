@@ -1,11 +1,14 @@
 .form-box {
-    max-width: 25rem;
-    background: var(--color-1);
+    max-width: 300px;
+    /* background: var(--color-1); */
     overflow: hidden;
     border-radius: 16px;
 
     margin: 0 auto;
     margin-top: 8rem;
+
+    border: var(--border);
+    box-shadow: var(--box-shadow);
 }
 
 .form {
@@ -15,6 +18,8 @@
     padding: 32px 24px 24px;
     gap: 16px;
     text-align: center;
+
+    /* border: var(--border); */
 }
 
 /*Form text*/
@@ -35,6 +40,8 @@
     background-color: #fff;
     margin: 1rem 0 .5rem;
     width: 100%;
+
+    border: var(--border);
 }
 
 .input {
@@ -68,7 +75,7 @@
 
 /*Button*/
 .form button {
-    background-color: var(--color-2);
+    background-color: var(--color-1);
 
     border: 0;
     border-radius: 24px;
@@ -80,5 +87,5 @@
 }
 
 .form button:hover {
-    background-color: var(--color-3);
+    background-color: var(--color-2);
 }

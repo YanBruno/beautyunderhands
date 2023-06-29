@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { GenericResponseResult } from 'src/app/core/models/genereic-response-result.model';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/core/services/message.service';
+import { Security } from 'src/app/core/utils/security.util';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,15 @@ export class AuthService {
   }
   signUp(): void { }
 
+  logout(): void {
+    Security.clear();
+    this.updateLoggedIn();
+    this.router.navigate(['/login']);
+  }
+
   handlerLogin(result: GenericResponseResult) {
     if (result.success) {
-      localStorage.setItem('beautykey', result.data.token);
+      Security.setToken(result.data.token);
       this.updateLoggedIn();
 
       this.router.navigate(['/agenda']);
@@ -36,7 +43,7 @@ export class AuthService {
   }
 
   updateLoggedIn() {
-    const token = localStorage.getItem('beautykey');
+    const token = Security.getToken();
     if (token) this.loggedIn.next(true);
     if (!token) this.loggedIn.next(false);
   }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuItem } from '../../models/menu-item.model';
-import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +12,12 @@ export class NavbarComponent {
   items: MenuItem[] = [
     { materialIcon: 'account_circle', route: '/conta', text: 'Conta' } as MenuItem
   ];
-  constructor(private router: Router) {
+  constructor(private authService: AuthService) {
 
   }
 
   logout() {
-    this.router.navigate(['login']);
+    this.authService.logout();
   }
 
   showUnits() { }
