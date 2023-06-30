@@ -10,7 +10,7 @@ import { MainFrameComponent } from './pages/frames/main-frame.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { LoaderComponent } from './pages/loader/loader.component';
+import { LoaderPageComponent } from './pages/loader-page/loader-page.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
 
@@ -20,7 +20,7 @@ const COMPONENTS = [
   MainFrameComponent,
   NotfoundPageComponent,
   OnlyNavbarFrameComponent,
-  LoaderComponent,
+  LoaderPageComponent,
   MessagePageComponent
 ]
 const MODULES = [

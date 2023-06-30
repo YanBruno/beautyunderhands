@@ -3,10 +3,10 @@ import { LoaderService } from '../../services/loader.service';
 
 @Component({
   selector: 'app-loader',
-  templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.css']
+  templateUrl: './loader-page.component.html',
+  styleUrls: ['./loader-page.component.css']
 })
-export class LoaderComponent {
+export class LoaderPageComponent {
   constructor(public loaderService: LoaderService) {
 
 
