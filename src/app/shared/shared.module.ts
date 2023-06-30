@@ -5,8 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { CalendarService } from './services/calendar.service';
 
-
-
 @NgModule({
   declarations: [
     SearchBarComponent,
@@ -20,5 +18,6 @@ import { CalendarService } from './services/calendar.service';
     SearchBarComponent,
     CalendarComponent
   ]
+  , providers: [CalendarService]
 })
 export class SharedModule { }

@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { SharedModule } from '../shared.module';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CalendarService {
 
   private _date = new BehaviorSubject<Date>(new Date());

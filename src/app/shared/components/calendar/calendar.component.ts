@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { CalendarItem } from '../../models/calendar-item.model';
 import { CalendarService } from '../../services/calendar.service';
 import { Subscription } from 'rxjs';
