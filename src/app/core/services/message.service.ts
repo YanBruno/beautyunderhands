@@ -9,16 +9,7 @@ import { MessageNotification } from '../models/message-notification.model';
 export class MessageService {
 
   private messages: Message[] = [
-    {
-      title: 'Ops, algo errado aconteceu.'
-      , notifications: [{ key: '01', message: 'Teste' }] as MessageNotification[]
-      , success: false
-    } as Message
-    , {
-      title: 'Ops, algo errado aconteceu.'
-      , notifications: [{ key: '01', message: 'Teste' }] as MessageNotification[]
-      , success: true
-    } as Message
+
   ];
 
   add(message: Message): void {
