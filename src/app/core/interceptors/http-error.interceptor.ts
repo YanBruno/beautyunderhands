@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, catchError, retry, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { MessageService } from '../services/message.service';
 import { Message } from '../models/message.model';
 
@@ -22,7 +22,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         if (error.status === 401)
           this.messageService.add(
             { title: 'Erro de autenticação', success: false } as Message
-          );
+          )
+        else {
+          this.messageService.add(
+            { title: error.message, success: false } as Message
+          )
+        };
 
         return throwError(() => new Error(error.error))
       })

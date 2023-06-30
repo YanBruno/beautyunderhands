@@ -47,7 +47,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   //renderiza os mês na tela
   loadDates() {
-    const today = new Date();
     this.dates = [];
 
     const firstDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
