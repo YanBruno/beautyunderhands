@@ -22,7 +22,6 @@ export class UserPageComponent implements OnInit {
     this.service.getProvider().subscribe({
       next: result => {
         this.provider = result
-        console.log('oi');
       }
     });
   }

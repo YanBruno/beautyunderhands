@@ -12,10 +12,10 @@ export const AuthGuard = () => {
     return service
         .isLoggedIn
         .pipe(
+            first(),
             tap(value => {
                 if (!value)
                     router.navigate(['/entrar']);
-            }),
-            first()
+            })
         );
 }
