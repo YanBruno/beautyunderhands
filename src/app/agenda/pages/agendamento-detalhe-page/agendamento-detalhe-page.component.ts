@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { SchedulingItem } from '../../models/schedulingItem.model';
 import { ActivatedRoute } from '@angular/router';
 import { AgendaService } from '../../services/agenda.service';
@@ -10,7 +10,7 @@ import { AgendaService } from '../../services/agenda.service';
 })
 export class AgendamentoDetalhePageComponent {
 
-  agendamento: SchedulingItem = {} as SchedulingItem;
+  agendamento: SchedulingItem | null = null;
   agendamentoId = this.route.snapshot.paramMap.get('id');
 
   constructor(
@@ -21,7 +21,7 @@ export class AgendamentoDetalhePageComponent {
       this.agendaService.getSchedulingItem(this.agendamentoId).subscribe(
         {
           next: result => {
-            this.agendamento = result
+            this.agendamento = result;
           }
           , error: err => { }
         }

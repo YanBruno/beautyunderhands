@@ -46,6 +46,7 @@ export class MonthViewComponent {
   }
 
   onChangeDate(number: number): void {
+    this.agendamentos = [];
     const d = this.day;
     d.setDate(d.getDate() + number);
     this.agendaService.setSelectedDay(new Date(d.getFullYear(), d.getMonth(), d.getDate()));

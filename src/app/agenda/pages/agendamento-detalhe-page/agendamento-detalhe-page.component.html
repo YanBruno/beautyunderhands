@@ -17,7 +17,7 @@
 
         </div>
 
-        <div class="content">
+        <div *ngIf="agendamento" class="content">
             <div class="detail-container">
 
                 <div class="detail-line">
@@ -44,6 +44,10 @@
                     <h2 class="value">{{agendamento.status}}</h2>
                 </div>
             </div>
+        </div>
+
+        <div *ngIf="!agendamento" class="content">
+            <p>Nada por aqui</p>
         </div>
     </div>
 </div>

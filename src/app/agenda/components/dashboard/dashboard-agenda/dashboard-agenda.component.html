@@ -15,11 +15,16 @@
 
     </div>
 
-    <div class="content">
+    <div *ngIf="agendamentos.length" class="content">
         <app-calendar *ngIf="showCalendar" (selectedDate)="onSelectedDate($event)" />
         <div class="schedules-container">
             <app-scheduling-item-card *ngFor="let agendamento of agendamentos" [agendamento]="agendamento" />
         </div>
+    </div>
+
+    <div *ngIf="!agendamentos.length" class="content">
+        <app-calendar *ngIf="showCalendar" (selectedDate)="onSelectedDate($event)" />
+        <p>nada por aqui</p>
     </div>
 
 </div>
