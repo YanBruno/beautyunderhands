@@ -28,14 +28,14 @@
     align-items: center;
     justify-content: center;
 
-
-
-    padding: 2rem;
+    padding: 1rem;
     margin-bottom: 1rem;
 
     box-shadow: var(--box-shadow);
+}
 
-
+.button-close {
+    align-self: flex-end;
 }
 
 .message-card h2 {

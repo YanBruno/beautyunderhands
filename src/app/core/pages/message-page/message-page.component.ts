@@ -12,7 +12,7 @@ export class MessagePageComponent {
 
   }
 
-  onClose(): void {
-    this.service.clear();
+  onClose(index: number): void {
+    this.service.clear(index);
   }
 }

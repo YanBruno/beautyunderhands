@@ -8,7 +8,18 @@ import { MessageNotification } from '../models/message-notification.model';
 })
 export class MessageService {
 
-  private messages: Message[] = [];
+  private messages: Message[] = [
+    {
+      title: 'Ops, algo errado aconteceu.'
+      , notifications: [{ key: '01', message: 'Teste' }] as MessageNotification[]
+      , success: false
+    } as Message
+    , {
+      title: 'Ops, algo errado aconteceu.'
+      , notifications: [{ key: '01', message: 'Teste' }] as MessageNotification[]
+      , success: true
+    } as Message
+  ];
 
   add(message: Message): void {
     this.messages.push(message);
@@ -31,8 +42,13 @@ export class MessageService {
     this.messages.push(message);
   }
 
-  clear(): void {
+  clearAll(): void {
     this.messages.pop();
+  }
+
+  clear(index: number): void {
+    if (index > -1)
+      this.messages.splice(index, 1);
   }
 
   getMessages(): Message[] {
