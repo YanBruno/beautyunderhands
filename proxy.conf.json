@@ -1,6 +1,6 @@
 {
     "/api/": {
-        "target": "https://beautyadmin-qa.azurewebsites.net/api",
+        "target": "https://localhost:7015/api",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true,
@@ -8,7 +8,7 @@
             "^/api": ""
         },
         "headers": {
-            "origin": "https://beautyadmin-qa.azurewebsites.net"
+            "origin": "https://localhost:7015"
         }
     }
 }
