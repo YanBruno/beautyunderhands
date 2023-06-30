@@ -10,8 +10,6 @@ import { Security } from 'src/app/core/utils/security.util';
 import { SignupCredentials } from '../models/signup-credentials.model';
 import { Role } from 'src/app/core/models/role.model';
 import { Unit } from 'src/app/core/models/unit.model';
-import { Message } from 'src/app/core/models/message.model';
-import { MessageNotification } from 'src/app/core/models/message-notification.model';
 
 @Injectable({
   providedIn: 'root'
