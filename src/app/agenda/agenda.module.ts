@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AgendaRoutingModule } from './agenda-routing.module';
 import { DashboardPageComponent } from './pages/agenda-page/agenda-page.component';
 import { DayViewComponent } from './components/dashboard/dashboard-profissionais/dashboard-profissionais.component';
-import { MonthViewComponent } from './components/dashboard/dashboard-agenda/dashboard-agenda.component';
+import { DashboardAgendaComponent } from './components/dashboard/dashboard-agenda/dashboard-agenda.component';
 import { SharedModule } from '../shared/shared.module';
 import { NovoAgendamentoPageComponent } from './pages/novo-agendamento-page/novo-agendamento-page.component';
 import { SchedulingItemCardComponent } from './components/dashboard/scheduling-item-card/scheduling-item-card.component';
@@ -17,7 +17,7 @@ import { AgendaService } from './services/agenda.service';
   declarations: [
     DashboardPageComponent,
     DayViewComponent,
-    MonthViewComponent,
+    DashboardAgendaComponent,
     NovoAgendamentoPageComponent,
     SchedulingItemCardComponent,
     AgendamentoDetalhePageComponent,

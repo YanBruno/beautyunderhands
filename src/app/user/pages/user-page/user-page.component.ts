@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Provider } from 'src/app/core/models/provider.model';
 import { Name } from 'src/app/core/models/name.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.css']
 })
-export class UserPageComponent {
+export class UserPageComponent implements OnInit {
 
   provider = {
     name: {} as Name
@@ -16,12 +17,12 @@ export class UserPageComponent {
     , createAt: ''
   } as Provider;
 
-  constructor(private service: UserService) {
+  constructor(private service: UserService) { }
+  ngOnInit(): void {
     this.service.getProvider().subscribe({
       next: result => {
         this.provider = result
-
-        console.log(result);
+        console.log('oi');
       }
     });
   }

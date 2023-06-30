@@ -21,7 +21,12 @@ export class AgendaService {
   getSchedulingItems(day: Date): Observable<SchedulingItem[]> {
     const url = `${environment.base_url}/v1/Scheduling/items?day=${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}&unitId=${Security.getUnit()}`;
     const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
-    return this.http.get<SchedulingItem[]>(url, { headers: httpHeader }).pipe(first());
+    return this
+      .http
+      .get<SchedulingItem[]>(url, { headers: httpHeader })
+      .pipe(
+        first()
+      );
   }
 
   getSchedulingItem(id: string): Observable<SchedulingItem | null> {

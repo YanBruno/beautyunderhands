@@ -1,13 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { CalendarItem } from '../../models/calendar-item.model';
 import { CalendarService } from '../../services/calendar.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit, OnDestroy {
 
   @Output()
   selectedDate = new EventEmitter<Date>();
@@ -15,23 +16,33 @@ export class CalendarComponent {
   dates: CalendarItem[] = [];
   date = new Date();
 
+  private subs: Subscription[] = []
+
   private selectedDay = new Date();
 
-  constructor(private service: CalendarService) {
-    this.service.date.subscribe({
-      next: day => {
-        this.date = day;
-      }
-    });
+  constructor(private service: CalendarService) { }
+  ngOnInit(): void {
+    this.subs.push(
+      this.service.date.subscribe({
+        next: day => {
+          this.date = day;
+        }
+      })
+    );
 
-    this.service.selectedDay.subscribe({
-      next: day => {
-        this.selectedDay = day;
-      }
-    });
+    this.subs.push(
+      this.service.selectedDay.subscribe({
+        next: day => {
+          this.selectedDay = day;
+        }
+      })
+    );
 
     this.loadDates();
     this.loadSelectedDay();
+  }
+  ngOnDestroy(): void {
+    this.subs.forEach(x => { x.unsubscribe(); });
   }
 
   //renderiza os mês na tela
@@ -81,8 +92,6 @@ export class CalendarComponent {
   changeDate(number: number) {
     const date = this.date;
     date.setMonth(this.date.getMonth() + number);
-
-    // this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
     this.service.setDate(new Date(date.getFullYear(), date.getMonth(), date.getDate()));
 

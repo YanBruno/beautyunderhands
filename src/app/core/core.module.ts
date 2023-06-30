@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderPageComponent } from './pages/loader-page/loader-page.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 const COMPONENTS = [
   NavbarComponent,
@@ -46,6 +47,11 @@ const MODULES = [
     , {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
+      multi: true
+    }
+    , {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
       multi: true
     }
   ]
