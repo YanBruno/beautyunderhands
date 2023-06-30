@@ -10,18 +10,19 @@
 
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    gap: 2rem;
+
+    overflow-y: auto;
+
+    height: var(--app-height);
+
+    padding: 4rem;
 }
 
 .message-card {
     border-radius: 5px;
-
-    min-height: 5rem;
-    min-width: 15rem;
-
-    max-height: 15rem;
-    max-width: 25rem;
 
     display: flex;
     flex-flow: column nowrap;
@@ -29,13 +30,17 @@
     justify-content: center;
 
     padding: 1rem;
-    margin-bottom: 1rem;
 
     box-shadow: var(--box-shadow);
 }
 
 .button-close {
     align-self: flex-end;
+
+}
+
+.button-close span {
+    font-weight: bold;
 }
 
 .message-card h2 {

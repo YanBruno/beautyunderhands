@@ -1,7 +1,7 @@
-<div *ngIf="this.service.getMessages().length" class="message-container">
+<div class="message-container" *ngIf="this.service.getMessages().length">
 
-    <div *ngFor="let message of this.service.getMessages(); let i = index"
-        [ngClass]="{'danger': !message.success, 'success': message.success}" class="message-card">
+    <div class="message-card" *ngFor="let message of this.service.getMessages(); let i = index"
+        [ngClass]="{'danger': !message.success, 'success': message.success}">
         <button class="button-close" (click)="onClose(i)">
             <span class="material-symbols-outlined">
                 close
@@ -9,7 +9,7 @@
         </button>
         <h2>{{message.title}}</h2>
 
-        <div *ngFor="let notification of message.notifications" class="message-items">
+        <div class="message-items" *ngFor="let notification of message.notifications">
             <h3>{{notification.message}}</h3>
         </div>
     </div>

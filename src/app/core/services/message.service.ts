@@ -8,9 +8,7 @@ import { MessageNotification } from '../models/message-notification.model';
 })
 export class MessageService {
 
-  private messages: Message[] = [
-
-  ];
+  private messages: Message[] = [];
 
   add(message: Message): void {
     this.messages.push(message);
