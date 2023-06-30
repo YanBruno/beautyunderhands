@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { AgendaService } from '../../../services/agenda.service';
 
 @Component({
-  selector: 'app-day-view',
-  templateUrl: './day-view.component.html',
-  styleUrls: ['./day-view.component.css']
+  selector: 'app-dashboard-profissionais',
+  templateUrl: './dashboard-profissionais.component.html',
+  styleUrls: ['./dashboard-profissionais.component.css']
 })
 export class DayViewComponent {
 

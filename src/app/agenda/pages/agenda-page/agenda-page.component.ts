@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { Security } from 'src/app/core/utils/security.util';
 
 @Component({
-  selector: 'app-dashboard-page',
-  templateUrl: './dashboard-page.component.html',
-  styleUrls: ['./dashboard-page.component.css']
+  selector: 'app-agenda-page',
+  templateUrl: './agenda-page.component.html',
+  styleUrls: ['./agenda-page.component.css']
 })
 export class DashboardPageComponent {
 

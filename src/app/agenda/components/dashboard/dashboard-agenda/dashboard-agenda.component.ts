@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { AgendaService } from '../../../services/agenda.service';
 import { SchedulingItem } from '../../../models/schedulingItem.model';
-import { SchedulingService } from '../../../services/scheduling.service';
 
 @Component({
-  selector: 'app-month-view-page',
-  templateUrl: './month-view.component.html',
-  styleUrls: ['./month-view.component.css']
+  selector: 'app-dashboard-agenda',
+  templateUrl: './dashboard-agenda.component.html',
+  styleUrls: ['./dashboard-agenda.component.css']
 })
 export class MonthViewComponent {
 
@@ -16,7 +15,6 @@ export class MonthViewComponent {
 
   constructor(
     public agendaService: AgendaService
-    , private schedulingService: SchedulingService
   ) {
 
     this.agendaService.selectedDay$.subscribe({
@@ -32,7 +30,7 @@ export class MonthViewComponent {
   }
 
   getSchedulingItems(day: Date) {
-    this.schedulingService.getSchedulingItems(day).subscribe({
+    this.agendaService.getSchedulingItems(day).subscribe({
       next: schedulings => {
         this.agendamentos = schedulings;
       },

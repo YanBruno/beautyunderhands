@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SchedulingItem } from '../../models/schedulingItem.model';
 import { ActivatedRoute } from '@angular/router';
-import { SchedulingService } from '../../services/scheduling.service';
+import { AgendaService } from '../../services/agenda.service';
 
 @Component({
   selector: 'app-agendamento-detalhe-page',
@@ -15,10 +15,10 @@ export class AgendamentoDetalhePageComponent {
 
   constructor(
     private route: ActivatedRoute
-    , private schedulingService: SchedulingService
+    , private agendaService: AgendaService
   ) {
     if (this.agendamentoId)
-      this.schedulingService.getSchedulingItem(this.agendamentoId).subscribe(
+      this.agendaService.getSchedulingItem(this.agendamentoId).subscribe(
         {
           next: result => {
             this.agendamento = result
