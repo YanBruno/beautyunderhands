@@ -3,9 +3,9 @@
         <div class="agenda-header">
 
             <div class="view-type">
-                <button *ngIf="isAdmin()" class="button" (click)="changeActiveView(1)">Agenda</button>
+                <button class="button" (click)="changeActiveView(1)">Agenda</button>
                 <button class="button" (click)="changeActiveView(3)">Profissionais</button>
-                <button *ngIf="isAdmin()" class="button" [routerLink]="['novo-agendamento']">Novo</button>
+                <button class="button" [routerLink]="['novo-agendamento']">Novo</button>
             </div>
         </div>
 

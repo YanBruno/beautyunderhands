@@ -8,13 +8,9 @@ import { Security } from 'src/app/core/utils/security.util';
 })
 export class DashboardPageComponent {
 
-  activeView = this.isAdmin() ? 1 : 3;
+  activeView = 1;
 
   changeActiveView(number: number) {
     this.activeView = number;
-  }
-
-  isAdmin(): boolean {
-    return Security.getRole() === "1" ? true : false;
   }
 }

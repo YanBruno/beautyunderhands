@@ -17,16 +17,17 @@ export class Security {
         return this.getStorageValue('beautyu');
     }
 
-    public static getRole(): string | null {
-        return this.getStorageValue('beautyr');
-    }
-
     public static setToken(token: string): void {
         localStorage.setItem('beautyk', token);
     }
 
+    public static setUnit(unit: string): void {
+        localStorage.setItem('beautyu', unit);
+    }
+
     public static clear(): void {
         localStorage.removeItem('beautyk');
+        localStorage.removeItem('beautyu');
     }
 
     public static hasToken(): boolean {
