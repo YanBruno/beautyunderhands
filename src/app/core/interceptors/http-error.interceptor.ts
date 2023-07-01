@@ -21,7 +21,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401)
           this.messageService.add(
-            { title: 'Erro de autenticação', success: false } as Message
+            { title: 'Acesso negado', success: false } as Message
           )
         else {
           this.messageService.add(

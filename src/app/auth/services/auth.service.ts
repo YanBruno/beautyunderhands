@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
 import { MessageService } from 'src/app/core/services/message.service';
 import { Security } from 'src/app/core/utils/security.util';
 import { SignupCredentials } from '../models/signup-credentials.model';
-import { Role } from 'src/app/core/models/role.model';
-import { Unit } from 'src/app/core/models/unit.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,14 +37,11 @@ export class AuthService {
     if (result.success) {
 
       const token = result.data.token;
-      const role = { id: result.data.roleId } as Role
-      const unit = { id: result.data.unitId } as Unit
 
-      Security.setDefaultData(token, role, unit);
+      Security.setToken(token);
       this.updateLoggedIn();
       this.router.navigate(['/agenda']);
     }
-
 
     if (!result.success) {
       this.messageService.addFromResult(result);
@@ -54,6 +49,6 @@ export class AuthService {
   }
 
   updateLoggedIn() {
-    this.loggedIn.next(Security.hasData());
+    this.loggedIn.next(Security.hasToken());
   }
 }

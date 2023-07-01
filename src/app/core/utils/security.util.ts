@@ -1,6 +1,3 @@
-import { Role } from "../models/role.model";
-import { Unit } from "../models/unit.model";
-
 export class Security {
 
     private static getStorageValue(key: string): string | null {
@@ -24,38 +21,16 @@ export class Security {
         return this.getStorageValue('beautyr');
     }
 
-    private static setRole(role: Role): void {
-        if (role)
-            localStorage.setItem('beautyr', role.id)
-    }
-
-    private static setUnit(unit: Unit): void {
-        if (unit)
-            localStorage.setItem('beautyu', unit.id);
-    }
-
     public static setToken(token: string): void {
         localStorage.setItem('beautyk', token);
     }
 
-    public static setDefaultData(token: string, role: Role, unit: Unit) {
-        this.setToken(token);
-        this.setRole(role)
-        this.setUnit(unit)
-    }
-
     public static clear(): void {
-        localStorage.removeItem('beautyr');
-        localStorage.removeItem('beautyu');
         localStorage.removeItem('beautyk');
     }
 
-    public static hasData(): boolean {
-        const token = this.getToken();
-        const role = this.getRole();
-        const unit = this.getUnit();
-
-        if (token && role && unit)
+    public static hasToken(): boolean {
+        if (this.getToken())
             return true;
 
         return false;
