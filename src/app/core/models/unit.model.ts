@@ -6,7 +6,7 @@ import { Title } from "./valueObjects/title.model";
 export interface Unit {
     id: string;
     title: Title;
-    phonr: Phone;
+    phone: Phone;
     email: Email;
     details: Details;
     createAt: Date;

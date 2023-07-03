@@ -13,6 +13,13 @@
         <button (click)="showUnits()" class="nav-icon-field">
             <span class="material-symbols-outlined">business</span>
             <p class="">Unidades</p>
+
+            <div class="dialog-units-container">
+
+                <div *ngFor="let contract of contracts" class="dialog-units">
+                    <p>{{contract.unit.title.value}}</p>
+                </div>
+            </div>
         </button>
 
         <a (click)="logout()" class="nav-icon-field">
@@ -20,4 +27,6 @@
             <p class="">Sair</p>
         </a>
     </div>
+
+
 </div>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { MenuItem } from '../../models/menu-item.model';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { UnitService } from '../../services/unit.service';
 import { ProviderService } from '../../services/provaider.service';
+import { UnitContract } from '../../models/unitContract.model';
+import { connect } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,9 @@ export class NavbarComponent {
   items: MenuItem[] = [
     { materialIcon: 'account_circle', route: '/conta', text: 'Conta' } as MenuItem
   ];
+
+  contracts: UnitContract[] = [];
+
   constructor(private authService: AuthService, private providerService: ProviderService) {
 
   }
@@ -25,7 +29,7 @@ export class NavbarComponent {
   showUnits() {
     this.providerService.getContracts().subscribe({
       next: result => {
-        console.log(result);
+        this.contracts = result;
       }
     });
   }
