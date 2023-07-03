@@ -1,6 +1,6 @@
 .form-box {
     max-width: 300px;
-    /* background: var(--color-1); */
+
     overflow: hidden;
     border-radius: 16px;
 
@@ -19,7 +19,6 @@
     gap: 16px;
     text-align: center;
 
-    /* border: var(--border); */
 }
 
 /*Form text*/

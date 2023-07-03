@@ -4,11 +4,11 @@ import { AuthService } from '../../services/auth.service';
 import { SignupCredentials } from '../../models/signup-credentials.model';
 
 @Component({
-  selector: 'app-signup-page',
-  templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.css']
+  selector: 'app-signup-form',
+  templateUrl: './signup-form.component.html',
+  styleUrls: ['./signup-form.component.css']
 })
-export class SignupPageComponent {
+export class SignupFormComponent {
 
   form = this.fb.group({
     firstName: ['', Validators.compose([

@@ -8,6 +8,7 @@
     margin-top: 8rem;
 
     border: var(--border);
+    box-shadow: var(--box-shadow);
 }
 
 .form {

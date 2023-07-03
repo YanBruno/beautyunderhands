@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 
 @NgModule({
   declarations: [
-    LoginPageComponent
-    , SignupPageComponent
+    LoginFormComponent
+    , SignupFormComponent
+    , DashboardPageComponent
   ],
   imports: [
     CommonModule,
