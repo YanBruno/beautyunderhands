@@ -10,10 +10,12 @@ import { MainFrameComponent } from './pages/frames/main-frame.component';
 import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { OnlyNavbarFrameComponent } from './pages/frames/only-navbar-frame.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { LoaderPageComponent } from './pages/loader-page/loader-page.component';
+import { LoaderPageComponent } from './pages/modals/loader-page/loader-page.component';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
-import { MessagePageComponent } from './pages/message-page/message-page.component';
+import { MessagePageComponent } from './pages/modals/message-page/message-page.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { UnitPageComponent } from './pages/modals/unit-page/unit-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   NavbarComponent,
@@ -22,17 +24,20 @@ const COMPONENTS = [
   NotfoundPageComponent,
   OnlyNavbarFrameComponent,
   LoaderPageComponent,
-  MessagePageComponent
+  MessagePageComponent,
+  UnitPageComponent
 ]
 const MODULES = [
   CommonModule
   , RouterModule
-  , HttpClientModule]
+  , HttpClientModule
+  , ReactiveFormsModule
+  , ReactiveFormsModule
+]
 
 @NgModule({
   declarations: [
     COMPONENTS,
-
   ],
   imports: [
     CommonModule,

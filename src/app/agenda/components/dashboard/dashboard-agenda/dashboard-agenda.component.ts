@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AgendaService } from '../../../services/agenda.service';
 import { SchedulingItem } from '../../../models/schedulingItem.model';
 import { Subscription } from 'rxjs';
+import { UnitService } from 'src/app/core/services/unit.service';
 
 @Component({
   selector: 'app-dashboard-agenda',
@@ -13,23 +14,29 @@ export class DashboardAgendaComponent implements OnInit, OnDestroy {
   showCalendar = false;
   agendamentos: SchedulingItem[] = [];
 
-  private sub = new Subscription();
+  private sub: Subscription[] = [];
   private day = new Date();
 
   constructor(
-    public agendaService: AgendaService) { }
+    public agendaService: AgendaService, private unitService: UnitService) { }
 
   ngOnInit(): void {
-    this.sub = this.agendaService.selectedDay$.subscribe({
+    this.sub.push(this.agendaService.selectedDay$.subscribe({
       next: day => {
         this.day = day;
-        this.getSchedulingItems(day);
+        this.getSchedulingItems(this.day);
       }
-    });
+    }));
+
+    this.sub.push(this.unitService.isSelectedUnit.subscribe({
+      next: () => {
+        this.getSchedulingItems(this.day);
+      }
+    }));
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.sub.forEach(x => { x.unsubscribe() });
   }
 
   onShowCalendar() {

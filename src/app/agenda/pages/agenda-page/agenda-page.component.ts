@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Security } from 'src/app/core/utils/security.util';
 
 @Component({
   selector: 'app-agenda-page',
@@ -9,6 +8,10 @@ import { Security } from 'src/app/core/utils/security.util';
 export class DashboardPageComponent {
 
   activeView = 1;
+
+  constructor() {
+
+  }
 
   changeActiveView(number: number) {
     this.activeView = number;
