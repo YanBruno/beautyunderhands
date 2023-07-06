@@ -5,11 +5,11 @@ import { first, tap } from "rxjs";
 
 export const AuthGuard = () => {
     const router = inject(Router);
-    const service = inject(AuthService);
+    const authService = inject(AuthService);
 
-    service.updateLoggedIn();
+    authService.updateLoggedIn();
 
-    return service
+    return authService
         .isLoggedIn
         .pipe(
             first(),

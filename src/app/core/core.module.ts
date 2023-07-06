@@ -14,8 +14,8 @@ import { LoaderPageComponent } from './pages/modals/loader-page/loader-page.comp
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { MessagePageComponent } from './pages/modals/message-page/message-page.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
-import { UnitPageComponent } from './pages/modals/unit-page/unit-page.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContractsPageComponent } from './pages/modals/contracts-page/contracts-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const COMPONENTS = [
   NavbarComponent,
@@ -25,7 +25,7 @@ const COMPONENTS = [
   OnlyNavbarFrameComponent,
   LoaderPageComponent,
   MessagePageComponent,
-  UnitPageComponent
+  ContractsPageComponent
 ]
 const MODULES = [
   CommonModule

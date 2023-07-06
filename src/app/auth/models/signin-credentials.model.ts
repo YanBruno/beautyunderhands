@@ -1,4 +1,4 @@
-export interface LoginCredentials {
+export interface SigninCredentials {
     unsername: string;
     password: string;
 }

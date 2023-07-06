@@ -40,3 +40,7 @@
 
     box-shadow: var(--box-shadow);
 }
+
+.active {
+    background: var(--color-2);
+}

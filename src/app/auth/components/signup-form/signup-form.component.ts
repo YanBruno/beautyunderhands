@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { SignupCredentials } from '../../models/signup-credentials.model';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -37,13 +38,13 @@ export class SignupFormComponent {
     ])]
   });
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private accountService: AccountService, private authService: AuthService) {
 
   }
 
   submit() {
     if (this.form.valid)
-      this.authService.signUp(this.form.value as SignupCredentials).subscribe({
+      this.accountService.signUp(this.form.value as SignupCredentials).subscribe({
         next: result => {
           this.authService.handlerLogin(result);
         }

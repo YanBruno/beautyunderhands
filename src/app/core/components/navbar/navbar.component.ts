@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItem } from '../../models/menu-item.model';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { UnitService } from '../../services/unit.service';
-import { Security } from '../../utils/security.util';
+import { ContractContextService } from '../../services/contract-context.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,16 +14,15 @@ export class NavbarComponent {
     { materialIcon: 'account_circle', route: '/conta', text: 'Conta' } as MenuItem
   ];
 
-  constructor(private authService: AuthService, private unitService: UnitService) {
-    if (!Security.getUnit())
-      this.unitService.showModal();
+  constructor(private authService: AuthService, private contractContextService: ContractContextService) {
+
   }
 
   logout() {
     this.authService.logout();
   }
 
-  showUnits() {
-    this.unitService.showModal();
+  showContracts() {
+    this.contractContextService.showModal();
   }
 }

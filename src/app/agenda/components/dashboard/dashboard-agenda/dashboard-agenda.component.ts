@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AgendaService } from '../../../services/agenda.service';
 import { SchedulingItem } from '../../../models/schedulingItem.model';
 import { Subscription } from 'rxjs';
-import { UnitService } from 'src/app/core/services/unit.service';
+import { ContractContextService } from 'src/app/core/services/contract-context.service';
 
 @Component({
   selector: 'app-dashboard-agenda',
@@ -18,7 +18,9 @@ export class DashboardAgendaComponent implements OnInit, OnDestroy {
   private day = new Date();
 
   constructor(
-    public agendaService: AgendaService, private unitService: UnitService) { }
+    public agendaService: AgendaService,
+    private contractContextService: ContractContextService
+  ) { }
 
   ngOnInit(): void {
     this.sub.push(this.agendaService.selectedDay$.subscribe({
@@ -28,11 +30,13 @@ export class DashboardAgendaComponent implements OnInit, OnDestroy {
       }
     }));
 
-    this.sub.push(this.unitService.isSelectedUnit.subscribe({
-      next: () => {
-        this.getSchedulingItems(this.day);
-      }
-    }));
+    this.sub.push(
+      this.contractContextService.hasContractContext.subscribe({
+        next: () => {
+          this.getSchedulingItems(this.day);
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {

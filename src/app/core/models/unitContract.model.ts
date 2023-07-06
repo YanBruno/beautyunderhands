@@ -3,5 +3,7 @@ import { Unit } from "./unit.model";
 
 export interface UnitContract {
     roleType: Role;
-    unit: Unit
+    unit: Unit;
+    isActive: boolean;
+    isPrincipal: boolean;
 }

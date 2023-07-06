@@ -1,9 +1,0 @@
-<div *ngIf="this.unitService.isShowModal | async" class="modal-container">
-  <form class="form-container" [formGroup]="form">
-    <div class="form-field" *ngFor="let unit of units">
-      <input type="radio" name="unit" id="{{unit.id}}" value="{{unit.id}}" formControlName="unit" required>
-      <label for="{{unit.id}}">{{unit.title.value}}</label>
-    </div>
-    <button type="button" class="button" (click)="onSubmit()">Selecionar</button>
-  </form>
-</div>

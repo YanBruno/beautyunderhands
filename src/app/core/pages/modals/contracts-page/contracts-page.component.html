@@ -1,0 +1,21 @@
+<div *ngIf="showModal" class="modal-container">
+
+  <ng-container *ngIf="contracts.length">
+    <form class="form-container" [formGroup]="form">
+      <div *ngFor="let contract of contracts; let idx = index" [ngClass]="{'active': contract.isPrincipal}"
+        class="form-field">
+        <input *ngIf="!contract.isPrincipal" type="radio" name="idx" id="{{contract.unit.id}}" value="{{idx}}"
+          formControlName="idx" required>
+        <label for="{{contract.unit.id}}">{{contract.unit.title.value}}</label>
+      </div>
+      <button type="button" class="button" (click)="onSubmit()">Selecionar</button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="!contracts.length">
+    <p>Nada por aqui, é necessário criar um contrato para acessar as unidades disponíveis</p>
+
+    <button class="button" (click)="onClose()">Fechar</button>
+  </ng-container>
+
+</div>

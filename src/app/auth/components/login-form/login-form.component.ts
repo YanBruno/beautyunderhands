@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { LoginCredentials } from '../../models/login-credentials.model';
+import { SigninCredentials } from '../../models/signin-credentials.model';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-login-form',
@@ -21,15 +22,14 @@ export class LoginFormComponent {
     ])]
   });
 
-  constructor(private fb: FormBuilder, private service: AuthService) {
-  }
+  constructor(private fb: FormBuilder, private service: AccountService, private authService: AuthService) { }
 
   submit() {
-    const credentials = this.form.value as LoginCredentials
+    const credentials = this.form.value as SigninCredentials
 
     this.service.signIn(credentials).subscribe({
       next: result => {
-        this.service.handlerLogin(result);
+        this.authService.handlerLogin(result);
       }
       , error: err => { }
     });

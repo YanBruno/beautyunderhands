@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContractContextService } from 'src/app/core/services/contract-context.service';
 
 @Component({
   selector: 'app-agenda-page',
@@ -9,7 +10,7 @@ export class DashboardPageComponent {
 
   activeView = 1;
 
-  constructor() {
+  constructor(public contractContextService: ContractContextService) {
 
   }
 

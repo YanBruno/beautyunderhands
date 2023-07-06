@@ -4,6 +4,7 @@ import { MainFrameComponent } from './core/pages/frames/main-frame.component';
 import { NotfoundPageComponent } from './core/pages/notfound-page/notfound-page.component';
 import { OnlyNavbarFrameComponent } from './core/pages/frames/only-navbar-frame.component';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { ContractContextGuard } from './core/guards/contract-context.guard';
 
 const routes: Routes = [
   { pathMatch: 'full', path: '', redirectTo: '/agenda' }
@@ -13,7 +14,7 @@ const routes: Routes = [
   }
   , {
     path: 'clientes'
-    , canMatch: [AuthGuard]
+    , canMatch: [AuthGuard, ContractContextGuard]
     , component: MainFrameComponent
     , loadChildren: () => import('./cliente/cliente.module').then(m => m.ClienteModule)
   }
@@ -25,7 +26,7 @@ const routes: Routes = [
   }
   , {
     path: 'agenda'
-    , canMatch: [AuthGuard]
+    , canMatch: [AuthGuard, ContractContextGuard]
     , component: MainFrameComponent
     , loadChildren: () => import('./agenda/agenda.module').then(m => m.AgendaModule)
   }
