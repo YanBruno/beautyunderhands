@@ -22,11 +22,13 @@ export class MessageService {
       notifications: []
     } as Message;
 
-    if (result.data.length)
-      message.notifications = result.data
+    if (result.data) {
+      if (result.data.length)
+        message.notifications = result.data
 
-    if (!result.data.length)
-      message.notifications.push(result.data as MessageNotification);
+      if (!result.data.length)
+        message.notifications.push(result.data as MessageNotification);
+    }
 
     this.messages.push(message);
   }

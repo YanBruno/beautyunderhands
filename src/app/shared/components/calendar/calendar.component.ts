@@ -49,21 +49,21 @@ export class CalendarComponent implements OnInit, OnDestroy {
   loadDates() {
     this.dates = [];
 
-    const firstDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
+    // const firstDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 1).getDay();
     const lastDateofMonth = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
-    const lastDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), lastDateofMonth).getDay();
-    const lastDateofLastMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
+    // const lastDayofMonth = new Date(this.date.getFullYear(), this.date.getMonth(), lastDateofMonth).getDay();
+    // const lastDateofLastMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
 
-    for (let i = firstDayofMonth; i > 0; i--) {
-      this.dates.push({
-        day: lastDateofLastMonth - i + 1
-        , month: this.date.getMonth() - 1
-        , year: this.date.getFullYear()
-        , isInactive: true
-        , isToday: false
-        , isSelected: false
-      } as CalendarItem);
-    }
+    // for (let i = firstDayofMonth; i > 0; i--) {
+    //   this.dates.push({
+    //     day: lastDateofLastMonth - i + 1
+    //     , month: this.date.getMonth() - 1
+    //     , year: this.date.getFullYear()
+    //     , isInactive: true
+    //     , isToday: false
+    //     , isSelected: false
+    //   } as CalendarItem);
+    // }
 
     for (let i = 1; i <= lastDateofMonth; i++) {
       this.dates.push({
@@ -75,15 +75,15 @@ export class CalendarComponent implements OnInit, OnDestroy {
       } as CalendarItem);
     }
 
-    for (let i = lastDayofMonth; i < 6; i++) {
-      this.dates.push({
-        day: i - lastDayofMonth + 1
-        , month: this.date.getMonth() + 1
-        , year: this.date.getFullYear()
-        , isInactive: true
-        , isToday: false
-      } as CalendarItem);
-    }
+    // for (let i = lastDayofMonth; i < 6; i++) {
+    //   this.dates.push({
+    //     day: i - lastDayofMonth + 1
+    //     , month: this.date.getMonth() + 1
+    //     , year: this.date.getFullYear()
+    //     , isInactive: true
+    //     , isToday: false
+    //   } as CalendarItem);
+    // }
 
     this.loadSelectedDay();
   }
