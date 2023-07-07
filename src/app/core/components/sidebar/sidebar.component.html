@@ -2,7 +2,7 @@
 
     <button [ngClass]="{'active-sidebar': showSideBar}" class="active-side-bar" (click)="changeShow()">
         <span class="material-symbols-outlined menu-item">
-            menu
+            {{showSideBar ? "close" : "menu"}}
         </span>
     </button>
 

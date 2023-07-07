@@ -55,6 +55,18 @@
 }
 
 /* active sidebar */
+
+.sidebar-container.active-sidebar {
+    display: flex;
+    flex-flow: column nowrap;
+
+    padding: 0 2rem;
+}
+
+.active-side-bar.active-sidebar {
+    align-self: flex-end;
+}
+
 .sidebar-container.active-sidebar {
     width: var(--sidebar-max-width);
     transition: width .3s ease;
