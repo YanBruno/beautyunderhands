@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrestadorRoutingModule } from './prestador-routing.module';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
   ],
   imports: [
     CommonModule,
-    PrestadorRoutingModule
+    PrestadorRoutingModule,
+    SharedModule
   ]
 })
 export class PrestadorModule { }
