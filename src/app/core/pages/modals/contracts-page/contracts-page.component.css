@@ -20,6 +20,14 @@
     padding: 4rem;
 }
 
+.button-close {
+    align-self: flex-end;
+}
+
+.button-close span {
+    font-weight: bold;
+}
+
 .form-container {
     display: flex;
     flex-flow: column nowrap;

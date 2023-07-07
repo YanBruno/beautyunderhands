@@ -32,8 +32,9 @@ export class DashboardAgendaComponent implements OnInit, OnDestroy {
 
     this.sub.push(
       this.contractContextService.hasContractContext.subscribe({
-        next: () => {
-          this.getSchedulingItems(this.day);
+        next: result => {
+          if (result)
+            this.getSchedulingItems(this.day);
         }
       })
     );

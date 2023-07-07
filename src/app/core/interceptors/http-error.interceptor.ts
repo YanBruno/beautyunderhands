@@ -27,11 +27,19 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           this.authService.logout();
         }
 
+        if (error.status === 403) {
+          this.messageService.add(
+            { title: 'Acesso negado', success: false, notifications: [{ key: "1", message: "Você não tem acesso a esta funcionalidade" }] } as Message
+          )
+        }
+
         else {
           this.messageService.add(
             { title: error.message, success: false } as Message
           )
         };
+
+        console.log(request.url);
 
         return throwError(() => new Error(error.error))
       })

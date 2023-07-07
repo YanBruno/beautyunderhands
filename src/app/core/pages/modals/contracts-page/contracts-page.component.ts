@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { UnitContract } from 'src/app/core/models/unitContract.model';
 import { ContractContextService } from 'src/app/core/services/contract-context.service';
 import { ContractService } from 'src/app/core/services/contract.service';
-import { Security } from 'src/app/core/utils/security.util';
 
 @Component({
   selector: 'app-contracts-page',
@@ -36,11 +35,12 @@ export class ContractsPageComponent implements OnInit, OnDestroy {
     this.contractContextService.isShowModal.subscribe({
       next: result => {
 
-        this.contractService.getContracts().subscribe({
-          next: result => {
-            this.contracts = result;
-          }
-        });
+        if (result)
+          this.contractService.getContracts().subscribe({
+            next: result => {
+              this.contracts = result;
+            }
+          });
 
         this.showModal = result;
       }
@@ -50,6 +50,7 @@ export class ContractsPageComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.valid) {
+
       const { idx } = this.form.value
       const contract = this.contracts[idx as number];
 

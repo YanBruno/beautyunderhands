@@ -1,5 +1,11 @@
 <div *ngIf="showModal" class="modal-container">
 
+  <button class="button-close" (click)="onClose()">
+    <span class="material-symbols-outlined">
+      close
+    </span>
+  </button>
+
   <ng-container *ngIf="contracts.length">
     <form class="form-container" [formGroup]="form">
       <div *ngFor="let contract of contracts; let idx = index" [ngClass]="{'active': contract.isPrincipal}"
