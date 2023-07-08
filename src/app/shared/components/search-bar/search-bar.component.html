@@ -1,5 +1,5 @@
 <form [formGroup]="form" class="container-input">
-    <input formControlName="text" class="input" type="text" placeholder="Pesquisar cliente">
+    <input (input)="submit()" formControlName="text" class="input" type="text" placeholder="Pesquisar cliente">
     <button (click)="submit()" [disabled]="form.invalid">
         <span class="icon material-symbols-outlined">
             search

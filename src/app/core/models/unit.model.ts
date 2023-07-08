@@ -1,7 +1,7 @@
-import { Details } from "./valueObjects/details.model";
-import { Email } from "./valueObjects/email.model";
-import { Phone } from "./valueObjects/phone.model";
-import { Title } from "./valueObjects/title.model";
+import { Details } from "./details.model";
+import { Email } from "./email.model";
+import { Phone } from "./phone.model";
+import { Title } from "./title.model";
 
 export interface Unit {
     id: string;

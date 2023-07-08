@@ -9,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 export class SearchBarComponent {
 
-  @Output() onSearch = new EventEmitter<string>();
+  @Output() onSearch = new EventEmitter<string | null>();
 
   form = this.fb.group({
     text: ['', Validators.compose([
@@ -22,6 +22,7 @@ export class SearchBarComponent {
   constructor(private fb: FormBuilder) { }
 
   submit() {
-
+    const { text } = this.form.value;
+    this.onSearch.emit(text);
   }
 }

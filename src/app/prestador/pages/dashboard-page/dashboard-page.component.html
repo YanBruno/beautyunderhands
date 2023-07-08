@@ -2,130 +2,20 @@
 
     <div class="prestador-container">
         <div class="header-container">
-            <app-search-bar />
+            <app-search-bar (onSearch)="onSearch($event)" />
         </div>
 
         <div class="content-container">
             <div class="items-container">
-
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-                <div class="item-container">
-                    <p class="nome-cliente">nome do prestador</p>
-                    <a class="item-link" [routerLink]="['/prestadores', 'prestador-id']">
-                        <span>Ver detalhes</span>
-                    </a>
-                </div>
-
+                <ng-container *ngFor="let prestador of prestadores; let i = index">
+                    <div class="item-container">
+                        <p class="nome-cliente">{{prestador.providerName}}</p>
+                        <a class="item-link" [routerLink]="['/prestadores', prestador.providerId]">
+                            <span>Ver detalhes</span>
+                        </a>
+                    </div>
+                </ng-container>
             </div>
         </div>
     </div>
-
-
 </div>

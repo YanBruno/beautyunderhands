@@ -21,7 +21,7 @@ export class AgendaService {
   }
 
   getSchedulingItems(day: Date): Observable<SchedulingItem[]> {
-    const url = `${environment.base_url}/v1/Scheduling/items?day=${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}&unitId=${Security.getUnitId()}`;
+    const url = `${environment.base_url}/v1/GenericView/items?day=${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}&unitId=${Security.getUnitId()}`;
     const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
 
 
@@ -34,7 +34,7 @@ export class AgendaService {
   }
 
   getSchedulingItem(id: string): Observable<SchedulingItem | null> {
-    const url = `${environment.base_url}/v1/Scheduling/item?schedulingItemId=${id}`
+    const url = `${environment.base_url}/v1/GenericView/item?schedulingItemId=${id}`
     const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
     return this.http.get<SchedulingItem | null>(url, { headers: httpHeader }).pipe(first());
   }
