@@ -3,6 +3,9 @@
     <div class="prestador-container">
         <div class="header-container">
             <app-search-bar placeHolder="Buscar profissional" (onSearch)="onSearch($event)" />
+            <a class="button success" [routerLink]="['/prestadores', 'novo']">
+                Novo
+            </a>
         </div>
 
         <div class="content-container">

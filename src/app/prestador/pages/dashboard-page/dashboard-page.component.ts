@@ -14,19 +14,17 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   subs: Subscription[] = [];
 
-  constructor(private service: ProviderService) {
+  constructor(private service: ProviderService) { }
 
-
-  }
-  ngOnDestroy(): void {
-    this.subs.forEach(x => { x.unsubscribe() });
-  }
   ngOnInit(): void {
     this.onSearch("");
   }
 
-  onSearch(text: string | null) {
+  ngOnDestroy(): void {
+    this.subs.forEach(x => { x.unsubscribe() });
+  }
 
+  onSearch(text: string | null) {
     if (text) {
       if (text.length > 0) {
         this.service.getProvidersByName(text).subscribe({
