@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Subject, Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,9 +8,14 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./search-bar.component.css']
 })
 
-export class SearchBarComponent {
+export class SearchBarComponent implements OnInit, OnDestroy {
+
+  @Input() placeHolder = '';
 
   @Output() onSearch = new EventEmitter<string | null>();
+  searchTerm$ = new Subject<string | null>();
+
+  private subs = [] as Subscription[];
 
   form = this.fb.group({
     text: ['', Validators.compose([
@@ -21,8 +27,23 @@ export class SearchBarComponent {
 
   constructor(private fb: FormBuilder) { }
 
+  ngOnInit(): void {
+    this.subs.push(
+      this.searchTerm$.pipe(
+        distinctUntilChanged(),
+        debounceTime(600)
+      ).subscribe({
+        next: search => { this.onSearch.emit(search); }
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(x => x.unsubscribe());
+  }
+
   submit() {
     const { text } = this.form.value;
-    this.onSearch.emit(text);
+    this.searchTerm$.next(text!);
   }
 }
