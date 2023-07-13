@@ -6,25 +6,8 @@
 .input {
     width: 100%;
     padding: .620rem 0px .620rem 2.5rem;
-    border-radius: 625rem;
+    border-radius: 5px;
     border: solid 1px var(--color-1);
     outline: none;
 
-    transition: all .2s ease-in-out;
 }
-
-.container-input button {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translate(0, -50%);
-
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* .input:hover {
-    width: 20rem;
-} */

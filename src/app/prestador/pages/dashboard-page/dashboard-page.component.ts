@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProviderResume } from '../../models/provider-resume.model';
-import { ProviderService } from 'src/app/core/services/provider.service';
+import { ProviderService } from 'src/app/prestador/services/provider.service';
 import { Subscription } from 'rxjs';
 
 @Component({

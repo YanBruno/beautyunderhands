@@ -1,0 +1,49 @@
+<div class="default-position">
+    <div class="container">
+        <div class="header">
+            <a [routerLink]="['/prestadores']">
+                <button class="button">Voltar</button>
+            </a>
+
+            <div class="action-container">
+                <button class="button danger">
+                    Cancelar
+                </button>
+                <button class="button success">
+                    Confirmar
+                </button>
+            </div>
+
+        </div>
+
+        <div *ngIf="provider" class="content">
+            <div class="detail-container">
+
+                <div class="detail-line">
+                    <h2 class="field">Nome</h2>
+                    <h2 class="value">{{provider.name | name}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Telefone</h2>
+                    <h2 class="value">{{provider.phone | phone}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Email</h2>
+                    <h2 class="value">{{provider.email | email}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Observações</h2>
+                    <h2 class="value">{{provider.details | details}}</h2>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="!provider" class="content">
+            <p>Nada por aqui</p>
+        </div>
+    </div>
+</div>

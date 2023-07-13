@@ -17,6 +17,7 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { ContractsPageComponent } from './pages/modals/contracts-page/contracts-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 const COMPONENTS = [
   NavbarComponent,
   SidebarComponent,
@@ -37,7 +38,7 @@ const MODULES = [
 
 @NgModule({
   declarations: [
-    COMPONENTS,
+    COMPONENTS
   ],
   imports: [
     CommonModule,

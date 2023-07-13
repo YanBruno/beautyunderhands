@@ -1,8 +1,3 @@
 <form [formGroup]="form" class="container-input">
     <input (input)="submit()" formControlName="text" class="input" type="text" [placeholder]="placeHolder">
-    <button (click)="submit()" [disabled]="form.invalid">
-        <span class="icon material-symbols-outlined">
-            search
-        </span>
-    </button>
 </form>
