@@ -5,11 +5,11 @@
                 <button class="button">Voltar</button>
             </a>
 
-            <button (click)="isEditing = false" *ngIf="isEditing" class="button danger">
+            <button (click)="onNotEditing()" *ngIf="isEditing" class="button danger">
                 Cancelar
             </button>
 
-            <button (click)="isEditing = true" *ngIf="!isEditing" class="button success">
+            <button (click)="onEditing()" *ngIf="!isEditing" class="button success">
                 Editar
             </button>
 
@@ -19,11 +19,10 @@
             <form [formGroup]="form" class="form">
 
                 <div class="detail-container">
-
                     <div *ngIf="isEditing" class="detail-line">
                         <h2 class="field">Id</h2>
                         <input class="value-form-id" *ngIf="isEditing" type="text" id="id" formControlName="id"
-                            [value]="provider.id" placeholder="id">
+                            [value]="provider.id">
                     </div>
 
                     <div class="detail-line">
@@ -55,10 +54,16 @@
                         <input class="value-form" *ngIf="isEditing" type="text" id="details" formControlName="details"
                             [value]="provider.details | details" placeholder="observações">
                     </div>
-                </div>
 
-                <div class="last-line">
-                    <button class="button success " (click)="isUpdate()" *ngIf="isEditing"> Salvar </button>
+                    <div *ngIf="isEditing" class="detail-line">
+                        <h2 class="field">Criado em</h2>
+                        <input class="value-form-id" *ngIf="isEditing" type="text" id="createAt"
+                            formControlName="createAt" [value]='provider.createAt | date: "d/MM/YYY - HH:mm:ss"'>
+                    </div>
+
+                    <div class="last-line">
+                        <button class="button success " (click)="onUpdate()" *ngIf="isEditing"> Salvar </button>
+                    </div>
                 </div>
 
             </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Provider } from 'src/app/core/models/provider.model';
 import { ProviderService } from 'src/app/prestador/services/provider.service';
@@ -12,14 +12,29 @@ import { ProviderService } from 'src/app/prestador/services/provider.service';
 export class PrestadorDetalhePageComponent implements OnInit {
 
   provider: Provider | null = null;
-  isEditing = true;
+  isEditing = false;
   form = this.fb.group({
     id: [{ value: '', disabled: true }],
-    firstName: [''],
-    lastName: [''],
-    phone: [''],
-    email: [''],
-    details: ['']
+    firstName: ['', Validators.compose([
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(15)
+    ])],
+    lastName: ['', Validators.compose([
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(15)
+    ])],
+    phone: ['', Validators.compose([
+      Validators.required,
+      Validators.minLength(11),
+      Validators.maxLength(11),
+    ])],
+    email: ['', Validators.compose([
+      Validators.email
+    ])],
+    details: [''],
+    createAt: [{ value: '', disabled: true }]
   });
 
   constructor(
@@ -39,24 +54,49 @@ export class PrestadorDetalhePageComponent implements OnInit {
     this.providerService.getProvider(id).subscribe({
       next: result => {
         this.provider = result;
-
-
-        this.form.setValue({
-          id: result.id,
-          firstName: result.name.firstName,
-          lastName: result.name.lastName,
-          phone: result.phone.number,
-          email: result.email.address,
-          details: result.details.value
-        });
       }
     });
   }
 
+  loadForm(): void {
+    if (this.provider)
+      this.form.setValue({
+        id: this.provider.id,
+        firstName: this.provider.name.firstName,
+        lastName: this.provider.name.lastName,
+        phone: this.provider.phone.number,
+        email: this.provider.email.address,
+        details: this.provider.details.value,
+        createAt: this.provider.createAt
+      });
+  }
 
-  isUpdate(): void {
+  clearForm(): void {
+    this.form.setValue({
+      id: '',
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: '',
+      details: '',
+      createAt: '',
+    });
+  }
+
+  onUpdate(): void {
     const { valid, value } = this.form;
-    console.log(valid, value);
 
+
+    this.onNotEditing();
+  }
+
+  onEditing(): void {
+    this.loadForm();
+    this.isEditing = true;
+  }
+
+  onNotEditing(): void {
+    this.clearForm();
+    this.isEditing = false;
   }
 }
