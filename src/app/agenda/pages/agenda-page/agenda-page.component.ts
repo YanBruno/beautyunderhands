@@ -6,7 +6,7 @@ import { ContractContextService } from 'src/app/core/services/contract-context.s
   templateUrl: './agenda-page.component.html',
   styleUrls: ['./agenda-page.component.css']
 })
-export class DashboardPageComponent {
+export class AgendaPageComponent {
 
   activeView = 1;
 

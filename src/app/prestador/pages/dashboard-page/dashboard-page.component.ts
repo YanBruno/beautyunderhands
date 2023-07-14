@@ -1,7 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ProviderResume } from '../../models/provider-resume.model';
-import { ProviderService } from 'src/app/prestador/services/provider.service';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-page',

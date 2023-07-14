@@ -1,0 +1,21 @@
+<div class="cliente-container">
+    <div class="header-container">
+        <app-search-bar placeHolder="Buscar cliente" (onSearch)="onSearch($event)" />
+        <a class="button success" [routerLink]="['/clientes', 'novo']">
+            Novo
+        </a>
+    </div>
+
+    <div class="content-container">
+        <div class="items-container">
+            <ng-container *ngFor="let cliente of clientes; let i = index">
+                <div class="item-container">
+                    <p class="nome-cliente">{{cliente.name}}</p>
+                    <a class="item-link" [routerLink]="['/clientes', cliente.id]">
+                        <span>Ver detalhes</span>
+                    </a>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

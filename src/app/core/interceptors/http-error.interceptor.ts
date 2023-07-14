@@ -21,9 +21,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
-          this.messageService.add(
-            { title: 'Acesso negado', success: false, notifications: [{ key: "1", message: "Por favor, realize login novamente." }] } as Message
-          )
+          // this.messageService.add(
+          //   { title: 'Acesso negado', success: false, notifications: [{ key: "1", message: "Por favor, realize login novamente." }] } as Message
+          // )
           this.authService.logout();
         }
 

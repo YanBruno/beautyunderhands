@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="header">
+        <a [routerLink]="['/clientes']">
+            <button class="button">Voltar</button>
+        </a>
+
+        <button (click)="onNotEditing()" *ngIf="isEditing" class="button danger">
+            Cancelar
+        </button>
+
+        <button (click)="onEditing()" *ngIf="!isEditing" class="button success">
+            Editar
+        </button>
+
+    </div>
+
+    <div *ngIf="cliente" class="content">
+        <form [formGroup]="form" class="form">
+
+            <div class="detail-container">
+                <div *ngIf="isEditing" class="detail-line">
+                    <h2 class="field">Id</h2>
+                    <input class="value-form-id" *ngIf="isEditing" type="text" id="id" formControlName="id"
+                        [value]="cliente.id">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Nome</h2>
+                    <h2 class="value" *ngIf="!isEditing">{{cliente.name | name}}</h2>
+                    <input class="value-form" *ngIf="isEditing" type="text" id="firstName" formControlName="firstName"
+                        [value]="cliente.name | name" placeholder="nome">
+                    <input class="value-form" *ngIf="isEditing" type="text" id="lastName" formControlName="lastName"
+                        [value]="cliente.name | name" placeholder="sobrenome">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Telefone</h2>
+                    <h2 class="value" *ngIf="!isEditing">{{cliente.phone | phone}}</h2>
+                    <input class="value-form" *ngIf="isEditing" type="text" id="phone" formControlName="phone"
+                        [value]="cliente.phone | phone" placeholder="telefone">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Email</h2>
+                    <h2 class="value" *ngIf="!isEditing">{{cliente.email | email}}</h2>
+                    <input class="value-form" *ngIf="isEditing" type="text" id="email" formControlName="email"
+                        [value]="cliente.email | email" placeholder="email">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Observações</h2>
+                    <h2 class="value" *ngIf="!isEditing">{{cliente.details | details}}</h2>
+                    <input class="value-form" *ngIf="isEditing" type="text" id="details" formControlName="details"
+                        [value]="cliente.details | details" placeholder="observações">
+                </div>
+
+                <div *ngIf="isEditing" class="detail-line">
+                    <h2 class="field">Criado em</h2>
+                    <input class="value-form-id" *ngIf="isEditing" type="text" id="createAt" formControlName="createAt"
+                        [value]='cliente.createAt | date: "d/MM/YYY - HH:mm:ss"'>
+                </div>
+
+                <div class="last-line">
+                    <button class="button success " (click)="onUpdate()" *ngIf="isEditing"> Salvar </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div *ngIf="!cliente" class="content">
+        <p>Nada por aqui</p>
+    </div>
+</div>

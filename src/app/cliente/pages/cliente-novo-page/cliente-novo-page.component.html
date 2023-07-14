@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="header">
+        <a [routerLink]="['/clientes']">
+            <button class="button">Voltar</button>
+        </a>
+
+    </div>
+
+    <div class="content">
+        <form [formGroup]="form" class="form">
+
+            <div class="detail-container">
+                <div class="detail-line">
+                    <h2 class="field">Nome</h2>
+                    <input class="value-form" type="text" id="firstName" formControlName="firstName" placeholder="nome">
+                    <input class="value-form" type="text" id="lastName" formControlName="lastName"
+                        placeholder="sobrenome">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Telefone</h2>
+                    <input class="value-form" type="text" id="phoneNumber" formControlName="phoneNumber"
+                        placeholder="telefone">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Email</h2>
+                    <input class="value-form" type="text" id="emailAddress" formControlName="emailAddress"
+                        placeholder="email">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Observações</h2>
+                    <input class="value-form" type="text" id="details" formControlName="details"
+                        placeholder="observações">
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Senha</h2>
+                    <input class="value-form" type="text" id="password" formControlName="password" placeholder="senha">
+                </div>
+
+                <div class="last-line">
+                    <button class="button success" (click)="onSave()" *ngIf="this.form.valid">Salvar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>

@@ -1,51 +1,52 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Security } from '../../core/utils/security.util';
 import { Observable, first, of } from 'rxjs';
-import { Provider } from 'src/app/core/models/provider.model';
+import { Security } from 'src/app/core/utils/security.util';
+import { environment } from 'src/environments/environment';
 import { GenericResponseResult } from 'src/app/core/models/genereic-response-result.model';
+import { Customer } from 'src/app/core/models/customer.model';
 import { PersonResume } from 'src/app/core/models/person-resume.model';
 import { CreatePerson } from 'src/app/core/models/create-person.model';
 
 @Injectable()
-export class ProviderService {
+export class ClienteService {
+
 
   constructor(private http: HttpClient) { }
 
-  getProviders(): Observable<PersonResume[]> {
-    const url = `${environment.base_url}/v1/GenericView/providers`;
+  getCustomers(): Observable<PersonResume[]> {
+    const url = `${environment.base_url}/v1/GenericView/customers`;
     const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
 
     return this.http.get<PersonResume[]>(url, { headers: httpHeader }).pipe(first());
   }
 
-  getProvidersByName(name: string): Observable<PersonResume[]> {
+  getCustomersByName(name: string): Observable<PersonResume[]> {
 
     if (name.length === 0) return of([]);
 
-    const url = `${environment.base_url}/v1/GenericView/providers/query?name=${name}`;
+    const url = `${environment.base_url}/v1/GenericView/customers/query?name=${name}`;
     const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
 
     return this.http.get<PersonResume[]>(url, { headers: httpHeader }).pipe(first());
   }
 
-  getProvider(id: string | null): Observable<Provider> {
+  getCustomer(id: string | null): Observable<Customer> {
 
     if (id) {
-      const url = `${environment.base_url}/v1/Provider/${id}`;
+      const url = `${environment.base_url}/v1/Customer/${id}`;
       const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
 
-      return this.http.get<Provider>(url, { headers: httpHeader }).pipe(first());
+      return this.http.get<Customer>(url, { headers: httpHeader }).pipe(first());
     }
 
     return of();
   }
 
-  createProvider(createProvider: CreatePerson): Observable<GenericResponseResult> {
-    const url = `${environment.base_url}/v1/provider`;
+  createCustomer(createCliente: CreatePerson): Observable<GenericResponseResult> {
+    const url = `${environment.base_url}/v1/Customer`;
     const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
 
-    return this.http.post<GenericResponseResult>(url, createProvider, { headers: httpHeader }).pipe(first());
+    return this.http.post<GenericResponseResult>(url, createCliente, { headers: httpHeader }).pipe(first());
   }
 }

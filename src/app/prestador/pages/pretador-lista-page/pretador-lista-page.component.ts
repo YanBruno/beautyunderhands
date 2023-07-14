@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProviderService } from '../../services/provider.service';
-import { ProviderResume } from '../../models/provider-resume.model';
+
 import { Subscription } from 'rxjs';
+import { PersonResume } from 'src/app/core/models/person-resume.model';
+
 
 @Component({
   selector: 'app-pretador-lista-page',
@@ -9,7 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./pretador-lista-page.component.css']
 })
 export class PretadorListaPageComponent implements OnInit, OnDestroy {
-  prestadores: ProviderResume[] = [];
+  prestadores: PersonResume[] = [];
 
   subs: Subscription[] = [];
 

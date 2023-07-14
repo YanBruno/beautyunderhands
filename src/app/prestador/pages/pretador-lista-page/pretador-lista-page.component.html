@@ -10,8 +10,8 @@
         <div class="items-container">
             <ng-container *ngFor="let prestador of prestadores; let i = index">
                 <div class="item-container">
-                    <p class="nome-cliente">{{prestador.providerName}}</p>
-                    <a class="item-link" [routerLink]="['/prestadores', prestador.providerId]">
+                    <p class="nome-cliente">{{prestador.name}}</p>
+                    <a class="item-link" [routerLink]="['/prestadores', prestador.id]">
                         <span>Ver detalhes</span>
                     </a>
                 </div>

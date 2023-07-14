@@ -1,17 +1,15 @@
-<div class="default-position">
-    <div class="agenda-container">
-        <div class="agenda-header">
+<div class="agenda-container">
+    <div class="agenda-header">
 
-            <div class="view-type">
-                <button class="button" (click)="changeActiveView(1)">Agenda</button>
-                <button class="button" (click)="changeActiveView(3)">Profissionais</button>
-                <button class="button" [routerLink]="['novo-agendamento']">Novo</button>
-            </div>
+        <div class="view-type">
+            <button class="button" (click)="changeActiveView(1)">Agenda</button>
+            <button class="button" (click)="changeActiveView(3)">Profissionais</button>
+            <button class="button" [routerLink]="['novo-agendamento']">Novo</button>
         </div>
+    </div>
 
-        <div class="agenda-content">
-            <app-dashboard-agenda *ngIf="activeView === 1" />
-            <app-dashboard-profissionais *ngIf="activeView === 3" />
-        </div>
+    <div class="agenda-content">
+        <app-dashboard-agenda *ngIf="activeView === 1" />
+        <app-dashboard-profissionais *ngIf="activeView === 3" />
     </div>
 </div>
