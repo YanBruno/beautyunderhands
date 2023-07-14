@@ -17,7 +17,6 @@
     border-top: solid 1px var(--color-1);
     overflow-y: auto;
     height: calc(var(--app-height) - (var(--navbar-height) + 5rem));
-    /* height: calc(100vh - (var(--navbar-height) + 5rem)); */
 }
 
 .detail-container {
@@ -36,10 +35,16 @@
     padding-bottom: .5rem;
 }
 
+.last-line {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5rem;
+    margin-top: 1rem;
+    padding-bottom: .5rem;
+}
 
 .field {
     align-self: flex-start;
-
     color: var(--color-1);
     font-size: 1rem;
     font-weight: 400;
@@ -47,20 +52,26 @@
 
 .value {
     align-self: flex-end;
-
     font-size: 1.3rem;
     font-weight: 300;
     letter-spacing: .3rem;
 }
 
-.action-container {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    gap: 1rem;
+.value-form-id {
+    font-size: 1.3rem;
+    font-weight: 300;
+    border: none;
+    outline: none;
+    width: 100%;
 }
 
-.action-container button {
-    display: flex;
-    align-items: center;
+.value-form {
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: .3rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-1);
+    outline: none;
+    width: 100%;
+    padding: .5rem;
 }

@@ -29,11 +29,15 @@ export class ProviderService {
   }
 
 
-  getProvider(id: string): Observable<Provider> {
+  getProvider(id: string | null): Observable<Provider> {
 
-    const url = `${environment.base_url}/v1/Provider/${id}`;
-    const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
+    if (id) {
+      const url = `${environment.base_url}/v1/Provider/${id}`;
+      const httpHeader = new HttpHeaders().set("Authorization", `Bearer ${Security.getToken()!}`);
 
-    return this.http.get<Provider>(url, { headers: httpHeader }).pipe(first());
+      return this.http.get<Provider>(url, { headers: httpHeader }).pipe(first());
+    }
+
+    return of();
   }
 }

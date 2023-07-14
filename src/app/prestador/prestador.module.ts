@@ -6,6 +6,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { SharedModule } from '../shared/shared.module';
 import { PrestadorDetalhePageComponent } from './pages/prestador-detalhe-page/prestador-detalhe-page.component';
 import { ProviderService } from './services/provider.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ProviderService } from './services/provider.service';
   imports: [
     CommonModule,
     PrestadorRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
   , providers: [ProviderService]
 })
