@@ -57,8 +57,6 @@ export class PresatdorNovoPageComponent {
     if (valid) {
       const provider = value as CreatePerson;
 
-      console.log(value as CreatePerson);
-
       this.providerService.createProvider(provider).subscribe({
         next: result => {
           this.messageService.addFromResult(result);

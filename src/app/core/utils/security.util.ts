@@ -25,7 +25,6 @@ export class Security {
             const { roleType } = JSON.parse(this.getContract()!) as UnitContract;
             return roleType
         }
-
         return null;
     }
 

@@ -19,9 +19,6 @@ export class NovoAgendamentoPageComponent {
     ])]
   });
 
-  constructor(private fb: FormBuilder) {
-
-
-  }
+  constructor(private fb: FormBuilder) { }
 
 }

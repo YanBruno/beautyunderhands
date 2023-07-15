@@ -3,4 +3,5 @@ export interface MenuItem {
     route: string;
     text: string;
     action: string;
+    roles: number[];
 }

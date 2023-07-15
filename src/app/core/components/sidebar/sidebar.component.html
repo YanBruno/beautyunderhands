@@ -7,12 +7,15 @@
     </button>
 
     <div [ngClass]="{'active-sidebar': showSideBar}" class="sidebar-menu-items">
-        <a *ngFor="let item of items" [routerLink]="[item.route]" routerLinkActive="link-item-active"
-            class="menu-item-field">
-            <span class="material-symbols-outlined menu-item">
-                {{item.materialIcon}}
-            </span>
-            <p>{{item.text}}</p>
-        </a>
+
+        <ng-container *ngFor="let item of items">
+            <a [routerLink]="[item.route]" routerLinkActive="link-item-active" class="menu-item-field">
+                <span class="material-symbols-outlined menu-item">
+                    {{item.materialIcon}}
+                </span>
+                <p>{{item.text}}</p>
+            </a>
+        </ng-container>
+
     </div>
 </div>

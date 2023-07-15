@@ -57,8 +57,6 @@ export class ClienteNovoPageComponent {
     if (valid) {
       const cliente = value as CreatePerson;
 
-      console.log(value as CreatePerson);
-
       this.service.createCustomer(cliente).subscribe({
         next: result => {
           this.messageService.addFromResult(result);

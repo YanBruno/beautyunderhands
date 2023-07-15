@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuItem } from '../../models/menu-item.model';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { ContractContextService } from '../../services/contract-context.service';
+import { ContractService } from '../../services/contract.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +14,7 @@ export class NavbarComponent {
     { materialIcon: 'account_circle', route: '/conta', text: 'Conta' } as MenuItem
   ];
 
-  constructor(private authService: AuthService, private contractContextService: ContractContextService) {
+  constructor(private authService: AuthService, private contractService: ContractService) {
 
   }
 
@@ -23,6 +23,6 @@ export class NavbarComponent {
   }
 
   showContracts() {
-    this.contractContextService.showModal();
+    this.contractService.showModal();
   }
 }

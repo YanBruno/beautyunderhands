@@ -4,6 +4,7 @@ import { GenericResponseResult } from 'src/app/core/models/genereic-response-res
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/core/services/message.service';
 import { Security } from 'src/app/core/utils/security.util';
+import { RoleService } from 'src/app/core/services/role.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   isLoggedIn = this.loggedIn.asObservable();
 
-  constructor(private router: Router, private messageService: MessageService) { }
+  constructor(private router: Router, private messageService: MessageService, private roleService: RoleService) { }
 
   logout(): void {
     Security.clear();
@@ -31,7 +32,9 @@ export class AuthService {
         Security.setContract(contract);
 
       Security.setToken(token);
+
       this.updateLoggedIn();
+      this.roleService.updateRole();
       this.router.navigate(['/agenda']);
     }
 

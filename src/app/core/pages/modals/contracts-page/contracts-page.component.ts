@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UnitContract } from 'src/app/core/models/unitContract.model';
-import { ContractContextService } from 'src/app/core/services/contract-context.service';
 import { ContractService } from 'src/app/core/services/contract.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class ContractsPageComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    public contractContextService: ContractContextService,
     private contractService: ContractService
   ) { }
 
@@ -32,7 +30,7 @@ export class ContractsPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.contractContextService.isShowModal.subscribe({
+    this.contractService.isShowModal.subscribe({
       next: result => {
 
         if (result)
@@ -56,13 +54,13 @@ export class ContractsPageComponent implements OnInit, OnDestroy {
 
       this.contractService.updatePrincipalContract(contract).subscribe({
         next: result => {
-          this.contractContextService.handlerContractContext(result);
+          this.contractService.handlerContractContext(result);
         }
       });
     }
   }
 
   onClose(): void {
-    this.contractContextService.hideModal();
+    this.contractService.hideModal();
   }
 }

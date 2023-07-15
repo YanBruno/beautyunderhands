@@ -2,9 +2,9 @@
     <div class="agenda-header">
 
         <div class="view-type">
-            <button class="button" (click)="changeActiveView(1)">Agenda</button>
+            <button class="button" *ngIf="isAdmin" (click)="changeActiveView(1)">Agenda</button>
             <button class="button" (click)="changeActiveView(3)">Profissionais</button>
-            <button class="button" [routerLink]="['novo-agendamento']">Novo</button>
+            <button class="button" *ngIf="isAdmin" [routerLink]="['novo-agendamento']">Novo</button>
         </div>
     </div>
 
