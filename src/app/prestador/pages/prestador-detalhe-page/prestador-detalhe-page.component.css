@@ -85,7 +85,6 @@
     max-height: 0;
     background-color: var(--color-white);
     overflow: hidden;
-    overflow-y: auto;
     transition: max-height .1s ease-out;
     display: flex;
     gap: 1rem;
@@ -99,9 +98,9 @@
 .panel.active {
     max-height: calc(var(--app-height) / 2);
     transition: max-height 1s ease-out;
-
+    /* overflow-y: auto; */
     overflow-x: auto;
-    padding: .5rem;
+    padding: .5rem 0;
 }
 
 /* accordion content */
@@ -112,7 +111,7 @@
     box-shadow: var(--box-shadow);
 
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
     gap: .5rem;
 
