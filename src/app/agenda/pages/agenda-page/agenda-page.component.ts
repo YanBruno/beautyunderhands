@@ -16,6 +16,7 @@ export class AgendaPageComponent implements OnInit, OnDestroy {
   constructor(private roleService: RoleService) { }
 
   ngOnInit(): void {
+    this.roleService.updateRole();
     this.sub = this.roleService.role.subscribe({
       next: () => {
         this.isAdmin = this.roleService.isAdmin();

@@ -1,0 +1,66 @@
+<ng-container *ngIf="contract">
+
+    <div class="card" [ngClass]="{'flip':flipCard}">
+        <div class="card-inner">
+            <div class="card-front">
+                <p>{{contract.unit.title.value}}</p>
+
+                <button (click)="onFlipCard()" class="button">Editar</button>
+            </div>
+            <div class="card-back">
+                <form [formGroup]="form" class="form">
+                    <div class="detail-container">
+
+                        <div class="detail-line">
+                            <h2 class="field">Unidade</h2>
+                            <!-- <h2 class="value">{{provider.name | name}}</h2> -->
+                            <input class="value-form" type="text" id="role" formControlName="role"
+                                [value]="contract.roleType.details" placeholder="{{contract.unit.title.value}}">
+                        </div>
+
+                        <div class="detail-line">
+                            <h2 class="field">Perfil de acesso</h2>
+                            <!-- <h2 class="value">{{provider.name | name}}</h2> -->
+                            <input class="value-form" type="text" id="role" formControlName="role"
+                                [value]="contract.roleType.details" placeholder="{{contract.roleType.details}}">
+                        </div>
+
+
+                        <div class="detail-line">
+                            <h2 class="field">Perfil de acesso</h2>
+                            <!-- <h2 class="value">{{provider.name | name}}</h2> -->
+                            <input class="value-form" type="text" id="role" formControlName="role"
+                                [value]="contract.roleType.details" placeholder="{{contract.roleType.details}}">
+                        </div>
+
+
+
+                        <div class="detail-line">
+                            <h2 class="field">Perfil de acesso</h2>
+                            <!-- <h2 class="value">{{provider.name | name}}</h2> -->
+                            <input class="value-form" type="text" id="role" formControlName="role"
+                                [value]="contract.roleType.details" placeholder="{{contract.roleType.details}}">
+                        </div>
+
+
+
+                        <div class="detail-line">
+                            <h2 class="field">Perfil de acesso</h2>
+                            <!-- <h2 class="value">{{provider.name | name}}</h2> -->
+                            <input class="value-form" type="text" id="role" formControlName="role"
+                                [value]="contract.roleType.details" placeholder="{{contract.roleType.details}}">
+                        </div>
+
+
+                        <div class="card-actions">
+                            <button (click)="onFlipCard()" class="button danger">Cancelar</button>
+                            <button (click)="onFlipCard()" class="button success">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</ng-container>

@@ -9,6 +9,7 @@ import { ProviderService } from './services/provider.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PretadorListaPageComponent } from './pages/pretador-lista-page/pretador-lista-page.component';
 import { PresatdorNovoPageComponent } from './pages/presatdor-novo-page/presatdor-novo-page.component';
+import { CardContractComponent } from './components/card-contract/card-contract.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PresatdorNovoPageComponent } from './pages/presatdor-novo-page/presatdo
     PrestadorDetalhePageComponent,
     PretadorListaPageComponent,
     PresatdorNovoPageComponent,
+    CardContractComponent,
   ],
   imports: [
     CommonModule,

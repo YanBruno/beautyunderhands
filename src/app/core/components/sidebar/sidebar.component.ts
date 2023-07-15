@@ -24,6 +24,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   }
   ngOnInit(): void {
+    this.roleService.updateRole();
     this.sub = this.roleService.role.subscribe({
       // implementar logica de exibicao de menus conforme role
     });

@@ -98,32 +98,7 @@
 .panel.active {
     max-height: calc(var(--app-height) / 2);
     transition: max-height 1s ease-out;
-    /* overflow-y: auto; */
+    overflow-y: auto;
     overflow-x: auto;
     padding: .5rem 0;
-}
-
-/* accordion content */
-.item-container {
-    border: var(--border);
-    padding: .5rem 1rem;
-
-    box-shadow: var(--box-shadow);
-
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: .5rem;
-
-}
-
-.item-title {
-    font-size: 1rem;
-    font-weight: 300;
-}
-
-.item-link {
-    color: var(--color-1);
-    text-decoration: underline;
-    font-size: .8rem;
 }

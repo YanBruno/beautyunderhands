@@ -18,7 +18,6 @@ export class RoleService {
   };
 
   isAdmin(): boolean {
-    this.updateRole();
     if (this.roleSubject.value)
       if (this.roleSubject.value.id === 1)
         return true;
