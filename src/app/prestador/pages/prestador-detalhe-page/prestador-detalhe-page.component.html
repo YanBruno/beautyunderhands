@@ -54,7 +54,7 @@
                         [value]="provider.details | details" placeholder="observações">
                 </div>
 
-                <div class="detail-line">
+                <div class="detail-line" *ngIf="!isEditing">
                     <button (click)="openAccordion()" [ngClass]="{'active': accordionActive}"
                         class="button accordion">Contratos</button>
                     <div class="panel" [ngClass]="{'active': accordionActive}">
@@ -66,7 +66,6 @@
                                     <span>Ver detalhes</span>
                                 </a>
                             </div>
-
                         </ng-container>
 
                     </div>
