@@ -82,7 +82,6 @@
 }
 
 .panel {
-    padding: 0 1.1rem;
     max-height: 0;
     background-color: var(--color-white);
     overflow: hidden;
@@ -100,6 +99,9 @@
 .panel.active {
     max-height: calc(var(--app-height) / 2);
     transition: max-height 1s ease-out;
+
+    overflow-x: auto;
+    padding: .5rem;
 }
 
 /* accordion content */
