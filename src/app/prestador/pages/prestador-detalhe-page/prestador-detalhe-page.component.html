@@ -54,6 +54,25 @@
                         [value]="provider.details | details" placeholder="observações">
                 </div>
 
+                <div class="detail-line">
+                    <button (click)="openAccordion()" [ngClass]="{'active': accordionActive}"
+                        class="button accordion">Contratos</button>
+                    <div class="panel" [ngClass]="{'active': accordionActive}">
+
+                        <ng-container *ngFor="let contract of provider.contracts">
+                            <div class="item-container">
+                                <p class="item-title value">{{contract.unit.title.value}}</p>
+                                <a class="item-link">
+                                    <span>Ver detalhes</span>
+                                </a>
+                            </div>
+
+                        </ng-container>
+
+                    </div>
+
+                </div>
+
                 <div *ngIf="isEditing" class="detail-line">
                     <h2 class="field">Criado em</h2>
                     <input class="value-form-id" *ngIf="isEditing" type="text" id="createAt" formControlName="createAt"

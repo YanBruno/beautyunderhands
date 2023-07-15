@@ -11,6 +11,9 @@ import { ProviderService } from 'src/app/prestador/services/provider.service';
 })
 export class PrestadorDetalhePageComponent implements OnInit {
 
+
+  accordionActive = false;
+
   provider: Provider | null = null;
   isEditing = false;
   form = this.fb.group({
@@ -48,7 +51,6 @@ export class PrestadorDetalhePageComponent implements OnInit {
   }
 
   getProvider(): void {
-
     const id = this.route.snapshot.paramMap.get('id');
 
     this.providerService.getProvider(id).subscribe({
@@ -98,5 +100,9 @@ export class PrestadorDetalhePageComponent implements OnInit {
   onNotEditing(): void {
     this.clearForm();
     this.isEditing = false;
+  }
+
+  openAccordion(): void {
+    this.accordionActive = !this.accordionActive;
   }
 }
