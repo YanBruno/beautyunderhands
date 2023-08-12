@@ -35,7 +35,9 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
     createAt: [{ value: '', disabled: true }]
   });
 
-  accordionActive = false;
+  isEditing = false;
+  contractAccordion = false;
+  comissionAccordion = false;
   provider: Provider | null = null;
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute
@@ -73,7 +75,7 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
     });
   }
 
-  isEditing = false;
+
 
   getProvider(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -81,6 +83,8 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
     this.providerService.getProvider(id).subscribe({
       next: result => {
         this.provider = result;
+
+        console.log(result);
       }
     });
   }
@@ -101,7 +105,11 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
     this.isEditing = false;
   }
 
-  openAccordion(): void {
-    this.accordionActive = !this.accordionActive;
+  openContractAccordion(): void {
+    this.contractAccordion = !this.contractAccordion;
+  }
+
+  openComissionAccordion() {
+    this.comissionAccordion = !this.comissionAccordion;
   }
 }

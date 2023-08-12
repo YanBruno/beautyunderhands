@@ -7,7 +7,7 @@ import { PrestadorNovoPageComponent } from './pages/prestador-novo-page/prestado
 import { PrestadorDetalhePageComponent } from './pages/prestador-detalhe-page/prestador-detalhe-page.component';
 import { PrestadorDetalheFormComponent } from './components/prestador-detalhe-form/prestador-detalhe-form.component';
 import { ContratoDetalheFormComponent } from './components/contrato-detalhe-form/contrato-detalhe-form.component';
-
+import { ComissaoDetalheFormComponent } from './components/comissao-detalhe-form/comissao-detalhe-form.component';
 
 const routes: Routes = [
   {
@@ -18,6 +18,8 @@ const routes: Routes = [
         path: ':id', component: PrestadorDetalhePageComponent, children: [
           { path: '', component: PrestadorDetalheFormComponent }
           , { path: 'contrato', component: ContratoDetalheFormComponent }
+          , { path: 'comissao', component: ComissaoDetalheFormComponent }
+
         ]
       }
     ]

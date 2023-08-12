@@ -11,6 +11,7 @@ import { DetailsPipe } from './pipes/details.pipe';
 import { TitlePipe } from './pipes/title.pipe';
 import { RolePipe } from './pipes/role.pipe';
 import { ContractStatusPipe } from './pipes/contract-status.pipe';
+import { ComissionValuePipe } from './pipes/comission-value.pipe';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ContractStatusPipe } from './pipes/contract-status.pipe';
     DetailsPipe,
     TitlePipe,
     RolePipe,
-    ContractStatusPipe
+    ContractStatusPipe,
+    ComissionValuePipe
   ],
   imports: [
     CommonModule
@@ -38,7 +40,8 @@ import { ContractStatusPipe } from './pipes/contract-status.pipe';
     DetailsPipe,
     TitlePipe,
     RolePipe,
-    ContractStatusPipe
+    ContractStatusPipe,
+    ComissionValuePipe
   ]
   , providers: [CalendarService]
 })

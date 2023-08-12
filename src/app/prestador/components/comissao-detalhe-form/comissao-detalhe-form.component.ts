@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { UnitContract } from 'src/app/core/models/unitContract.model';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Comission } from 'src/app/core/models/comission.model';
 import { Location } from '@angular/common';
-import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-contrato-detalhe-form',
-  templateUrl: './contrato-detalhe-form.component.html',
-  styleUrls: ['./contrato-detalhe-form.component.css']
+  selector: 'app-comissao-detalhe-form',
+  templateUrl: './comissao-detalhe-form.component.html',
+  styleUrls: ['./comissao-detalhe-form.component.css']
 })
-export class ContratoDetalheFormComponent implements OnInit {
+export class ComissaoDetalheFormComponent {
 
   isEditing = false;
 
@@ -16,21 +16,21 @@ export class ContratoDetalheFormComponent implements OnInit {
     title: [{ value: '', disabled: true }]
   });
 
-  contract = {} as UnitContract;
+  comission = {} as Comission;
 
   constructor(private fb: FormBuilder, private location: Location) {
 
   }
 
   ngOnInit(): void {
-    const { contract } = this.location.getState() as any;
-    this.contract = contract as UnitContract;
+    const { comission } = this.location.getState() as any;
+    this.comission = comission as Comission;
   }
 
   loadForm(): void {
-    if (this.contract)
+    if (this.comission)
       this.form.setValue({
-        title: this.contract.unit.title.value,
+        title: this.comission.service.unit.title.value,
       });
   }
 

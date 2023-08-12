@@ -1,0 +1,46 @@
+<div class="header">
+    <a [routerLink]="['..']">
+        <button class="button">Voltar</button>
+    </a>
+    <button (click)="onNotEditing()" *ngIf="isEditing" class="button danger">
+        Cancelar
+    </button>
+
+    <button (click)="onEditing()" *ngIf="!isEditing" class="button success">
+        Editar
+    </button>
+</div>
+
+<div class="content">
+    <ng-container *ngIf="!comission" class="content">
+        <p>Nada por aqui</p>
+    </ng-container>
+
+    <ng-container *ngIf="comission" class="content">
+        <form [formGroup]="form" class="form">
+
+            <div class="detail-container">
+
+                <div class="detail-line">
+                    <h2 class="field">Servico</h2>
+                    <h2 class="value">{{comission.service.title | title}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Unidade</h2>
+                    <h2 class="value">{{comission.service.unit.title | title}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Porcentagem</h2>
+                    <h2 class="value">{{comission | comissionValue}}</h2>
+                </div>
+
+                <div class="last-line">
+                    <button *ngIf="isEditing" class="button success " (click)="onUpdate()"> Salvar </button>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

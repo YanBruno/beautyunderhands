@@ -12,6 +12,9 @@ import { PrestadorNovoPageComponent } from './pages/prestador-novo-page/prestado
 import { CardContractComponent } from './components/card-contract/card-contract.component';
 import { PrestadorDetalheFormComponent } from './components/prestador-detalhe-form/prestador-detalhe-form.component';
 import { ContratoDetalheFormComponent } from './components/contrato-detalhe-form/contrato-detalhe-form.component';
+import { ComissaoCardComponent } from './components/comissao-card/comissao-card.component';
+import { ComissaoDetalheFormComponent } from './components/comissao-detalhe-form/comissao-detalhe-form.component';
+
 
 
 @NgModule({
@@ -23,6 +26,8 @@ import { ContratoDetalheFormComponent } from './components/contrato-detalhe-form
     CardContractComponent,
     PrestadorDetalheFormComponent,
     ContratoDetalheFormComponent,
+    ComissaoCardComponent,
+    ComissaoDetalheFormComponent
   ],
   imports: [
     CommonModule,

@@ -59,10 +59,10 @@
                 </div>
 
                 <div class="detail-line" *ngIf="!isEditing">
-                    <button (click)="openAccordion()" [ngClass]="{'active': accordionActive}"
+                    <button (click)="openContractAccordion()" [ngClass]="{'active': contractAccordion}"
                         class="button accordion">Contratos</button>
 
-                    <div class="panel" [ngClass]="{'active': accordionActive}">
+                    <div class="panel" [ngClass]="{'active': contractAccordion}">
 
                         <ng-container *ngIf="provider.contracts.length > 0">
                             <app-card-contract *ngFor="let contract of provider.contracts" [contract]="contract" />
@@ -73,6 +73,21 @@
                         </ng-container>
 
 
+                    </div>
+                </div>
+
+                <div class="detail-line" *ngIf="!isEditing">
+                    <button (click)="openComissionAccordion()" [ngClass]="{'active': comissionAccordion}"
+                        class="button accordion">Comissões</button>
+
+                    <div class="panel" [ngClass]="{'active': comissionAccordion}">
+                        <ng-container *ngIf="provider.comissions.length > 0">
+                            <app-comissao-card *ngFor="let comission of provider.comissions" [comission]="comission" />
+                        </ng-container>
+
+                        <ng-container *ngIf="provider.comissions.length < 1">
+                            <h2 class="value">Nada aqui</h2>
+                        </ng-container>
                     </div>
 
                 </div>
