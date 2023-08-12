@@ -1,0 +1,46 @@
+<div class="header">
+    <a [routerLink]="['..']">
+        <button class="button">Voltar</button>
+    </a>
+    <button (click)="onNotEditing()" *ngIf="isEditing" class="button danger">
+        Cancelar
+    </button>
+
+    <button (click)="onEditing()" *ngIf="!isEditing" class="button success">
+        Editar
+    </button>
+</div>
+
+<div class="content">
+    <ng-container *ngIf="!contract" class="content">
+        <p>Nada por aqui</p>
+    </ng-container>
+
+    <ng-container *ngIf="contract" class="content">
+        <form [formGroup]="form" class="form">
+
+            <div class="detail-container">
+
+                <div class="detail-line">
+                    <h2 class="field">Unidade</h2>
+                    <h2 class="value">{{contract.unit.title | title}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Perfil</h2>
+                    <h2 class="value">{{contract.roleType | role}}</h2>
+                </div>
+
+                <div class="detail-line">
+                    <h2 class="field">Status</h2>
+                    <h2 class="value">{{contract | contractStatus}}</h2>
+                </div>
+
+                <div class="last-line">
+                    <button *ngIf="isEditing" class="button success " (click)="onUpdate()"> Salvar </button>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

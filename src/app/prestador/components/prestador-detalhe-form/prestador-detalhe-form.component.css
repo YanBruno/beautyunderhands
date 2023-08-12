@@ -1,0 +1,98 @@
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.content {
+    border-top: solid 1px var(--color-1);
+    overflow-y: auto;
+    height: calc(var(--app-height) - (var(--navbar-height) + 5rem));
+}
+
+.detail-container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+
+    padding-top: 2rem;
+}
+
+.detail-line {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5rem;
+    border-bottom: 1px solid var(--color-2);
+    padding-bottom: .5rem;
+}
+
+.last-line {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .5rem;
+    padding-bottom: .5rem;
+}
+
+.field {
+    align-self: flex-start;
+    color: var(--color-1);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.value {
+    align-self: flex-end;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: .3rem;
+}
+
+.value-form-id {
+    font-size: 1rem;
+    font-weight: 300;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: none;
+}
+
+.value-form {
+    font-size: 1.3rem;
+    font-weight: 300;
+    border-radius: 5px;
+    border: var(--border);
+    outline: none;
+    width: 100%;
+    padding: .5rem;
+    background: none;
+}
+
+/* accordion */
+.accordion {
+    transition: .4s;
+}
+
+.panel {
+    max-height: 0;
+    background-color: var(--color-white);
+    overflow: hidden;
+    transition: max-height .1s ease-out;
+    display: flex;
+    gap: 1rem;
+}
+
+/* .accordion.active {
+    background: var(--color-5);
+    color: var(--color-black);
+} */
+
+.panel.active {
+    max-height: calc(var(--app-height) / 2);
+    transition: max-height 1s ease-out;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: .5rem 0;
+}

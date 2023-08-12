@@ -8,6 +8,9 @@ import { NamePipe } from './pipes/name.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
 import { EmailPipe } from './pipes/email.pipe';
 import { DetailsPipe } from './pipes/details.pipe';
+import { TitlePipe } from './pipes/title.pipe';
+import { RolePipe } from './pipes/role.pipe';
+import { ContractStatusPipe } from './pipes/contract-status.pipe';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { DetailsPipe } from './pipes/details.pipe';
     NamePipe,
     PhonePipe,
     EmailPipe,
-    DetailsPipe
+    DetailsPipe,
+    TitlePipe,
+    RolePipe,
+    ContractStatusPipe
   ],
   imports: [
     CommonModule
@@ -29,7 +35,10 @@ import { DetailsPipe } from './pipes/details.pipe';
     NamePipe,
     PhonePipe,
     EmailPipe,
-    DetailsPipe
+    DetailsPipe,
+    TitlePipe,
+    RolePipe,
+    ContractStatusPipe
   ]
   , providers: [CalendarService]
 })

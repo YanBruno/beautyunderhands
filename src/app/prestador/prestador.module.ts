@@ -8,8 +8,10 @@ import { PrestadorDetalhePageComponent } from './pages/prestador-detalhe-page/pr
 import { ProviderService } from './services/provider.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PretadorListaPageComponent } from './pages/pretador-lista-page/pretador-lista-page.component';
-import { PresatdorNovoPageComponent } from './pages/presatdor-novo-page/presatdor-novo-page.component';
+import { PrestadorNovoPageComponent } from './pages/prestador-novo-page/prestador-novo-page.component';
 import { CardContractComponent } from './components/card-contract/card-contract.component';
+import { PrestadorDetalheFormComponent } from './components/prestador-detalhe-form/prestador-detalhe-form.component';
+import { ContratoDetalheFormComponent } from './components/contrato-detalhe-form/contrato-detalhe-form.component';
 
 
 @NgModule({
@@ -17,8 +19,10 @@ import { CardContractComponent } from './components/card-contract/card-contract.
     DashboardPageComponent,
     PrestadorDetalhePageComponent,
     PretadorListaPageComponent,
-    PresatdorNovoPageComponent,
+    PrestadorNovoPageComponent,
     CardContractComponent,
+    PrestadorDetalheFormComponent,
+    ContratoDetalheFormComponent,
   ],
   imports: [
     CommonModule,

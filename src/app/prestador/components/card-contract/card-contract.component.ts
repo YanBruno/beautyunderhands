@@ -10,16 +10,12 @@ import { UnitContract } from 'src/app/core/models/unitContract.model';
 export class CardContractComponent implements OnInit, OnDestroy {
   @Input() contract: UnitContract | null = null;
 
-  flipCard = false;
   form = this.fb.group({
     role: ['', Validators.compose([
       Validators.required
     ])]
   });
 
-  /**
-   *
-   */
   constructor(private fb: FormBuilder) {
 
 
@@ -32,7 +28,4 @@ export class CardContractComponent implements OnInit, OnDestroy {
 
   }
 
-  onFlipCard(): void {
-    this.flipCard = !this.flipCard;
-  }
 }

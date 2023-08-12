@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { CreatePerson } from 'src/app/core/models/create-person.model';
 
 @Component({
-  selector: 'app-presatdor-novo-page',
-  templateUrl: './presatdor-novo-page.component.html',
-  styleUrls: ['./presatdor-novo-page.component.css']
+  selector: 'app-prestador-novo-page',
+  templateUrl: './prestador-novo-page.component.html',
+  styleUrls: ['./prestador-novo-page.component.css']
 })
-export class PresatdorNovoPageComponent {
+export class PrestadorNovoPageComponent {
 
   form = this.fb.group({
     id: [{ value: '', disabled: true }],
