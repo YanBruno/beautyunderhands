@@ -9,7 +9,6 @@ import { ProviderService } from './services/provider.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PretadorListaPageComponent } from './pages/pretador-lista-page/pretador-lista-page.component';
 import { PrestadorNovoPageComponent } from './pages/prestador-novo-page/prestador-novo-page.component';
-import { CardContractComponent } from './components/card-contract/card-contract.component';
 import { PrestadorDetalheFormComponent } from './components/prestador-detalhe-form/prestador-detalhe-form.component';
 import { ContratoDetalheFormComponent } from './components/contrato-detalhe-form/contrato-detalhe-form.component';
 import { ComissaoCardComponent } from './components/comissao-card/comissao-card.component';
@@ -23,7 +22,6 @@ import { ComissaoDetalheFormComponent } from './components/comissao-detalhe-form
     PrestadorDetalhePageComponent,
     PretadorListaPageComponent,
     PrestadorNovoPageComponent,
-    CardContractComponent,
     PrestadorDetalheFormComponent,
     ContratoDetalheFormComponent,
     ComissaoCardComponent,

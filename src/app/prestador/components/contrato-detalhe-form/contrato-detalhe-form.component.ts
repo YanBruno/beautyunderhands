@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UnitContract } from 'src/app/core/models/unitContract.model';
+import { FormBuilder } from '@angular/forms';
+import { Comission } from 'src/app/core/models/comission.model';
+import { ProviderService } from '../../services/provider.service';
+import { Subscription, first } from 'rxjs';
+import { ContractService } from 'src/app/core/services/contract.service';
 import { Location } from '@angular/common';
-import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contrato-detalhe-form',
   templateUrl: './contrato-detalhe-form.component.html',
   styleUrls: ['./contrato-detalhe-form.component.css']
 })
-export class ContratoDetalheFormComponent implements OnInit {
+export class ContratoDetalheFormComponent implements OnInit, OnDestroy {
 
   isEditing = false;
 
@@ -16,15 +20,30 @@ export class ContratoDetalheFormComponent implements OnInit {
     title: [{ value: '', disabled: true }]
   });
 
-  contract = {} as UnitContract;
+  comissions: Comission[] = [];
+  contract: UnitContract | null = null;
+  sub: Subscription[] = [];
 
-  constructor(private fb: FormBuilder, private location: Location) {
+  constructor(private fb: FormBuilder, private providerService: ProviderService, private contractService: ContractService, private location: Location) { }
+
+  ngOnDestroy(): void {
 
   }
 
   ngOnInit(): void {
-    const { contract } = this.location.getState() as any;
-    this.contract = contract as UnitContract;
+
+    this.getCurrentContract();
+
+    this.sub.push(
+      this.contractService.hasContractContext.subscribe({
+        next: result => {
+          if (result) {
+            this.providerService.setCurrentContract();
+          }
+        }
+      })
+    );
+
   }
 
   loadForm(): void {
@@ -32,6 +51,28 @@ export class ContratoDetalheFormComponent implements OnInit {
       this.form.setValue({
         title: this.contract.unit.title.value,
       });
+  }
+
+  getCurrentContract(): void {
+    this.sub.push(
+      this.providerService.currentContract.subscribe({
+        next: contract => {
+          if (contract) {
+            this.contract = contract;
+
+            this.providerService.currentComissions.pipe(first()).subscribe({
+              next: comissions => {
+                if (comissions)
+                  this.comissions = comissions
+              }
+            });
+          }
+
+          if (!contract)
+            this.location.back();
+        }
+      })
+    );
   }
 
   clearForm(): void {
@@ -52,7 +93,6 @@ export class ContratoDetalheFormComponent implements OnInit {
 
   onUpdate(): void {
     const { valid, value } = this.form;
-
     this.onNotEditing();
   }
 }

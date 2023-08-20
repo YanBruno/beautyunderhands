@@ -69,30 +69,3 @@
     padding: .5rem;
     background: none;
 }
-
-/* accordion */
-.accordion {
-    transition: .4s;
-}
-
-.panel {
-    max-height: 0;
-    background-color: var(--color-white);
-    overflow: hidden;
-    transition: max-height .1s ease-out;
-    display: flex;
-    gap: 1rem;
-}
-
-/* .accordion.active {
-    background: var(--color-5);
-    color: var(--color-black);
-} */
-
-.panel.active {
-    max-height: calc(var(--app-height) / 2);
-    transition: max-height 1s ease-out;
-    overflow-y: auto;
-    overflow-x: auto;
-    padding: .5rem 0;
-}

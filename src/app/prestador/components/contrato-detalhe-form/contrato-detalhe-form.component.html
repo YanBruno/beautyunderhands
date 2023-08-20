@@ -36,6 +36,24 @@
                     <h2 class="value">{{contract | contractStatus}}</h2>
                 </div>
 
+
+                <div class="detail-line" *ngIf="!isEditing">
+                    <ng-container *ngIf="comissions.length > 0">
+                        <h2 class="field">Serviços</h2>
+                        <div class="display-line-items">
+                            <app-comissao-card *ngFor="let comission of comissions" [comission]="comission" />
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="comissions.length < 1">
+
+                        <div>
+                            <button class="button">Incluir servico</button>
+                        </div>
+
+                    </ng-container>
+                </div>
+
                 <div class="last-line">
                     <button *ngIf="isEditing" class="button success " (click)="onUpdate()"> Salvar </button>
                 </div>

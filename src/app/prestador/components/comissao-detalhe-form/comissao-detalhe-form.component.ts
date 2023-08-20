@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Comission } from 'src/app/core/models/comission.model';
 import { Location } from '@angular/common';
+import { ProviderService } from '../../services/provider.service';
+import { first } from 'rxjs';
+import { ContractService } from 'src/app/core/services/contract.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comissao-detalhe-form',
@@ -16,15 +20,22 @@ export class ComissaoDetalheFormComponent {
     title: [{ value: '', disabled: true }]
   });
 
-  comission = {} as Comission;
+  comission: Comission | null = null;
 
-  constructor(private fb: FormBuilder, private location: Location) {
+  constructor(private fb: FormBuilder, private location: Location, private providerService: ProviderService, private contractService: ContractService) {
 
   }
 
   ngOnInit(): void {
-    const { comission } = this.location.getState() as any;
-    this.comission = comission as Comission;
+    this.providerService.currentComission.subscribe({
+      next: comission => {
+        if (comission)
+          this.comission = comission;
+
+        if (!comission)
+          this.location.back();
+      }
+    });
   }
 
   loadForm(): void {

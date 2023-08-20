@@ -1,8 +1,7 @@
 <ng-container *ngIf="comission">
     <div class="card-container">
         <p class="value">{{comission.service.title | title}}</p>
-        <p class="value">{{comission.service.unit.title | title}}</p>
-        <a class="card-item-link" [routerLink]="['comissao']" [state]="{comission}">
+        <a class="card-item-link" [routerLink]="['comissao']" (click)="setCurrentComission()">
             <span>Ver detalhes</span>
         </a>
     </div>

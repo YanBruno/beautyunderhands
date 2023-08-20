@@ -29,6 +29,12 @@
     padding-bottom: .5rem;
 }
 
+.display-line-items {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
 .last-line {
     display: flex;
     flex-flow: column nowrap;

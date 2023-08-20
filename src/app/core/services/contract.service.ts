@@ -36,7 +36,6 @@ export class ContractService {
     return this.http.put<GenericResponseResult>(url, body, { headers: httpHeader }).pipe(first());
   }
 
-
   handlerContractContext(result: GenericResponseResult): void {
     if (result.success) {
       const token = result.data.token;

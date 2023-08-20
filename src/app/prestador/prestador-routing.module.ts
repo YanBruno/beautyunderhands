@@ -18,7 +18,7 @@ const routes: Routes = [
         path: ':id', component: PrestadorDetalhePageComponent, children: [
           { path: '', component: PrestadorDetalheFormComponent }
           , { path: 'contrato', component: ContratoDetalheFormComponent }
-          , { path: 'comissao', component: ComissaoDetalheFormComponent }
+          , { path: 'contrato/comissao', component: ComissaoDetalheFormComponent }
 
         ]
       }

@@ -3,6 +3,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Provider } from 'src/app/core/models/provider.model';
 import { ProviderService } from '../../services/provider.service';
+import { UnitContract } from 'src/app/core/models/unitContract.model';
+import { Comission } from 'src/app/core/models/comission.model';
+import { Subscription, first } from 'rxjs';
+import { ContractService } from 'src/app/core/services/contract.service';
 
 @Component({
   selector: 'app-prestador-detalhe-form',
@@ -36,18 +40,54 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
   });
 
   isEditing = false;
-  contractAccordion = false;
-  comissionAccordion = false;
   provider: Provider | null = null;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute
-    , private providerService: ProviderService) {
-  }
-  ngOnInit(): void {
-    this.getProvider();
-  }
-  ngOnDestroy(): void {
+  contract: UnitContract | null = null;
 
+  sub = new Subscription();
+
+  constructor(
+    private fb: FormBuilder
+    , private route: ActivatedRoute
+    , private providerService: ProviderService
+    , private contractService: ContractService
+  ) {
+  }
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    this.providerService.getProvider(id).subscribe({
+      next: result => {
+        this.provider = result;
+        this.providerService.setCurrentProvider(this.provider);
+
+        this.getCurrentContract();
+      }
+    });
+
+    this.sub = this.contractService.hasContractContext.subscribe({
+      next: result => {
+        if (result) {
+          this.providerService.setCurrentContract();
+          this.getCurrentContract();
+        }
+      }
+    });
+
+
+  }
+
+  getCurrentContract(): void {
+    this.providerService.currentContract.pipe(first()).subscribe({
+      next: contract => {
+        this.contract = contract;
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   loadForm(): void {
@@ -76,22 +116,8 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
   }
 
 
-
-  getProvider(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-
-    this.providerService.getProvider(id).subscribe({
-      next: result => {
-        this.provider = result;
-
-        console.log(result);
-      }
-    });
-  }
-
   onUpdate(): void {
     const { valid, value } = this.form;
-
     this.onNotEditing();
   }
 
@@ -103,13 +129,5 @@ export class PrestadorDetalheFormComponent implements OnInit, OnDestroy {
   onNotEditing(): void {
     this.clearForm();
     this.isEditing = false;
-  }
-
-  openContractAccordion(): void {
-    this.contractAccordion = !this.contractAccordion;
-  }
-
-  openComissionAccordion() {
-    this.comissionAccordion = !this.comissionAccordion;
   }
 }
